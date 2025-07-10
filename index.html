@@ -1,0 +1,1884 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Caputo Menu</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root {
+      --primary-1: #705d3f;
+      --primary-2: #889776;
+      --primary-3: #E4E1DA;
+      --secondary-1: #B4B897;
+      --secondary-2: #CCAC85;
+      --secondary-3: #E3D2BE;
+    }
+    
+    .menu-circle {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      transition: all 0.3s ease;
+      background-size: cover;
+      background-position: center;
+    }
+    
+    .menu-circle:hover {
+      transform: scale(1.05);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+    
+    .menu-label {
+      position: absolute;
+      bottom: -25px;
+      left: 0;
+      right: 0;
+      text-align: center;
+      font-weight: 600;
+      color: var(--primary-1);
+    }
+    
+    .menu-item {
+      transition: all 0.3s ease;
+    }
+    
+    .menu-item:hover {
+      transform: translateY(-5px);
+    }
+    
+    .arabic-text {
+      direction: rtl;
+      text-align: right;
+    }
+    
+    .price-tag {
+      background-color: var(--primary-1);
+      color: white;
+      padding: 4px 8px;
+      border-radius: 4px;
+      font-weight: bold;
+      display: inline-block;
+      margin-top: 8px;
+    }
+    
+    .subcategory-circle {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      transition: all 0.3s ease;
+      background-size: cover;
+      background-position: center;
+      margin: 0 auto;
+    }
+    
+    .bg-primary-1 {
+      background-color: var(--primary-1);
+    }
+    
+    .bg-primary-2 {
+      background-color: var(--primary-2);
+    }
+    
+    .bg-primary-3 {
+      background-color: var(--primary-3);
+    }
+    
+    .bg-secondary-1 {
+      background-color: var(--secondary-1);
+    }
+    
+    .bg-secondary-2 {
+      background-color: var(--secondary-2);
+    }
+    
+    .bg-secondary-3 {
+      background-color: var(--secondary-3);
+    }
+    
+    .text-primary-1 {
+      color: var(--primary-1);
+    }
+    
+    .text-primary-2 {
+      color: var(--primary-2);
+    }
+    
+    .text-primary-3 {
+      color: var(--primary-3);
+    }
+    
+    .border-primary-1 {
+      border-color: var(--primary-1);
+    }
+    
+    .border-primary-2 {
+      border-color: var(--primary-2);
+    }
+  </style>
+</head>
+<body class="bg-primary-3">
+  <!-- Header -->
+  <header class="w-full shadow-md bg-primary-3">
+    <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+      <div class="text-3xl font-semibold text-primary-1">
+        caputo
+      </div>
+      <button id="language-toggle" class="px-4 py-2 bg-primary-1 text-white rounded-md hover:bg-opacity-90 transition">
+        العربية
+      </button>
+    </div>
+  </header>
+
+  <!-- Menu Section -->
+  <section class="max-w-7xl mx-auto px-4 py-12 text-center">
+    <h2 id="menu-title" class="text-4xl font-bold text-primary-1 mb-6">Explore our menu</h2>
+    <p id="menu-description" class="text-lg text-gray-700 max-w-2xl mx-auto mb-12">
+      Choose from a diverse menu featuring a delectable array of dishes. Our mission is to satisfy your
+      cravings and elevate your dining experience, one delicious meal at a time.
+    </p>
+    
+
+    <!-- Main Categories -->
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-8 justify-items-center">
+      <!-- Breakfast -->
+      <div class="relative group">
+        <button 
+          aria-labelledby="breakfast-label"
+          onclick="showMenu('breakfast')" 
+          class="menu-circle border-2 border-primary-1 cursor-pointer transition-transform duration-300 group-hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-1 focus-visible:ring-offset-2"
+          style="background-image: url('https://images.unsplash.com/photo-1550583724-b2692b85b150?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80')"
+          aria-expanded="false"
+          data-menu="breakfast"
+        >
+          <span class="sr-only">Breakfast menu</span>
+        </button>
+        <div id="breakfast-label" class="menu-label">Breakfast</div>
+      </div>
+      
+      <!-- Main Course -->
+      <div class="relative group">
+        <button 
+          aria-labelledby="main-course-label"
+          onclick="showSubcategories('main-course')" 
+          class="menu-circle border-2 border-primary-1 cursor-pointer transition-transform duration-300 group-hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-1 focus-visible:ring-offset-2"
+          style="background-image: url('https://images.unsplash.com/photo-1544025162-d76694265947?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80')"
+          aria-expanded="false"
+          data-menu="main-course"
+        >
+          <span class="sr-only">Main Course menu</span>
+        </button>
+        <div id="main-course-label" class="menu-label">Main Course</div>
+      </div>
+      
+      <!-- Soup -->
+      <div class="relative group">
+        <button 
+          aria-labelledby="soup-label"
+          onclick="showMenu('soup')" 
+          class="menu-circle border-2 border-primary-1 cursor-pointer transition-transform duration-300 group-hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-1 focus-visible:ring-offset-2"
+          style="background-image: url('https://images.unsplash.com/photo-1547592180-85f173990554?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80')"
+          aria-expanded="false"
+          data-menu="soup"
+        >
+          <span class="sr-only">Soup menu</span>
+        </button>
+        <div id="soup-label" class="menu-label">Soup</div>
+      </div>
+      
+      <!-- Salad -->
+      <div class="relative group">
+        <button 
+          aria-labelledby="salad-label"
+          onclick="showMenu('salad')" 
+          class="menu-circle border-2 border-primary-1 cursor-pointer transition-transform duration-300 group-hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-1 focus-visible:ring-offset-2"
+          style="background-image: url('https://images.unsplash.com/photo-1546793665-c74683f339c1?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80')"
+          aria-expanded="false"
+          data-menu="salad"
+        >
+          <span class="sr-only">Salad menu</span>
+        </button>
+        <div id="salad-label" class="menu-label">Salad</div>
+      </div>
+      
+      <!-- Appetizers -->
+      <div class="relative group">
+        <button 
+          aria-labelledby="appetizers-label"
+          onclick="showMenu('appetizers')" 
+          class="menu-circle border-2 border-primary-1 cursor-pointer transition-transform duration-300 group-hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-1 focus-visible:ring-offset-2"
+          style="background-image: url('https://images.unsplash.com/photo-1512621776951-a57141f2eefd?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80')"
+          aria-expanded="false"
+          data-menu="appetizers"
+        >
+          <span class="sr-only">Appetizers menu</span>
+        </button>
+        <div id="appetizers-label" class="menu-label">Appetizers</div>
+      </div>
+      
+      <!-- Pasta -->
+      <div class="relative group">
+        <button 
+          aria-labelledby="pasta-label"
+          onclick="showSubcategories('pasta')" 
+          class="menu-circle border-2 border-primary-1 cursor-pointer transition-transform duration-300 group-hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-1 focus-visible:ring-offset-2"
+          style="background-image: url('https://images.unsplash.com/photo-1555949258-eb67b1ef0ceb?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80')"
+          aria-expanded="false"
+          data-menu="pasta"
+        >
+          <span class="sr-only">Pasta menu</span>
+        </button>
+        <div id="pasta-label" class="menu-label">Pasta</div>
+      </div>
+      
+      <!-- Pizza -->
+      <div class="relative group">
+        <button 
+          aria-labelledby="pizza-label"
+          onclick="showSubcategories('pizza')" 
+          class="menu-circle border-2 border-primary-1 cursor-pointer transition-transform duration-300 group-hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-1 focus-visible:ring-offset-2"
+          style="background-image: url('https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80')"
+          aria-expanded="false"
+          data-menu="pizza"
+        >
+          <span class="sr-only">Pizza menu</span>
+        </button>
+        <div id="pizza-label" class="menu-label">Pizza</div>
+      </div>
+      
+      <!-- Sandwiches -->
+      <div class="relative group">
+        <button 
+          aria-labelledby="sandwiches-label"
+          onclick="showSubcategories('sandwiches')" 
+          class="menu-circle border-2 border-primary-1 cursor-pointer transition-transform duration-300 group-hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-1 focus-visible:ring-offset-2"
+          style="background-image: url('https://images.unsplash.com/photo-1556679343-c7306c1976bc?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80')"
+          aria-expanded="false"
+          data-menu="sandwiches"
+        >
+          <span class="sr-only">Sandwiches menu</span>
+        </button>
+        <div id="sandwiches-label" class="menu-label">Sandwiches</div>
+      </div>
+      
+      <!-- Extras -->
+      <div class="relative group">
+        <button 
+          aria-labelledby="extras-label"
+          onclick="showMenu('extras')" 
+          class="menu-circle border-2 border-primary-1 cursor-pointer transition-transform duration-300 group-hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-1 focus-visible:ring-offset-2"
+          style="background-image: url('https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80')"
+          aria-expanded="false"
+          data-menu="extras"
+        >
+          <span class="sr-only">Extras menu</span>
+        </button>
+        <div id="extras-label" class="menu-label">Extras</div>
+      </div>
+      
+      <!-- Drinks -->
+      <div class="relative group">
+        <button 
+          aria-labelledby="drinks-label"
+          onclick="showSubcategories('drinks')" 
+          class="menu-circle border-2 border-primary-1 cursor-pointer transition-transform duration-300 group-hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-1 focus-visible:ring-offset-2"
+          style="background-image: url('https://images.unsplash.com/photo-1437418747212-8d9709afab22?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80')"
+          aria-expanded="false"
+          data-menu="drinks"
+        >
+          <span class="sr-only">Drinks menu</span>
+        </button>
+        <div id="drinks-label" class="menu-label">Drinks</div>
+      </div>
+    </div>
+      
+    
+       <div id="subcategories-content" class="mt-16 hidden" aria-live="polite">
+      <!-- Subcategories loaded dynamically -->
+    </div>
+
+<div id="menu-content" class="mt-16 hidden" aria-live="polite">
+      <!-- Content loaded dynamically -->\
+       
+    </div>
+
+    <!-- Menu content -->
+    
+      
+</section>
+
+<style>
+  .menu-circle {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: block;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .menu-circle::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.2);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  
+  .menu-circle:hover::after,
+  .menu-circle:focus-visible::after {
+    opacity: 1;
+  }
+  
+  .menu-label {
+    margin-top: 1rem;
+    font-weight: 600;
+    color: #333;
+    transition: color 0.3s ease;
+  }
+  
+  .group:hover .menu-label {
+    color: var(--primary-1);
+  }
+  
+  @media (max-width: 640px) {
+    .menu-circle {
+      width: 100px;
+      height: 100px;
+    }
+  }
+</style>
+
+
+
+  <script>
+    // Language management
+    let currentLanguage = 'english';
+    const translations = {
+      english: {
+        menuTitle: "Explore our menu",
+        menuDescription: "Choose from a diverse menu featuring a delectable array of dishes. Our mission is to satisfy your cravings and elevate your dining experience, one delicious meal at a time.",
+        breakfast: "Breakfast",
+        "main-course": "Main Course",
+        soup: "Soup",
+        salad: "Salad",
+        appetizers: "Appetizers",
+        pasta: "Pasta",
+        pizza: "Pizza",
+        sandwiches: "Sandwiches",
+        extras: "Extras",
+        drinks: "Drinks",
+        closeButton: "Close Menu",
+        backButton: "Back to Categories",
+        currency: "L.E",
+        beef: "Beef",
+        chicken: "Chicken",
+        seafood: "Seafood",
+        "hot-drinks": "Hot Drinks",
+        "cold-drinks": "Cold Drinks",
+        "light": "Light",
+        "toast": "Toast",
+        "croissant": "Croissant",
+        "eggs": "Eggs",
+        "extras-breakfast": "Extras Breakfast",
+        "mexican": "Mexican",
+        "chicken-creamy": "Chicken Creamy",
+        "tomato": "Tomato",
+        "chowder": "Chowder",
+        "shrimp": "Shrimp",
+        "french-fries": "French Fries",
+        "cheesy-fries": "Cheesy Fries",
+        "texas-fries": "Texas Fries",
+        "mozzarella-ring": "Mozzarella Ring",
+        "fried-calamari": "Fried Calamari",
+        "quesadilla": "Quesadilla",
+        "chicken-wings": "Chicken Wings",
+        "nachos": "Nachos",
+        "crisp-chicken": "Crisp Chicken",
+        "shrimp-knafeh": "Shrimp Knafeh",
+        "chips-queso": "Chips & Queso",
+        "cheese-ball": "Cheese Ball",
+        "arancini-balls": "Arancini Balls",
+        "potato-spanish-balls": "Potato Spanish Balls",
+        "caputo-balls": "Caputo Balls",
+        "mix-appetizer": "Mix Appetizer",
+        "green-salad": "Green Salad",
+        "greek-salad": "Greek Salad",
+        "carbine-salad": "Carbine Salad",
+        "fattoush-salad": "Fattoush Salad",
+        "caesar-salad": "Caesar Salad",
+        "caprese-salad": "Caprese Salad",
+        "tuna-salad": "Tuna Salad",
+        "avocado-shrimp-salad": "Avocado Shrimp Salad",
+        "burrata-salad": "Burrata Salad",
+        "alfredo-pasta": "Alfredo Pasta",
+        "spaghetti-sea-food": "Spaghetti Sea Food",
+        "pesto-pasta": "Pesto Pasta",
+        "penne-arrabbiata": "Penne Arrabbiata",
+        "mac-cheese-pasta": "Mac & Cheese Pasta",
+        "spaghetti-meat-balls": "Spaghetti Meat Balls",
+        "parmesan-pasta": "Parmesan Pasta",
+        "carbonara-pasta": "Carbonara Pasta",
+        "steak-mushroom": "Steak & Mushroom",
+        "mac-potato": "Mac Potato",
+        "shrimp-chicken-lemon": "Shrimp & Chicken Lemon",
+        "tagliatelle-pasta": "Tagliatelle Pasta",
+        "ravioli-chili-formaggie": "Ravioli Chili Formaggie",
+        "sunny-veg-ravioli": "Sunny Veg Ravioli",
+        "tariake-manzo": "Tariake Manzo",
+        "margherita": "Margherita",
+        "diavola": "Diavola",
+        "quattro-formaggi": "Quattro Formaggi",
+        "toono": "Toono",
+        vegetarian: "Vegetarian",
+        "burrata": "Burrata",
+        "gamberi": "Gamberi",
+        "frutti-di-mare": "Frutti di Mare",
+        "pollo": "Pollo",
+        "salsiccia": "Salsiccia",
+        "ranch": "Ranch",
+        "spanish": "Spanish",
+        "burger": "Burger",
+        "bacon": "Bacon",
+        "mushrooms": "Mushrooms",
+        "cow-boy-burger": "Cow Boy Burger",
+        "cheese-boom-burger": "Cheese Boom Burger",
+        "texas-burger": "Texas Burger",
+        "blue-burger": "Blue Burger",
+        "caputo-burger": "Caputo Burger",
+        "chicken-ranch-sand": "Chicken Ranch Sand",
+        "buffalo-chicken": "Buffalo Chicken",
+        "philie-sand": "Philie Sand",
+        "crisp-shrimp": "Crisp Shrimp",
+        "classic-chicken": "Classic Chicken",
+        "hot-dog-sand": "Hot Dog Sand",
+        "tuna-sand": "Tuna Sand",
+        "shrimp-avocado": "Shrimp Avocado",
+        "chicken-fajita": "Chicken Fajita",
+        "beef-fajita": "Beef Fajita",
+        "grilled-chicken-mushroom": "Grilled Chicken Mushroom",
+        "montrey-chicken": "Montrey Chicken",
+        "colorado-chicken": "Colorado Chicken",
+        "double-h": "Double H",
+        "corden-bleu": "Corden Bleu",
+        "grilled-chicken": "Grilled Chicken",
+        "fried-boneless-chicken": "Fried Boneless Chicken",
+        "grilled-boneless-chicken": "Grilled Boneless Chicken",
+        "top-filet-steak": "Top Filet Steak",
+        "ribeye-steak": "Ribeye Steak",
+        "surf-turf": "Surf & Turf",
+        "beef-stroganoff": "Beef Stroganoff",
+        "scallop": "Scallop",
+        "grilled-shrimp": "Grilled Shrimp",
+        "shrimps-la-cream": "Shrimps a la Cream",
+        "mix-sea-food-grilled": "Mix Sea Food Grilled",
+        "fajita": "Fajita",
+        "mix-match": "Mix Match",
+        "trio-fajita": "Trio Fajita",
+        "cheese-sauce": "Cheese Sauce",
+        "mushroom-sauce": "Mushroom Sauce",
+        "grilled-mushrooms": "Grilled Mushrooms",
+        "bread": "Bread",
+        "garlic-bread": "Garlic Bread",
+        "sauce": "Sauce",
+        "white-rice": "White Rice",
+        "grilled-veggies": "Grilled Veggies",
+        "hummus": "Hummus",
+        "mash-potato": "Mash Potato",
+        "white-red-pasta": "White or Red Pasta",
+        "beef-burger": "Beef Burger"
+      },
+      arabic: {
+        menuTitle: "استكشف قائمتنا",
+        menuDescription: "اختر من بين قائمة متنوعة تضم مجموعة لذيذة من الأطباق. مهمتنا هي إرضاء رغباتك ورفع مستوى تجربة تناول الطعام الخاصة بك، وجبة لذيذة في كل مرة.",
+        breakfast: "إفطار",
+        "main-course": "الطبق الرئيسي",
+        soup: "شوربة",
+        salad: "سلطة",
+        appetizers: "مقبلات",
+        pasta: "باستا",
+        pizza: "بيتزا",
+        sandwiches: "ساندويتشات",
+        extras: "إضافات",
+        drinks: "مشروبات",
+        closeButton: "إغلاق القائمة",
+        backButton: "العودة للفئات",
+        currency: "ج.م",
+        beef: "لحم بقري",
+        chicken: "دجاج",
+        seafood: "مأكولات بحرية",
+        "hot-drinks": "مشروبات ساخنة",
+        "cold-drinks": "مشروبات باردة",
+        "light": "خفيف",
+        "toast": "توست",
+        "croissant": "كرواسون",
+        "eggs": "بيض",
+        "extras-breakfast": "إضافات الإفطار",
+        "mexican": "مكسيكان",
+        "chicken-creamy": "تشيكن كريمي",
+        "tomato": "طماطم",
+        "chowder": "تشاودر",
+        "shrimp": "روبيان",
+        "french-fries": "بطاطس مقلية",
+        "cheesy-fries": "بطاطس مقلية بالتشيز",
+        "texas-fries": "تيكاس فرايز",
+        "mozzarella-ring": "موتزاريلا رينجز",
+        "fried-calamari": "كاليمارى فرايد",
+        "quesadilla": "كساديا",
+        "chicken-wings": "أجنحة دجاج",
+        "nachos": "ناتشوز",
+        "crisp-chicken": "كريسبى تشيكن",
+        "shrimp-knafeh": "كنافة روبيان",
+        "chips-queso": "شيبس أند كيسو",
+        "cheese-ball": "تشيز بولز",
+        "arancini-balls": "أرانشيني بولز",
+        "potato-spanish-balls": "بوتيتو إسبانيش بولز",
+        "caputo-balls": "كابوتو بولز",
+        "mix-appetizer": "ميكس أبيتيزر",
+        "green-salad": "جرين سلاد",
+        "greek-salad": "جريك سلاد",
+        "carbine-salad": "كاربين سلاد",
+        "fattoush-salad": "فاتوش سلاد",
+        "caesar-salad": "سيزر سلاد",
+        "caprese-salad": "كابريزى سلاد",
+        "tuna-salad": "تونة سلاد",
+        "avocado-shrimp-salad": "أفوكادو روبيان سلاد",
+        "burrata-salad": "بوراتا سلاد",
+        "alfredo-pasta": "ألفريدو باستا",
+        "spaghetti-sea-food": "سى فود سباجيتى",
+        "pesto-pasta": "بيستو باستا",
+        "penne-arrabbiata": "بينى أرابياتا",
+        "mac-cheese-pasta": "ماك اند تشيز باستا",
+        "spaghetti-meat-balls": "سباجيتى ميت بولز",
+        "parmesan-pasta": "بارميزان باستا",
+        "carbonara-pasta": "كاربونارا باستا",
+        "steak-mushroom": "ستيك ومشروم باستا",
+        "mac-potato": "ماك بوتيتو",
+        "shrimp-chicken-lemon": "شيرمب أند تشيكن ليمون",
+        "tagliatelle-pasta": "تاجليتلى باستا",
+        "ravioli-chili-formaggie": "رافيولي تشيل فورماجي",
+        "sunny-veg-ravioli": "صنى ريفولى خضار",
+        "tariake-manzo": "ترياكو مانزو",
+        "margherita": "مارجريتا",
+        "diavola": "ديافولا",
+        "quattro-formaggi": "كواترو فورماجي",
+        "toono": "تونو",
+        vegetarian: "نباتي",
+        "burrata": "بوراتا",
+        "gamberi": "جامبيرى",
+        "frutti-di-mare": "فروتى دي ماري",
+        "pollo": "بوللو",
+        "salsiccia": "سالسيشيا",
+        "ranch": "رانش",
+        "spanish": "إسبانيش",
+        "burger": "برجر",
+        "bacon": "بيكون",
+        "mushrooms": "مشروم",
+        "cow-boy-burger": "كاو بوى برجر",
+        "cheese-boom-burger": "تشيز بوم برجر",
+        "texas-burger": "تكساس برجر",
+        "blue-burger": "بلو برجر",
+        "caputo-burger": "كابوتو برجر",
+        "chicken-ranch-sand": "تشيكن رانش ساندويتش",
+        "buffalo-chicken": "بافلو تشيكن",
+        "philie-sand": "فيلى ساندويتش",
+        "crisp-shrimp": "كريسب شريمب",
+        "classic-chicken": "كلاسيك تشيكن",
+        "hot-dog-sand": "هوت دوج ساندويتش",
+        "tuna-sand": "تونة ساندويتش",
+        "shrimp-avocado": "روبيان أفوكادو",
+        "chicken-fajita": "فاهيتا دجاج",
+        "beef-fajita": "فاهيتا بيف",
+        "grilled-chicken-mushroom": "جريلد تشيكن مشروم",
+        "montrey-chicken": "مونتيرى تشيكن",
+        "colorado-chicken": "كولارادو تشيكن",
+        "double-h": "دوبل إتش",
+        "corden-bleu": "كوردون بلو",
+        "grilled-chicken": "جريلد تشيكن",
+        "fried-boneless-chicken": "فرايد بونليس تشيكن",
+        "grilled-boneless-chicken": "جريلد بونليس تشيكن",
+        "top-filet-steak": "توب فيليت ستيك",
+        "ribeye-steak": "ريباى ستيك",
+        "surf-turf": "سيرف إند تورف",
+        "beef-stroganoff": "ستروجانوف بيف",
+        "scallop": "سكالوب",
+        "grilled-shrimp": "جريلد شريمب",
+        "shrimps-la-cream": "شريمب لاكريمي",
+        "mix-sea-food-grilled": "ميكس سى فود جريلد",
+        "fajita": "فاهيتا",
+        "mix-match": "ميكس ماتش",
+        "trio-fajita": "تريو فاهيتا",
+        "cheese-sauce": "تشيز صوص",
+        "mushroom-sauce": "مشروم صوص",
+        "grilled-mushrooms": "جريلد مشروم",
+        "bread": "خبز",
+        "garlic-bread": "خبز بالثوم",
+        "sauce": "صوص",
+        "white-rice": "أرز أبيض",
+        "grilled-veggies": "خضروات مشوية",
+        "hummus": "حمص",
+        "mash-potato": "بطاطس مهروسة",
+        "white-red-pasta": "باستا ريد او وايت",
+        "beef-burger": "بيف برجر"
+      }
+    };
+
+    const menuItems = {
+      // Breakfast Items
+      breakfast: [
+        {
+          name: "Oriental platter",
+          nameAr: "طبق شرقى",
+          price: "130",
+          desc: "Foul, falafel, hummus, wedges, omelet, cheese w tomato, eggplant, mix salad, fresh bread",
+          descAr: "فول، فلافل، حمص، بطاطس ودجز، بيض أومليت، جبنة مع طماطم، باذنجان، ميكس سلاد، خبز طازج",
+          image: "https://images.unsplash.com/photo-1550583724-b2692b85b150?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+        },
+        {
+          name: "Full Greek breakfast",
+          nameAr: "جريك بريك فاست",
+          price: "167",
+          desc: "3 eggs omelet, 2 large beef sauces, wedges, grilled buttered toast, Greek yogurt with fruits & blueberry or nuts & honey, mix salad",
+          descAr: "3 بيضات أومليت، 2 سوسيس، بطاطس ودجز، خبز محمص بالزبدة، زبادي يوناني مع فواكه وتوت أزرق أو مكسرات وعسل، سلطة مشكلة",
+          image: "https://images.unsplash.com/photo-1550583724-b2692b85b150?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+        },
+        {
+          name: "Intercontinental breakfast",
+          nameAr: "إفطار إنتركونتيننتال",
+          price: "226",
+          desc: "Croissant, mini brownie, grilled buttered toast, honey, butter, jam, fruits, mix cheese bite",
+          descAr: "كرواسون، براوني صغير، خبز محمص بالزبدة مشوي، عسل، زبدة، مربى، فواكه، مكعبات جبنة ميكس",
+          image: "https://images.unsplash.com/photo-1550583724-b2692b85b150?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+        },
+        {
+          name: "Avocado eye eggs",
+          nameAr: "بيض عين الأفوكادو",
+          price: "136",
+          desc: "Brown bread, creamy cheese avocado, eye eggs, Served with mix salad",
+          descAr: "خبز أسمر بالشوفان، جبنة كريمية، أفوكادو، بيض عيون، يُقدم مع ميكس سلاد",
+          image: "https://images.unsplash.com/photo-1550583724-b2692b85b150?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+        },
+        {
+          name: "Greek yogurt bowl",
+          nameAr: "طبق زبادي يوناني",
+          price: "112",
+          desc: "Nuts & fresh fruits",
+          descAr: "مكسرات وفواكه طازجة",
+          image: "https://images.unsplash.com/photo-1550583724-b2692b85b150?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+        },
+        {
+          name: "Tuna",
+          nameAr: "تونة",
+          price: "148",
+          desc: "Brown bread, tuna, light mayo, Served with mix salad",
+          descAr: "خبز أسمر بالشوفان، تونة، مايونيز خفيف، يُقدم مع ميكس سلاد",
+          image: "https://images.unsplash.com/photo-1550583724-b2692b85b150?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+        },
+        {
+          name: "Toast",
+          nameAr: "توست",
+          price: "99",
+          desc: "Served with wedges and mix salad",
+          descAr: "يقدم مع بطاطس ودجز وميكس سلاد",
+          image: "https://images.unsplash.com/photo-1550583724-b2692b85b150?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
+          options: [
+            { name: "Feta", nameAr: "جبنة فيتا", price: "99" },
+            { name: "Smoked turkey", nameAr: "رومي مدخن", price: "117" },
+            { name: "Cheddar", nameAr: "شيدر", price: "117" },
+            { name: "Cold cuts", nameAr: "كولد كاتس", price: "127" }
+          ]
+        },
+        {
+          name: "French toast",
+          nameAr: "فرينش توست",
+          price: "155",
+          desc: "French toast is bread dipped in a mixture of eggs, milk, sugar, and cinnamon, then cooked until golden. It is served with honey, whipped cream, and fresh fruits for a delicious breakfast",
+          descAr: "خبز أسمر بالشوفان، جبنة كريمية، أفوكادو، بيض عيون، يُقدم مع ميكس سلاد",
+          image: "https://images.unsplash.com/photo-1550583724-b2692b85b150?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+        },
+        {
+          name: "Club sandwich",
+          nameAr: "كلوب ساندويتش",
+          price: "197",
+          desc: "Three layers of toast consisting of omelet, mayo, smoke turkey, chicken, lettuce, tomato served wedges and mix salad",
+          descAr: "ثلاث طبقات من الخبز المحمص تتكون من بيض أومليت، مايونيز، رومي مدخن، دجاج مشوى، خس، طماطم، تُقدم مع قطع ودجز و ميكس سلاد",
+          image: "https://images.unsplash.com/photo-1550583724-b2692b85b150?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+        },
+        {
+          name: "Croissant",
+          nameAr: "كرواسون",
+          price: "84",
+          desc: "Served with mix salad",
+          descAr: "يقدم مع ميكس سلاد",
+          image: "https://images.unsplash.com/photo-1550583724-b2692b85b150?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
+          options: [
+            { name: "Mix cheese", nameAr: "ميكس تشيز", price: "130" },
+            { name: "Plain", nameAr: "عادى", price: "84" },
+            { name: "Cold cuts", nameAr: "كولد كاتس", price: "150" },
+            { name: "Chocolate", nameAr: "شوكليت", price: "137" }
+          ]
+        },
+        {
+          name: "Oriental pie",
+          nameAr: "فطيرة شرقية",
+          price: "99",
+          desc: "served with aged cheese and molasses and tahini and tomato cheese",
+          descAr: "تقدم مع جبنة معتقة ودبس وطحينة وجبنة طماطم",
+          image: "https://images.unsplash.com/photo-1550583724-b2692b85b150?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
+          options: [
+            { name: "Whole", nameAr: "كامل", price: "289" },
+            { name: "Half", nameAr: "نصف", price: "161" },
+            { name: "Quarter", nameAr: "ربع", price: "99" }
+          ]
+        },
+        {
+          name: "Eggs",
+          nameAr: "بيض",
+          price: "89",
+          desc: "served with mix salad and wedges",
+          descAr: "يقدم مع ميكس سلاد وبطاطس ودجز",
+          image: "https://images.unsplash.com/photo-1550583724-b2692b85b150?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
+          options: [
+            { name: "Plain", nameAr: "عادى", price: "89" },
+            { name: "Mix Cheese", nameAr: "ميكس تشيز", price: "119" },
+            { name: "Veggie Cheese", nameAr: "فيجى تشيز", price: "123" },
+            { name: "Bacon Cheese", nameAr: "بيف بيكون تشيز", price: "123" },
+            { name: "Pastrami Veg Cheese", nameAr: "بسطرمة تشيز", price: "141" },
+            { name: "Sausage Veg Cheese", nameAr: "سدق تشيز", price: "119" },
+            { name: "Sauces Veg Cheese", nameAr: "سوسيس تشيز", price: "123" }
+          ]
+        }
+      ],
+      "extras-breakfast": [
+        {
+          name: "Foul",
+          nameAr: "فول",
+          price: "45",
+          desc: "",
+          descAr: "",
+          image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+        },
+        {
+          name: "Eggs",
+          nameAr: "بيض",
+          price: "40",
+          desc: "",
+          descAr: "",
+          image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+        },
+        {
+          name: "Falafel",
+          nameAr: "فلافل",
+          price: "32",
+          desc: "",
+          descAr: "",
+          image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+        },
+        {
+          name: "Veggies",
+          nameAr: "خضروات",
+          price: "45",
+          desc: "",
+          descAr: "",
+          image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+        },
+        {
+          name: "Butter",
+          nameAr: "زبدة",
+          price: "141",
+          desc: "",
+          descAr: "",
+          image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+        },
+        {
+          name: "Fresh Bread",
+          nameAr: "عيش",
+          price: "20",
+          desc: "",
+          descAr: "",
+          image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+        },
+        {
+          name: "Special Cover",
+          nameAr: "سبيشال كوفر",
+          price: "99",
+          desc: "",
+          descAr: "",
+          image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+        },
+        {
+          name: "Jam",
+          nameAr: "مربى",
+          price: "25",
+          desc: "",
+          descAr: "",
+          image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+        },
+        {
+          name: "Mix Cheese",
+          nameAr: "ميكس تشيز",
+          price: "60",
+          desc: "",
+          descAr: "",
+          image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+        },
+        {
+          name: "Honey",
+          nameAr: "عسل",
+          price: "30",
+          desc: "",
+          descAr: "",
+          image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+        }
+      ],
+      
+      // Soup Items
+      soup: [
+        {
+          name: "Mushroom creamy soup",
+          nameAr: "شوربة ماشروم كريمي",
+          price: "99",
+          desc: "Blended creamy mushroom soup served with garlic bread",
+          descAr: "شوربة ماشروم كريمي الممزوجة تقدم مع جارليك بريد",
+          image: "https://images.unsplash.com/photo-1547592180-85f173990554?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+        },
+        {
+          name: "Mexican soup",
+          nameAr: "شوربة ميكسيكان",
+          price: "123",
+          desc: "Made with red sauce and fresh vegetables and mix cheese with garlic bread",
+          descAr: "مصنوعة من صلصة حمراء وخضراوات طازجة وميكس تشيز تقدم مع جارليك بريد",
+          image: "https://images.unsplash.com/photo-1547592180-85f173990554?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+        },
+        {
+          name: "Chicken creamy soup",
+          nameAr: "شوربة تشيكن كريمي",
+          price: "139",
+          desc: "Cream of Chicken Soup is a rich and creamy soup with a smooth texture and a delicious flavor served with garlic bread",
+          descAr: "شوربة تشيكن كريمي، قوامها ناعم ونكهة لذيذة تقدم مع جارليك بريد",
+          image: "https://images.unsplash.com/photo-1547592180-85f173990554?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+        },
+        {
+          name: "Tomato Soup",
+          nameAr: "شوربة طماطم",
+          price: "87",
+          desc: "Delicious tomato soup with basil with garlic bread",
+          descAr: "شوربة طماطم لذيذة مع الريحان مع تقدم مع جارليك بريد",
+          image: "https://images.unsplash.com/photo-1547592180-85f173990554?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+        },
+        {
+          name: "Chowder soup",
+          nameAr: "شوربة تشاودر",
+          price: "189",
+          desc: "Creamy sea food soup with garlic bread",
+          descAr: "شوربة كريمة المأكولات البحرية مع تقدم مع جارليك بريد",
+          image: "https://images.unsplash.com/photo-1547592180-85f173990554?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+        },
+        {
+          name: "Shrimp soup",
+          nameAr: "شوربة روبيان",
+          price: "177",
+          desc: "Prawn bisque with cream sauce with garlic bread",
+          descAr: "شوربة روبيان مع صلصة الكريمة مع خبز الثوم",
+          image: "https://images.unsplash.com/photo-1547592180-85f173990554?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+        }
+      ],
+      
+      // Salad Items
+      salad: [
+        {
+          name: "Green Salad",
+          nameAr: "جرين سلاد",
+          price: "89",
+          desc: "Fresh vegetables like lettuce, tomato, arugula, bell peppers, cucumber, onion, vinaigrette dressing",
+          descAr: "خضراوات طازجة مثل الخس، الطماطم، الجرجير، الفلفل الحلو، الخيار، البصل، وتُتبل بصوص فينيجريت الشهي",
+          image: "https://images.unsplash.com/photo-1546793665-c74683f339c1?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+        },
+        {
+          name: "Greek salad",
+          nameAr: "جريك سلاد",
+          price: "109",
+          desc: "Made with a mix fresh vegetables like lettuce, cucumber, tomato, bell peppers, black olive, feta cheese, onion, vinaigrette dressing",
+          descAr: "مُحضرة من مزيج من الخضراوات الطازجة مثل الخس، الخيار، الطماطم، الفلفل الحلو، الزيتون الأسود، جبنة الفيتا، البصل، وتُتبل بصوص فينيجريت الشهي",
+          image: "https://images.unsplash.com/photo-1546793665-c74683f339c1?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+        },
+        {
+          name: "Carbine salad chicken",
+          nameAr: "كاربين سلاد تشيكن",
+          price: "239",
+          desc: "mix lettuce, honey lime dressing, orange, pineapple, dried berries, hazelnut, bell pepper, red pepper",
+          descAr: "مزيج من الخس، صوص هانى لايم، برتقال، أناناس، توت مجفف، بندق، فلفل حلو، فلفل أحمر",
+          image: "https://images.unsplash.com/photo-1546793665-c74683f339c1?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+        },
+        {
+          name: "Fattoush salad",
+          nameAr: "فاتوش سلاد",
+          price: "123",
+          desc: "Lettuce, tomatoes, cucumber, bell peppers, scallions, crispy tortilla",
+          descAr: "خس، طماطم، خيار، فلفل حلو، بصل أخضر، تورتيلا مقرمشة",
+          image: "https://images.unsplash.com/photo-1546793665-c74683f339c1?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+        },
+        {
+          name: "Caesar salad",
+          nameAr: "سيزر سلاد",
+          price: "187",
+          desc: "mix lettuce, Caesar dressing, roasted croutons, parmesan",
+          descAr: "مزيج من الخس، صوص سيزر، قطع خبز محمص، جبنة بارميزان",
+          image: "https://images.unsplash.com/photo-1546793665-c74683f339c1?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
+          options: [
+            { name: "Chicken", nameAr: "دجاج", price: "187" },
+            { name: "Shrimp", nameAr: "روبيان", price: "232" }
+          ]
+        },
+        {
+          name: "Caprese salad",
+          nameAr: "كابريزى سلاد",
+          price: "140",
+          desc: "Mozzarella, basil, arugula, tomato, balsamic, pesto",
+          descAr: "موزاريلا. ريحان، جرجير، طماطم، خل بلسمك، بيستو",
+          image: "https://images.unsplash.com/photo-1546793665-c74683f339c1?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+        },
+        {
+          name: "Tuna salad",
+          nameAr: "تونة سلاد",
+          price: "179",
+          desc: "Mix lettuce, onion, mayo, ranch dressing",
+          descAr: "مزيج خس، بصل، مايونيز، صوص رانش",
+          image: "https://images.unsplash.com/photo-1546793665-c74683f339c1?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+        },
+        {
+          name: "Avocado shrimp salad",
+          nameAr: "أفوكادو روبيان سلاد",
+          price: "267",
+          desc: "mix lettuce, sweet corn, avocado slice, arugula, tartar dressing",
+          descAr: "مزيج خس، ذرة حلوة، أفوكادو، جرجير، صوص تارتار",
+          image: "https://images.unsplash.com/photo-1546793665-c74683f339c1?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+        },
+        {
+          name: "Burrata salad",
+          nameAr: "بوراتا سلاد",
+          price: "290",
+          desc: "Cherry tomato, burrata cheese, basil oil",
+          descAr: "شيرى توماتو، جبنة بوراتا، زيت ريحان",
+          image: "https://images.unsplash.com/photo-1546793665-c74683f339c1?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+        }
+      ],
+      
+      // Appetizer Items
+      appetizers: [
+        {
+          name: "French fries",
+          nameAr: "بطاطس مقلية",
+          price: "47",
+          desc: "Classic french fries",
+          descAr: "بطاطس مقلية كلاسيكية",
+          image: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+        },
+        {
+          name: "Cheesy fries",
+          nameAr: "بطاطس مقلية بالتشيز",
+          price: "78",
+          desc: "",
+          descAr: "",
+          image: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+        },
+        {
+          name: "Texas fries",
+          nameAr: "تيكاس فرايز",
+          price: "139",
+          desc: "French fries, mix cheese, chili meat, jalapeno served ranch sauce",
+          descAr: "فرينش فرايز مغطاة بميكس تشيز، تشيلى ميت، فلفل هالبينو، وتُقدم مع صوص الرانش",
+          image: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+        },
+        {
+          name: "Mozzarella ring",
+          nameAr: "موتزاريلا رينجز",
+          price: "132",
+          desc: "Served with marinara",
+          descAr: "تقدم مع صلصة مارينارا",
+          image: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+        },
+        {
+          name: "Fried calamari",
+          nameAr: "كاليمارى فرايد",
+          price: "119.99",
+          desc: "Served with ranch sauce",
+          descAr: "تقدم مع صلصة رانش",
+          image: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+        },
+        {
+          name: "Quesadilla",
+          nameAr: "كساديا",
+          price: "182",
+          desc: "",
+          descAr: "",
+          image: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
+          options: [
+            { name: "Beef", nameAr: "لحم بقري", price: "182" },
+            { name: "Chicken", nameAr: "دجاج", price: "149" },
+            { name: "Shrimp", nameAr: "روبيان", price: "189" }
+          ]
+        },
+        {
+          name: "Chicken wings",
+          nameAr: "أجنحة دجاج",
+          price: "109",
+          desc: "Served by three sauce buffalo and blue cheese, BBQ served a sour cream",
+          descAr: "تقدم بأحد الصوصات: بافلو وجبنة زرقاء، باربيكيو. يُقدم مع كريمة حامضة",
+          image: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
+          options: [
+            { name: "6 piece", nameAr: "6 قطع", price: "109" },
+            { name: "12 piece", nameAr: "12 قطعة", price: "169" },
+            { name: "24 piece", nameAr: "24 قطعة", price: "299" }
+          ]
+        },
+        {
+          name: "Nachos",
+          nameAr: "ناتشوز",
+          price: "139",
+          desc: "Tortilla corn, queso sauce, mix cheese, jalapeno served with Pico de Gallo and sour cream and lettuce",
+          descAr: "تورتيلا ذرة، صلصة كيسو، ميكس تشيز، هالبينو تقدم مع بيكو دي جالو وساور كريم وخس",
+          image: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+        },
+        {
+          name: "Crisp chicken",
+          nameAr: "كريسبى تشيكن",
+          price: "129",
+          desc: "5 Each fried chicken served with honey mustard",
+          descAr: "٥ قطع دجاج مقلي مع هانى ماسترد",
+          image: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+        },
+        {
+          name: "Shrimp Knafeh",
+          nameAr: "كنافة روبيان",
+          price: "259",
+          desc: "5 each shrimp served thousand island, ranch sauce",
+          descAr: "٥ قطع روبيان مع صلصة ثاوزند آيلاند وصلصة رانش",
+          image: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+        },
+        {
+          name: "Chips and queso",
+          nameAr: "شيبس أند كيسو",
+          price: "99",
+          desc: "Tortilla corn served with queso dip",
+          descAr: "تورتيلا ذرة تقدم مع صلصة كيسو",
+          image: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+        },
+        {
+          name: "Cheese ball",
+          nameAr: "تشيز بولز",
+          price: "120",
+          desc: "Served with tomato jam",
+          descAr: "تقدم مع مربى الطماطم",
+          image: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+        },
+        {
+          name: "Arancini balls",
+          nameAr: "أرانشيني بولز",
+          price: "167",
+          desc: "Italian arancini balls are the perfect combination of crispiness on the outside and rich tenderness on the inside. They are generously stuffed with savory minced meat, seasoned with aromatic spices, and blended with melted mozzarella cheese",
+          descAr: "أرانشيني بولز الإيطالية هي مزيج مثالي من القرمشة الخارجية والطراوة الغنية من الداخل. محشوة باللحم المفروم اللذيذ، متبلة بتوابل عطرية، وممزوجة بجبنة الموزاريلا",
+          image: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+        },
+        {
+          name: "Potato Spanish balls",
+          nameAr: "بوتيتو إسبانيش بولز",
+          price: "141",
+          desc: "Mashed Potato Balls stuffed with creamy spinach, hazelnuts, sweet corn, and chicken",
+          descAr: "بوتيتو سبانيش مهروسة محشوة بالسبانخ الكريمي، البندق، الذرة الحلوة، والدجاج",
+          image: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+        },
+        {
+          name: "Caputo balls",
+          nameAr: "كابوتو بولز",
+          price: "187",
+          desc: "Cheese ball, arancini stuffed ground meet and cheese, mashed potato ball stuffed Spanich & nuts served with pickled lemon sauce",
+          descAr: "تشيز بولز، أرانشيني محشوة باللحم المفروم والجبن، بوتيتو بولز مهروسة محشوة بالجبنة والسبانخ والمكسرات، تقدم مع صوص الليمون المخلل",
+          image: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+        },
+        {
+          name: "Mix Appetizer",
+          nameAr: "ميكس أبيتيزر",
+          price: "359",
+          desc: "ring mozzarella, nachos, crisp chicken, wings, Mille Feuille served 4 dips honey mustard, ranch, tomato jam, sweet chili",
+          descAr: "حلقة موزاريلا، ناتشوز، دجاج مقرمش، أجنحة دجاج، سويت بوتيتو تقدم مع 4 صلصات: خردل بالعسل، رانش، مربى طماطم، سويت شيلي",
+          image: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+        }
+      ],
+      
+      // Pasta Items (organized by subcategories)
+      "pasta-beef": [
+        {
+          name: "Alfredo pasta (Beef)",
+          nameAr: "ألفريدو باستا (لحم بقري)",
+          price: "267",
+          desc: "Creamy alfa sauce, fresh mushrooms, parmesan",
+          descAr: "صوص ألفريدو كريمي، فطر طازج، جبنة بارميزان",
+          image: "https://images.unsplash.com/photo-1555949258-eb67b1ef0ceb?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+        },
+        {
+          name: "Spaghetti meat balls",
+          nameAr: "سباجيتى ميت بولز",
+          price: "215",
+          desc: "Minced meat in rich tomato sauce and parmesan",
+          descAr: "لحم مفروم بصوص طماطم غنية وجبنة بارميزان",
+          image: "https://images.unsplash.com/photo-1555949258-eb67b1ef0ceb?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+        },
+        {
+          name: "Steak and mushroom",
+          nameAr: "ستيك ومشروم باستا",
+          price: "319",
+          desc: "Beef filet steak and mushrooms, penne pasta, parmesan",
+          descAr: "لحم فيليه شرايح ومشروم، مكرونة بيني، بارميزان",
+          image: "https://images.unsplash.com/photo-1555949258-eb67b1ef0ceb?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+        }
+      ],
+      "pasta-chicken": [
+        {
+          name: "Alfredo pasta (Chicken)",
+          nameAr: "ألفريدو باستا (دجاج)",
+          price: "267",
+          desc: "Creamy alfa sauce, fresh mushrooms, parmesan",
+          descAr: "صوص ألفريدو كريمي، فطر طازج، جبنة بارميزان",
+          image: "https://images.unsplash.com/photo-1555949258-eb67b1ef0ceb?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+        },
+        {
+          name: "Pesto pasta",
+          nameAr: "بيستو باستا",
+          price: "285",
+          desc: "rigatoni pasta, Creamy basil sauce, chicken, mushrooms, parmesan",
+          descAr: "مكرونة ريجاتونى، صوص ريحان كريمية، دجاج، فطر، جبنة بارميزان",
+          image: "https://images.unsplash.com/photo-1555949258-eb67b1ef0ceb?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+        },
+        {
+          name: "Mac and cheese pasta (Grilled chicken)",
+          nameAr: "ماك اند تشيز باستا (جريلد تشيكن)",
+          price: "249",
+          desc: "classic American dish consisting of cooked elbow pasta coated in a rich creamy cheese sauce",
+          descAr: "طبق أمريكي كلاسيكي يتكون من معكرونة مطبوخة مغطاة بصوص جبن كريمي",
+          image: "https://images.unsplash.com/photo-1555949258-eb67b1ef0ceb?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+        },
+        {
+          name: "Parmesan pasta",
+          nameAr: "بارميزان باستا",
+          price: "290",
+          desc: "Duple press chicken fried with creamy parmesan sauce and mushrooms, red pepper",
+          descAr: "دجاج مقلي مزدوج مع جبنة بارميزان كريمية صلصة ومشروم، فلفل أحمر",
+          image: "https://images.unsplash.com/photo-1555949258-eb67b1ef0ceb?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+        },
+        {
+          name: "Carbonara pasta",
+          nameAr: "كاربونارا باستا",
+          price: "274",
+          desc: "Spaghetti, bacon, creamy parmesan sauce",
+          descAr: "إسباجيتي، بيكون، صوص بارميزان كريمية",
+          image: "https://images.unsplash.com/photo-1555949258-eb67b1ef0ceb?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+        },
+        {
+          name: "Mac potato",
+          nameAr: "ماك بوتيتو",
+          price: "149",
+          desc: "Fresh potato stuffed mac and cheese pasta, mozzarella cheese, parmesan",
+          descAr: "بطاطس كومبير محشوة بالباستا وصوص الماك، جبنة موزاريلا، بارميزان",
+          image: "https://images.unsplash.com/photo-1555949258-eb67b1ef0ceb?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+        }
+      ],
+      "pasta-fish": [
+        {
+          name: "Alfredo pasta (Shrimp)",
+          nameAr: "ألفريدو باستا (روبيان)",
+          price: "339",
+          desc: "Creamy alfa sauce, fresh mushrooms, parmesan",
+          descAr: "صوص ألفريدو كريمي، فطر طازج، جبنة بارميزان",
+          image: "https://images.unsplash.com/photo-1555949258-eb67b1ef0ceb?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+        },
+        {
+          name: "Spaghetti Sea food",
+          nameAr: "سى فود سباجيتى",
+          price: "367",
+          desc: "Mix sea food, choose your sauce red or white sauce, cherry tomato",
+          descAr: "مأكولات بحرية مشكلة، اختر صلصتك المفضلة (صلصة حمراء أو بيضاء، شيرى توماتو)",
+          image: "https://images.unsplash.com/photo-1555949258-eb67b1ef0ceb?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+        },
+        {
+          name: "Shrimp&chicken lemon",
+          nameAr: "شيرمب أند تشيكن ليمون",
+          price: "307",
+          desc: "Fresh homemade ribbon pasta served with sautéed shrimp and grilled chicken, tossed in a refreshing creamy lemon sauce. A perfect fusion of seafood and poultry in one flavorful dish",
+          descAr: "مكرونة فريش هوم ميد شريط مقدمة مع جمبري وقطع دجاج مشوي متشوحة في صوص ليموني كريمي منعش بنكهة تجمع بين السي فود والدجاج في طبق واحد",
+          image: "https://images.unsplash.com/photo-1555949258-eb67b1ef0ceb?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+        },
+        {
+          name: "Tagliatelle pasta",
+          nameAr: "تاجليتلى باستا",
+          price: "298",
+          desc: "Fresh homemade pasta sautéed with tender mussels and baby potatoes, tossed in a rich sauce with coastal flavors that blend simplicity with authentic Italian character",
+          descAr: "مكرونة فريش هوم ميد متشوحة مع بلح بحر وقطع بطاطس صغيرة في صوص غني بنكهة ساحلية مميزة بيجمع بين البساطة والطابع الايطالي",
+          image: "https://images.unsplash.com/photo-1555949258-eb67b1ef0ceb?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+        }
+      ],
+      "pasta-vegetarian": [
+        {
+          name: "Penne arrabbiata",
+          nameAr: "بينى أرابياتا",
+          price: "180",
+          desc: "Spice tomato sauce, mix vegetables, black olive",
+          descAr: "صوص طماطم متبلة، خضار مشكلة، زيتون أسود",
+          image: "https://images.unsplash.com/photo-1555949258-eb67b1ef0ceb?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+        },
+        {
+          name: "Ravioli chili formaggie",
+          nameAr: "رافيولي تشيل فورماجي",
+          price: "267",
+          desc: "Fresh homemade pasta stuffed with chili meat, served in a rich and creamy cheese sauce with a subtle touch of chili sauce for a bold yet balanced flavor",
+          descAr: "مكرونة فريش هوم ميد محشوة بلحم شيلي، مقدمة في صوص جبنة كريمي غني، مع لمسة بسيطة من الشيلي صوص تضيف نكهة جريئة ومتوازنة",
+          image: "https://images.unsplash.com/photo-1555949258-eb67b1ef0ceb?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+        },
+        {
+          name: "Sunny veg ravioli",
+          nameAr: "صنى ريفولى خضار",
+          price: "256",
+          desc: "Fresh homemade pasta stuffed with seasonal vegetables, served in a smooth carrot sauce with red kidney beans and aromatic basil oil. A vibrant vegetarian dish full",
+          descAr: "مكرونة فريش هوم ميد محشوة بخضروات طازجة، مقدمة في صوص جزر ناعم، مع فاصوليا حمراء وزيت ريحان عطري يضيف لمسة خفيفة ومنعشة. طبق نباتي غني بالنكهات",
+          image: "https://images.unsplash.com/photo-1555949258-eb67b1ef0ceb?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+        }
+      ],
+      
+      // Pizza Items (organized by subcategories)
+      "pizza-beef": [
+        {
+          name: "Diavola",
+          nameAr: "ديافولا",
+          price: "234",
+          desc: "Tomato sauce, mozzarella cheese, salami",
+          descAr: "صلصة طماطم، جبنة موزاريلا، سلامي",
+          image: "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+        },
+        {
+          name: "Salsiccia",
+          nameAr: "سالسيشيا",
+          price: "237",
+          desc: "Topped with tomato sauce, mozzarella cheese, bell peppers, sausage",
+          descAr: "مغطاة بصلصة طماطم، جبنة موزاريلا، فلفل رومي، سجق",
+          image: "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+        }
+      ],
+      "pizza-chicken": [
+        {
+          name: "Pollo (BBQ)",
+          nameAr: "بوللو (باربيكيو)",
+          price: "218",
+          desc: "",
+          descAr: "",
+          image: "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+        },
+        {
+          name: "Spanish",
+          nameAr: "إسبانيش",
+          price: "219",
+          desc: "Topped with tomato sauce, mozzarella cheese, chicken grilled or fried, bell peppers, red onion",
+          descAr: "مغطاة بصلصة طماطم، جبنة موزاريلا، دجاج مشوي أو مقلي، فلفل رومي، بصل أحمر",
+          image: "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+        },
+        {
+          name: "Ranch",
+          nameAr: "رانش",
+          price: "222",
+          desc: "",
+          descAr: "",
+          image: "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+        }
+      ],
+      "pizza-fish": [
+        {
+          name: "Toono",
+          nameAr: "تونو",
+          price: "195",
+          desc: "Tomato sauce, mozzarella cheese, tuna, red onion",
+          descAr: "صلصة طماطم، جبنة موزاريلا، تونة، بصل أحمر",
+          image: "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+        },
+        {
+          name: "Gamberi",
+          nameAr: "جامبيرى",
+          price: "292",
+          desc: "Topped with tomato sauce, mozzarella cheese, grilled shrimp with touch of parsley",
+          descAr: "مغطاة بصلصة طماطم، جبنة موزاريلا، روبيان مشوي",
+          image: "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+        },
+        {
+          name: "Frutti di mare",
+          nameAr: "فروتى دي ماري",
+          price: "299",
+          desc: "Topped with tomato sauce, mozzarella cheese, mix of sea food such as calamari, shrimp, and mussels",
+          descAr: "مغطاة بصلصة طماطم، جبنة موزاريلا، مزيج من المأكولات البحرية مثل الكاليماري، الروبيان، وبلح البحر",
+          image: "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+        }
+      ],
+      "pizza-vegetarian": [
+        {
+          name: "Margherita",
+          nameAr: "مارجريتا",
+          price: "154",
+          desc: "A classic pizza made with fresh tomato sauce, mozzarella cheese, basil leaves and drizzle of olive oil",
+          descAr: "بيتزا كلاسيكية مصنوعة من صلصة الطماطم الطازجة وجبنة الموزاريلا وأوراق الريحان وقليل من زيت الزيتون",
+          image: "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+        },
+        {
+          name: "Quattro formaggi",
+          nameAr: "كواترو فورماجي",
+          price: "219",
+          desc: "Topped with for kinds of cheese, mozzarella, blue cheese, parmesan, white cheder",
+          descAr: "مغطاة بأنواع الجبن، الموزاريلا، ريكفورد، البارميزان، وايت شيدر",
+          image: "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+        },
+        {
+          name: "Veggie",
+          nameAr: "فيجي",
+          price: "172",
+          desc: "Topped with tomato sauce, mozzarella cheese, ball peppers, olives, onions, and mushrooms",
+          descAr: "مغطاه بصلصة الطماطم وجبنة الموزاريلا والفلفل الألوان والزيتون والبصل والمشروم",
+          image: "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+        },
+        {
+          name: "Burrata",
+          nameAr: "بوراتا",
+          price: "289",
+          desc: "A classic pizza made with fresh tomato sauce, mozzarella cheese, basil leaves and drizzle of olive oil",
+          descAr: "مغطاة بصلصة الطماطم، جبنة موزاريلا، جبنة بوراتا كريمية كرات مع أوراق الريحان",
+          image: "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+        }
+      ],
+      
+      // Sandwich Items
+ // Main Course Subcategories
+'main-course-chicken': [
+  {
+    name: "Montrey chicken",
+    nameAr: "مونتيرى تشيكن",
+    price: "309",
+    desc: "Two chicken breasts covered with a mix cheese, bacon, BBQ and tomato, chives",
+    descAr: "صدران دجاج مغطى بمزيج من الجبن، لحم مقدد، باربكيو، طماطم، بصل أخضر",
+    image: "https://images.unsplash.com/photo-1544025162-d76694265947?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+  },
+  {
+    name: "Colorado chicken",
+    nameAr: "كولارادو تشيكن",
+    price: "339",
+    desc: "Three pieces of crispy breaded chicken topped with white sauce, salami slices and melted mozzarella cheese",
+    descAr: "ثلاث قطع دجاج مقرمشة مغطاة بصلصة بيضاء، شرائح سلامي، وجبنة موزاريلا ذائبة",
+    image: "https://images.unsplash.com/photo-1544025162-d76694265947?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+  },
+  {
+    name: "Grilled chicken",
+    nameAr: "جريلد تشيكن",
+    price: "280",
+    desc: "Two chicken breasts choose your sauce",
+    descAr: "صدران دجاج، اختر صلصتك",
+    image: "https://images.unsplash.com/photo-1544025162-d76694265947?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
+    options: [
+      { name: "Mushroom sauce", nameAr: "مشروم صوص", price: "" },
+      { name: "Pepper sauce", nameAr: "صوص الفلفل", price: "" },
+      { name: "Blue cheese", nameAr: "بلو تشيز", price: "" },
+      { name: "Lemon sauce", nameAr: "ليمون صوص", price: "" },
+      { name: "Gravy sauce", nameAr: "جرافى صوص", price: "" }
+    ]
+  }
+],
+
+'main-course-beef': [
+  {
+    name: "Top Fliet steak",
+    nameAr: "توب فيليت ستيك",
+    price: "599",
+    desc: "Is a tender and flavorful cut of beef cooked to highlight its rich taste and texture",
+    descAr: "قطعة لحم بقري طرية ولذيذة تُطهى لإبراز مذاقها وقوامها الغني",
+    image: "https://images.unsplash.com/photo-1544025162-d76694265947?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+  },
+  {
+    name: "Ribeye steak",
+    nameAr: "ريباى ستيك",
+    price: "557",
+    desc: "Is one of the most tender and flavorful beef cuts, known for its rich marbling",
+    descAr: "من أكثر قطع اللحم البقري طراوةً ونكهةً، تشتهر بتركيبتها الرخامية الغنية",
+    image: "https://images.unsplash.com/photo-1544025162-d76694265947?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+  },
+  {
+    name: "Beef stroganoff",
+    nameAr: "ستروجانوف بيف",
+    price: "423",
+    desc: "A classic Russian dish made with tender beef strips cooked in a rich creamy sauce",
+    descAr: "طبق روسي كلاسيكي مصنوع من شرائح لحم بقري طرية مطبوخة في صلصة كريمية غنية",
+    image: "https://images.unsplash.com/photo-1544025162-d76694265947?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+  }
+],
+
+'main-course-seafood': [
+  {
+    name: "Grilled shrimp",
+    nameAr: "جريلد شريمب",
+    price: "457",
+    desc: "Shrimp marinated in spices, lemon juice, olive oil, then grilled until tender",
+    descAr: "روبيان متبل بالتوابل وعصير الليمون وزيت الزيتون، ثم مشوي حتى يصبح طريًا",
+    image: "https://images.unsplash.com/photo-1544025162-d76694265947?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+  },
+  {
+    name: "Shrimps a la cream",
+    nameAr: "شريمب لاكريمي",
+    price: "489",
+    desc: "Shrimp in cream sauce served with mash potato",
+    descAr: "روبيان بصلصة الكريمة يقدم مع بطاطس مهروسة",
+    image: "https://images.unsplash.com/photo-1544025162-d76694265947?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+  },
+  {
+    name: "Mix sea food grilled",
+    nameAr: "ميكس سى فود جريلد",
+    price: "600",
+    desc: "Selection of seafood including shrimp, mussels, and calamari",
+    descAr: "تشكيلة من المأكولات البحرية تشمل الروبيان وبلح البحر والكاليماري",
+    image: "https://images.unsplash.com/photo-1544025162-d76694265947?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+  }
+],
+
+'main-course-vegetarian': [
+  // Add vegetarian main courses here if available
+],
+
+// Sandwich Subcategories
+'sandwiches-chicken': [
+  {
+    name: "Chicken ranch sand",
+    nameAr: "تشيكن رانش ساندويتش",
+    price: "189",
+    desc: "Fried chicken batty, smoke turkey, ranch sauce, lettuce, tomato cheese sauce",
+    descAr: "قطعة دجاج مقلية، رومي مدخن، صوص رانش، خس، طماطم، صوص تشيز",
+    image: "https://images.unsplash.com/photo-1556679343-c7306c1976bc?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+  },
+  {
+    name: "Buffalo chicken",
+    nameAr: "بافلو تشيكن",
+    price: "189",
+    desc: "Fried chicken batty, coleslaw, pickles, buffalo sauce",
+    descAr: "قطعة دجاج مقلية، سلطة كول سلو، مخلل، صوص بافلو",
+    image: "https://images.unsplash.com/photo-1556679343-c7306c1976bc?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+  },
+  {
+    name: "Classic chicken",
+    nameAr: "كلاسيك تشيكن",
+    price: "172",
+    desc: "",
+    descAr: "",
+    image: "https://images.unsplash.com/photo-1556679343-c7306c1976bc?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
+    options: [
+      { name: "Bacon", nameAr: "بيكون", price: "" },
+      { name: "Onion ring", nameAr: "أونيون رينج", price: "" },
+      { name: "Cheese boom", nameAr: "تشيز بووم", price: "" }
+    ]
+  }
+],
+
+'sandwiches-beef': [
+  {
+    name: "Philie sand",
+    nameAr: "فيلى ساندويتش",
+    price: "238",
+    desc: "Fillet steak, mushrooms, cheese sauce, grilled onion and bell pepper",
+    descAr: "شرائح لحم فيليه، مشروم، صوص جبن، بصل مشوي وفلفل رومي",
+    image: "https://images.unsplash.com/photo-1556679343-c7306c1976bc?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+  },
+  {
+    name: "Cow boy burger",
+    nameAr: "كاو بوى برجر",
+    price: "256",
+    desc: "Beef batty, onion ring Mozzarella, sausage, Sauce cheese",
+    descAr: "قطعة لحم بقري، حلقات بصل بالموتزاريلا، سوسيس، صوص تشيز",
+    image: "https://images.unsplash.com/photo-1556679343-c7306c1976bc?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+  },
+  {
+    name: "Cheese boom burger",
+    nameAr: "تشيز بوم برجر",
+    price: "232",
+    desc: "Beef batty, fried cheese, Sauce cheese",
+    descAr: "قطعة لحم بقري، فرايد تشيز, صوص تشيز",
+    image: "https://images.unsplash.com/photo-1556679343-c7306c1976bc?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+  }
+],
+
+'sandwiches-seafood': [
+  {
+    name: "Crisp shrimp",
+    nameAr: "كريسب شريمب",
+    price: "223",
+    desc: "Fried shrimp, ranch sauce, bell pepper, cheese sauce",
+    descAr: "روبيان مقلي، صوص رانش، فلفل رومي، صوص جبن",
+    image: "https://images.unsplash.com/photo-1556679343-c7306c1976bc?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+  },
+  {
+    name: "Shrimp avocado",
+    nameAr: "روبيان أفوكادو",
+    price: "250",
+    desc: "Grilled shrimp, avocado slice, ranch sauce",
+    descAr: "روبيان مشوي، أفوكادو، صلصة رانش",
+    image: "https://images.unsplash.com/photo-1556679343-c7306c1976bc?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+  }
+],
+
+'sandwiches-vegetarian': [
+  // Add vegetarian sandwiches here if available
+],
+      
+      // Extras
+      extras: [
+        {
+          name: "Cheese sauce",
+          nameAr: "تشيز صوص",
+          price: "40",
+          desc: "",
+          descAr: "",
+          image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+        },
+        {
+          name: "Mushroom sauce",
+          nameAr: "مشروم صوص",
+          price: "40",
+          desc: "",
+          descAr: "",
+          image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+        },
+        {
+          name: "Grilled mushrooms",
+          nameAr: "جريلد مشروم",
+          price: "40",
+          desc: "",
+          descAr: "",
+          image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+        },
+        {
+          name: "Shrimp",
+          nameAr: "روبيان",
+          price: "80",
+          desc: "",
+          descAr: "",
+          image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+        },
+        {
+          name: "chicken",
+          nameAr: "دجاج",
+          price: "60",
+          desc: "",
+          descAr: "",
+          image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+        },
+        {
+          name: "Beef bacon",
+          nameAr: "لحم بقرى",
+          price: "30",
+          desc: "",
+          descAr: "",
+          image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+        },
+        {
+          name: "Bread",
+          nameAr: "خبز",
+          price: "30",
+          desc: "",
+          descAr: "",
+          image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+        },
+        {
+          name: "Garlic bread",
+          nameAr: "خبز بالثوم",
+          price: "30",
+          desc: "",
+          descAr: "",
+          image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+        },
+        {
+          name: "sauce",
+          nameAr: "صوص",
+          price: "30",
+          desc: "",
+          descAr: "",
+          image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+        },
+        {
+          name: "white rice",
+          nameAr: "أرز أبيض",
+          price: "47",
+          desc: "",
+          descAr: "",
+          image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+        },
+        {
+          name: "Grilled veggies",
+          nameAr: "خضروات مشوية",
+          price: "40",
+          desc: "",
+          descAr: "",
+          image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+        },
+        {
+          name: "Hummus",
+          nameAr: "حمص",
+          price: "27",
+          desc: "",
+          descAr: "",
+          image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+        },
+        {
+          name: "cheese",
+          nameAr: "جبن",
+          price: "40",
+          desc: "",
+          descAr: "",
+          image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+        },
+        {
+          name: "mash potato",
+          nameAr: "بطاطس مهروسة",
+          price: "47",
+          desc: "",
+          descAr: "",
+          image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+        },
+        {
+          name: "white or red pasta",
+          nameAr: "باستا ريد او وايت",
+          price: "47",
+          desc: "",
+          descAr: "",
+          image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+        },
+        {
+          name: "Beef Burger",
+          nameAr: "بيف برجر",
+          price: "90",
+          desc: "",
+          descAr: "",
+          image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+        }
+      ],
+      
+      // Drinks (organized by subcategories)
+      "drinks-hot-drinks": [
+        // ... hot drink items ...
+      ],
+      "drinks-cold-drinks": [
+        // ... cold drink items ...
+      ]
+    };
+
+    const subcategories = {
+      pasta: ["beef", "chicken", "seafood", "vegetarian"],
+      pizza: ["beef", "chicken", "seafood", "vegetarian"],
+      drinks: ["hot-drinks", "cold-drinks"],
+      'main-course': ["chicken", "beef", "seafood", "vegetarian"], // Add this
+      sandwiches: ["chicken", "beef", "seafood", "vegetarian"] // Add this
+
+    };
+
+    function toggleLanguage() {
+      currentLanguage = currentLanguage === 'english' ? 'arabic' : 'english';
+      updateLanguage();
+    }
+
+    function updateLanguage() {
+      const lang = translations[currentLanguage];
+      
+      // Update UI elements
+      document.getElementById('menu-title').textContent = lang.menuTitle;
+      document.getElementById('menu-description').textContent = lang.menuDescription;
+      
+      // Update all category labels
+      Object.keys(lang).forEach(key => {
+        if (document.getElementById(`${key}-label`)) {
+          document.getElementById(`${key}-label`).textContent = lang[key];
+        }
+      });
+      
+      document.getElementById('language-toggle').textContent = currentLanguage === 'english' ? 'العربية' : 'English';
+      
+      // Update any open menu content
+      if (!document.getElementById('menu-content').classList.contains('hidden')) {
+        const category = document.getElementById('menu-content').getAttribute('data-category');
+        if (category) showMenu(category);
+      }
+      
+      // Update any open subcategories
+      if (!document.getElementById('subcategories-content').classList.contains('hidden')) {
+        const category = document.getElementById('subcategories-content').getAttribute('data-category');
+        if (category) showSubcategories(category);
+      }
+    }
+
+    function showMenu(category) {
+
+        const isSubcategory = category.includes('-');
+
+  if (!isSubcategory && !subcategories[category]) {
+    document.getElementById('subcategories-content').classList.add('hidden');
+  }
+      
+      
+      const menuContent = document.getElementById('menu-content');
+      menuContent.classList.remove('hidden');
+      menuContent.setAttribute('data-category', category);
+      
+      const lang = translations[currentLanguage];
+     
+        let displayName;
+  if (isSubcategory) {
+    const [parent, sub] = category.split('-');
+    displayName = `${lang[parent]} - ${lang[sub]}`;
+  } else {
+    displayName = lang[category] || capitalizeFirstLetter(category.replace('-', ' '));
+  }
+     
+
+      let contentHTML = `
+        <h3 class="text-3xl font-bold text-primary-1 mb-8 ${currentLanguage === 'arabic' ? 'arabic-text' : ''}">
+          ${currentLanguage === 'english' ? `${capitalizeFirstLetter(category.replace('-', ' '))}` : `${lang[category]}`}
+        </h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      `;
+      
+      if (menuItems[category] && menuItems[category].length > 0) {
+        menuItems[category].forEach(item => {
+          contentHTML += `
+            <div class="menu-item bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg">
+              <img src="${item.image}" alt="${item.name}" class="w-full h-48 object-cover">
+              <div class="p-6 ${currentLanguage === 'arabic' ? 'arabic-text' : 'text-left'}">
+                <h4 class="text-xl font-bold text-primary-1 mb-2">
+                  ${currentLanguage === 'english' ? item.name : item.nameAr}
+                </h4>
+                <div class="price-tag bg-primary-1 text-white">
+                  ${item.price} ${lang.currency}
+                </div>
+                <p class="text-gray-700 mt-3">
+                  ${currentLanguage === 'english' ? item.desc : item.descAr}
+                </p>
+                ${item.options ? `
+                  <div class="mt-4">
+                    <p class="font-medium text-primary-2">${currentLanguage === 'english' ? 'Options:' : 'خيارات:'}</p>
+                    <ul class="list-disc pl-5 mt-2 text-sm">
+                      ${item.options.map(opt => `
+                        <li>${currentLanguage === 'english' ? opt.name : opt.nameAr} ${opt.price ? `- ${opt.price} ${lang.currency}` : ''}</li>
+                      `).join('')}
+                    </ul>
+                  </div>
+                ` : ''}
+              </div>
+            </div>
+          `;
+        });
+      } else {
+        contentHTML += `
+          <div class="col-span-full text-gray-500 py-8">
+            Menu items coming soon
+          </div>
+        `;
+      }
+      
+      contentHTML += `
+        </div>
+        <div class="mt-12">
+          <button onclick="closeAllMenus()" class="px-8 py-3 bg-primary-1 text-white rounded-md hover:bg-opacity-90 text-lg">
+            ${lang.closeButton}
+          </button>
+        </div>
+      `;
+      
+      menuContent.innerHTML = contentHTML;
+      menuContent.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function showSubcategories(category) {
+      document.getElementById('menu-content').classList.add('hidden');
+      
+      const subcategoriesContent = document.getElementById('subcategories-content');
+      subcategoriesContent.classList.remove('hidden');
+      subcategoriesContent.setAttribute('data-category', category);
+      
+      const lang = translations[currentLanguage];
+      let contentHTML = `
+        <h3 class="text-3xl font-bold text-primary-1 mb-8 ${currentLanguage === 'arabic' ? 'arabic-text' : ''}">
+          ${currentLanguage === 'english' ? `${capitalizeFirstLetter(category.replace('-', ' '))}` : `${lang[category]}`}
+        </h3>
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+      `;
+      
+      subcategories[category].forEach(subcat => {
+        contentHTML += `
+          <div class="text-center">
+            <button onclick="showMenu('${category}-${subcat}')" 
+                    class="subcategory-circle border-2 border-primary-1 cursor-pointer mb-2"
+                    style="background-image: url('${getSubcategoryImage(category, subcat)}')">
+            </button>
+            <div class="font-medium text-primary-1">
+              ${lang[subcat]}
+            </div>
+          </div>
+        `;
+      });
+      
+      contentHTML += `
+        </div>
+        <div class="mt-12">
+          <button onclick="closeAllMenus()" class="px-8 py-3 bg-primary-1 text-white rounded-md hover:bg-opacity-90 text-lg">
+            ${lang.backButton}
+          </button>
+        </div>
+      `;
+      
+      subcategoriesContent.innerHTML = contentHTML;
+      subcategoriesContent.scrollIntoView({ behavior: 'smooth' });
+    }
+    
+    function getSubcategoryImage(category, subcategory) {
+      // These are placeholder images - replace with your actual images
+      const imageMap = {
+        'pasta-beef': 'https://images.unsplash.com/photo-1473093295043-cdd812d0e601?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80',
+        'pasta-chicken': 'https://images.unsplash.com/photo-1555949258-eb67b1ef0ceb?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80',
+        'pasta-fish': 'https://images.unsplash.com/photo-1563379926898-05f4575a45d8?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80',
+        'pasta-vegetarian': 'https://images.unsplash.com/photo-1555949258-eb67b1ef0ceb?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80',
+        'pizza-beef': 'https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80',
+        'pizza-chicken': 'https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80',
+        'pizza-fish': 'https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80',
+        'pizza-vegetarian': 'https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80',
+        'drinks-hot-drinks': 'https://images.unsplash.com/photo-1511920170033-f8396924c348?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80',
+        'drinks-cold-drinks': 'https://images.unsplash.com/photo-1437418747212-8d9709afab22?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80',
+        'main-course-chicken': 'your-chicken-image-url',
+        'main-course-beef': 'your-beef-image-url',
+        'main-course-seafood': 'your-seafood-image-url',
+        'main-course-vegetarian': 'your-vegetarian-image-url',
+        'sandwiches-chicken': 'your-chicken-sandwich-image-url',
+        'sandwiches-beef': 'your-beef-sandwich-image-url',
+        'sandwiches-seafood': 'your-seafood-sandwich-image-url',
+        'sandwiches-vegetarian': 'your-vegetarian-sandwich-image-url'
+      };
+      return imageMap[`${category}-${subcategory}`] || 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80';
+    }
+    
+    function closeAllMenus() {
+      document.getElementById('menu-content').classList.add('hidden');
+      document.getElementById('subcategories-content').classList.add('hidden');
+    }
+    
+    function capitalizeFirstLetter(string) {
+      return string.split(' ').map(word => 
+        word.charAt(0).toUpperCase() + word.slice(1)
+      ).join(' ');
+    }
+
+    // Initialize language toggle
+    document.getElementById('language-toggle').addEventListener('click', toggleLanguage);
+  </script>
+</body>
+</html>
