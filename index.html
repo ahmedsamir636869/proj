@@ -2,379 +2,795 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Caputo Menu</title>
+  <title>Caputo - Authentic Italian Cuisine with Egyptian Flair</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Experience Caputo's unique fusion of Italian culinary traditions with Egyptian innovation in Alexandria">
   <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
   <style>
     :root {
-      --primary-1: #705d3f;
-      --primary-2: #889776;
-      --primary-3: #E4E1DA;
-      --secondary-1: #B4B897;
-      --secondary-2: #CCAC85;
-      --secondary-3: #E3D2BE;
+      --primary-dark: #705d3f;    /* Dark earthy brown */
+      --primary-medium: #889776;  /* Olive green */
+      --primary-light: #E4E1DA;   /* Creamy white */
+      --secondary-1: #B4B897;     /* Grayish olive */
+      --secondary-2: #CCAC85;     /* Warm beige */
+      --secondary-3: #E3D2BE;     /* Light beige */
     }
     
-    .menu-circle {
-      width: 120px;
-      height: 120px;
-      border-radius: 50%;
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background-color: var(--primary-light);
+      color: #333;
+    }
+    
+    h1, h2, h3, h4 {
+      font-family: 'Playfair Display', serif;
+    }
+    
+    .logo {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+    
+    .hero-section {
+      background: linear-gradient(rgba(112, 93, 63, 0.7), rgba(112, 93, 63, 0.7)), 
+                  url('cup.png');
+      background-size: cover;
+      background-position: center;
+      min-height: 60vh;
+    }
+    
+    .menu-category {
       transition: all 0.3s ease;
+      border: 2px solid var(--primary-medium);
+    }
+    
+    .menu-category:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+      border-color: var(--primary-dark);
+    }
+    
+    .menu-category-image {
+      height: 200px;
       background-size: cover;
       background-position: center;
     }
     
-    .menu-circle:hover {
-      transform: scale(1.05);
-      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-    }
-    
-    .menu-label {
-      position: absolute;
-      bottom: -25px;
-      left: 0;
-      right: 0;
-      text-align: center;
-      font-weight: 600;
-      color: var(--primary-1);
-    }
-    
-    .menu-item {
+    .dish-card {
       transition: all 0.3s ease;
+      border-bottom: 3px solid var(--primary-medium);
     }
     
-    .menu-item:hover {
+    .dish-card:hover {
       transform: translateY(-5px);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
     }
     
     .arabic-text {
       direction: rtl;
       text-align: right;
+      font-family: 'Tajawal', sans-serif;
     }
     
     .price-tag {
-      background-color: var(--primary-1);
+      background-color: var(--primary-dark);
       color: white;
-      padding: 4px 8px;
-      border-radius: 4px;
-      font-weight: bold;
-      display: inline-block;
-      margin-top: 8px;
     }
     
-    .subcategory-circle {
-      width: 100px;
-      height: 100px;
-      border-radius: 50%;
-      transition: all 0.3s ease;
-      background-size: cover;
-      background-position: center;
-      margin: 0 auto;
-    }
-    
-    .bg-primary-1 {
-      background-color: var(--primary-1);
-    }
-    
-    .bg-primary-2 {
-      background-color: var(--primary-2);
-    }
-    
-    .bg-primary-3 {
-      background-color: var(--primary-3);
-    }
-    
-    .bg-secondary-1 {
-      background-color: var(--secondary-1);
-    }
-    
-    .bg-secondary-2 {
-      background-color: var(--secondary-2);
-    }
-    
-    .bg-secondary-3 {
+    .story-section {
       background-color: var(--secondary-3);
     }
     
-    .text-primary-1 {
-      color: var(--primary-1);
+    .pattern-bg {
+      background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHBhdHRlcm5UcmFuc2Zvcm09InJvdGF0ZSg0NSkiPjxyZWN0IHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgZmlsbD0icmdiYSgxMTIsIDkzLCA2MywgMC4xKSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3QgZmlsbD0idXJsKCNwYXR0ZXJuKSIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIvPjwvc3ZnPg==');
     }
     
-    .text-primary-2 {
-      color: var(--primary-2);
+    .btn-primary {
+      background-color: var(--primary-dark);
+      color: white;
+      transition: all 0.3s ease;
     }
     
-    .text-primary-3 {
-      color: var(--primary-3);
+    .btn-primary:hover {
+      background-color: var(--primary-medium);
+      transform: translateY(-2px);
     }
     
-    .border-primary-1 {
-      border-color: var(--primary-1);
+    .btn-outline {
+      border: 2px solid var(--primary-dark);
+      color: var(--primary-dark);
+      transition: all 0.3s ease;
     }
     
-    .border-primary-2 {
-      border-color: var(--primary-2);
+    .btn-outline:hover {
+      background-color: var(--primary-dark);
+      color: white;
+    }
+    
+    /* Custom animations */
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0px);
+      }
+      50% {
+        transform: translateY(-20px);
+      }
+    }
+    
+    .animate-float {
+      animation: float 6s ease-in-out infinite;
+    }
+    
+    @media (max-width: 768px) {
+      .menu-category {
+        width: 100%;
+      }
+      
+      .hero-section {
+        min-height: 40vh;
+      }
+      
+      /* Mobile Menu Improvements */
+      .mobile-menu-container {
+        padding: 1rem;
+      }
+      
+      .mobile-category-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.75rem;
+        margin-bottom: 1.5rem;
+      }
+      
+      .mobile-category-card {
+        background: white;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        transition: all 0.3s ease;
+        position: relative;
+      }
+      
+      .mobile-category-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+      }
+      
+      .mobile-category-image {
+        height: 120px;
+        background-size: cover;
+        background-position: center;
+        position: relative;
+      }
+      
+      .mobile-category-overlay {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: linear-gradient(transparent, rgba(0,0,0,0.7));
+        padding: 0.75rem;
+        color: white;
+      }
+      
+      .mobile-category-title {
+        font-size: 0.875rem;
+        font-weight: 600;
+        margin: 0;
+        text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+      }
+      
+      /* Mobile Menu Items */
+      .mobile-menu-item {
+        background: white;
+        border-radius: 16px;
+        margin-bottom: 1rem;
+        overflow: hidden;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        border: 1px solid #f0f0f0;
+      }
+      
+      .mobile-menu-item-image {
+        height: 200px;
+        background-size: cover;
+        background-position: center;
+        position: relative;
+      }
+      
+      .mobile-menu-item-content {
+        padding: 1rem;
+      }
+      
+      .mobile-menu-item-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-bottom: 0.5rem;
+      }
+      
+      .mobile-menu-item-title {
+        font-size: 1.125rem;
+        font-weight: 600;
+        color: var(--primary-dark);
+        margin: 0;
+        flex: 1;
+        margin-right: 0.5rem;
+      }
+      
+      .mobile-price-tag {
+        background: var(--primary-dark);
+        color: white;
+        padding: 0.25rem 0.5rem;
+        border-radius: 6px;
+        font-size: 0.875rem;
+        font-weight: 600;
+        white-space: nowrap;
+      }
+      
+      .mobile-menu-item-description {
+        color: #666;
+        font-size: 0.875rem;
+        line-height: 1.4;
+        margin-bottom: 0.75rem;
+      }
+      
+      .mobile-options-container {
+        background: #f8f9fa;
+        border-radius: 8px;
+        padding: 0.75rem;
+        margin-top: 0.75rem;
+      }
+      
+      .mobile-options-title {
+        font-size: 0.875rem;
+        font-weight: 600;
+        color: var(--primary-dark);
+        margin-bottom: 0.5rem;
+      }
+      
+      .mobile-options-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+      
+      .mobile-options-list li {
+        padding: 0.25rem 0;
+        font-size: 0.8rem;
+        color: #555;
+        border-bottom: 1px solid #eee;
+      }
+      
+      .mobile-options-list li:last-child {
+        border-bottom: none;
+      }
+      
+      /* Mobile Subcategories */
+      .mobile-subcategory-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+        margin-bottom: 1.5rem;
+      }
+      
+      .mobile-subcategory-card {
+        background: white;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        transition: all 0.3s ease;
+        position: relative;
+        aspect-ratio: 1;
+      }
+      
+      .mobile-subcategory-card:hover {
+        transform: scale(1.05);
+        box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+      }
+      
+      .mobile-subcategory-image {
+        width: 100%;
+        height: 100%;
+        background-size: cover;
+        background-position: center;
+        position: relative;
+      }
+      
+      .mobile-subcategory-overlay {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: linear-gradient(transparent, rgba(0,0,0,0.8));
+        padding: 1rem;
+        color: white;
+        text-align: center;
+      }
+      
+      .mobile-subcategory-title {
+        font-size: 1rem;
+        font-weight: 600;
+        margin: 0;
+        text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+      }
+      
+      /* Mobile Navigation */
+      .mobile-nav-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem;
+        background: white;
+        border-bottom: 2px solid var(--primary-medium);
+        margin-bottom: 1rem;
+        border-radius: 12px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      }
+      
+      .mobile-nav-title {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--primary-dark);
+        margin: 0;
+      }
+      
+      .mobile-nav-button {
+        background: var(--primary-dark);
+        color: white;
+        border: none;
+        padding: 0.5rem 1rem;
+        border-radius: 8px;
+        font-size: 0.875rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+      
+      .mobile-nav-button:hover {
+        background: var(--primary-medium);
+        transform: translateY(-1px);
+      }
+      
+      /* Mobile Empty State */
+      .mobile-empty-state {
+        text-align: center;
+        padding: 3rem 1rem;
+        background: #f8f9fa;
+        border-radius: 16px;
+        margin: 2rem 0;
+      }
+      
+      .mobile-empty-icon {
+        font-size: 3rem;
+        color: #ccc;
+        margin-bottom: 1rem;
+      }
+      
+      .mobile-empty-text {
+        color: #666;
+        font-size: 1rem;
+        margin: 0;
+      }
     }
   </style>
 </head>
-<body class="bg-primary-3">
-  <!-- Header -->
-  <header class="w-full shadow-md bg-primary-3">
-    <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
-      <div class="text-3xl font-semibold text-primary-1">
-        caputo
-      </div>
-      <button id="language-toggle" class="px-4 py-2 bg-primary-1 text-white rounded-md hover:bg-opacity-90 transition">
-        العربية
-      </button>
+<body>
+  <!-- Navigation -->
+  <nav class="bg-gradient-to-r from-primary-dark via-primary-medium to-secondary-2 shadow-lg relative overflow-hidden">
+    <!-- Decorative background elements -->
+    <div class="absolute inset-0 opacity-10">
+      <div class="absolute top-0 left-0 w-32 h-32 bg-white rounded-full -translate-x-16 -translate-y-16"></div>
+      <div class="absolute bottom-0 right-0 w-24 h-24 bg-white rounded-full translate-x-12 translate-y-12"></div>
+      <div class="absolute top-1/2 left-1/4 w-16 h-16 bg-white rounded-full opacity-50"></div>
     </div>
-  </header>
+    
+    <div class="max-w-7xl mx-auto px-4 py-3 relative z-10">
+      <div class="flex justify-between items-center">
+        <!-- Logo and Brand Section -->
+        <div class="flex items-center space-x-4">
+          <div class="relative">
+            <img src="cupo.jpg" alt="Caputo Logo" class="w-16 h-16 md:w-20 md:h-20 rounded-full object-cover border-4 border-white shadow-lg">
+            <div class="absolute -bottom-1 -right-1 w-6 h-6 bg-primary-light rounded-full border-2 border-white flex items-center justify-center">
+              <div class="w-3 h-3 bg-primary-dark rounded-full"></div>
+            </div>
+          </div>
+          <div class="flex flex-col">
+            <div class="text-2xl md:text-3xl font-bold text-black logo tracking-wider drop-shadow-lg">
+              CAPUTO
+            </div>
+            <div class="text-xs md:text-sm text-black/80 font-medium tracking-wide drop-shadow-md">
+              Authentic Italian Cuisine
+            </div>
+          </div>
+        </div>
+        
+        <!-- Navigation Actions -->
+        <div class="flex items-center space-x-3">
+          <!-- Language Toggle with improved styling -->
+          <button id="language-toggle" class="relative group">
+            <div class="bg-white/80 backdrop-blur-sm border border-black/20 rounded-full px-4 py-2 text-black font-medium transition-all duration-300 hover:bg-white hover:scale-105 active:scale-95">
+              <span class="flex items-center space-x-2">
+                <span class="text-sm">العربية</span>
+                <svg class="w-4 h-4 transform group-hover:rotate-180 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                </svg>
+              </span>
+            </div>
+            <!-- Hover effect -->
+            <div class="absolute inset-0 bg-black/5 rounded-full blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+          </button>
+          
+          <!-- Contact Info (hidden on mobile) -->
+          <div class="hidden md:flex items-center space-x-4 text-black">
+            <div class="flex items-center space-x-2">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+              </svg>
+              <span class="text-sm font-medium drop-shadow-sm">+20 123 456 789</span>
+            </div>
+            <div class="flex items-center space-x-2">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+              </svg>
+              <span class="text-sm font-medium drop-shadow-sm">Tivoli Dome, Alexandria</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Animated bottom border -->
+    <div class="h-1 bg-gradient-to-r from-primary-light via-white to-secondary-3 animate-pulse"></div>
+  </nav>
 
- <!-- Hero Section -->
-<section class="w-full relative">
-  <div class="max-w-7xl mx-auto px-4 py-12">
-    <div class="relative h-96 w-full rounded-lg overflow-hidden">
-      <img src="cup.png" alt="Caputo Cup" class="w-full h-full object-cover">
-      <div class="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center">
-        <div class="text-center px-4">
-          <h2 id="menu-title" class="text-4xl font-bold text-white mb-4">Explore our menu</h2>
-          <p id="menu-description" class="text-xl text-white max-w-2xl mx-auto">
-            Choose from a diverse menu featuring a delectable array of dishes. Our mission is to satisfy your
-            cravings and elevate your dining experience.
-          </p>
+  <!-- Hero Section -->
+  <section class="hero-section relative overflow-hidden">
+    <!-- Background with cup.png image overlay -->
+    <div class="absolute inset-0 bg-gradient-to-br from-primary-dark/90 via-primary-medium/85 to-secondary-2/80"></div>
+    <div class="absolute inset-0" style="background-image: url('cup.png'); background-size: cover; background-position: center; opacity: 0.6;"></div>
+    
+    <!-- Decorative elements -->
+    <div class="absolute top-10 left-10 w-20 h-20 bg-white/10 rounded-full blur-xl"></div>
+    <div class="absolute bottom-20 right-20 w-32 h-32 bg-primary-light/20 rounded-full blur-2xl"></div>
+    <div class="absolute top-1/3 right-1/4 w-16 h-16 bg-secondary-3/30 rounded-full blur-lg"></div>
+    
+    <!-- Main content container -->
+    <div class="relative z-10 min-h-[70vh] md:min-h-[60vh] flex items-center">
+      <div class="max-w-7xl mx-auto px-4 py-8 md:py-16">
+        <div class="grid lg:grid-cols-2 gap-8 md:gap-12 items-center">
+          
+          <!-- Text Content -->
+          <div class="text-center lg:text-left order-2 lg:order-1">
+            <div class="mb-6">
+              <h1 id="hero-title" class="text-3xl sm:text-4xl md:text-6xl font-bold text-white mb-4 leading-tight drop-shadow-2xl">
+                Authentic Italian Cuisine with 
+                <span class="text-primary-light">Egyptian Soul</span>
+              </h1>
+              <p id="hero-subtitle" class="text-lg sm:text-xl md:text-2xl text-white/90 mb-6 md:mb-8 leading-relaxed">
+                A culinary journey from Alexandria to Naples and back
+              </p>
+            </div>
+            
+            <!-- CTA Buttons -->
+            <div class="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center lg:justify-start">
+              <a href="#menu" class="group relative overflow-hidden bg-white text-primary-dark px-6 md:px-8 py-3 md:py-4 rounded-full font-bold text-base md:text-lg inline-flex items-center justify-center transition-all duration-300 hover:scale-105 hover:shadow-2xl">
+                <span class="relative z-10">Explore Our Menu</span>
+                <div class="absolute inset-0 bg-gradient-to-r from-primary-light to-secondary-2 transform translate-x-full group-hover:translate-x-0 transition-transform duration-300"></div>
+              </a>
+              <a href="#story-section" class="group relative overflow-hidden border-2 border-white text-white px-6 md:px-8 py-3 md:py-4 rounded-full font-bold text-base md:text-lg inline-flex items-center justify-center transition-all duration-300 hover:bg-white hover:text-primary-dark hover:scale-105">
+                <span class="relative z-10">Our Story</span>
+              </a>
+            </div>
+            
+            <!-- Features -->
+            <div class="mt-8 md:mt-12 grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-6 text-white/80">
+              <div class="flex items-center justify-center lg:justify-start space-x-2 md:space-x-3">
+                <div class="w-6 h-6 md:w-8 md:h-8 bg-primary-light/20 rounded-full flex items-center justify-center">
+                  <svg class="w-3 h-3 md:w-4 md:h-4 text-primary-light" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                  </svg>
+                </div>
+                <span class="text-xs md:text-sm font-medium">Open Daily 9AM-11PM</span>
+              </div>
+              <div class="flex items-center justify-center lg:justify-start space-x-2 md:space-x-3">
+                <div class="w-6 h-6 md:w-8 md:h-8 bg-primary-light/20 rounded-full flex items-center justify-center">
+                  <svg class="w-3 h-3 md:w-4 md:h-4 text-primary-light" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                  </svg>
+                </div>
+                <span class="text-xs md:text-sm font-medium">Tivoli Dome, Alexandria</span>
+              </div>
+              <div class="flex items-center justify-center lg:justify-start space-x-2 md:space-x-3">
+                <div class="w-6 h-6 md:w-8 md:h-8 bg-primary-light/20 rounded-full flex items-center justify-center">
+                  <svg class="w-3 h-3 md:w-4 md:h-4 text-primary-light" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                  </svg>
+                </div>
+                <span class="text-xs md:text-sm font-medium">Made with Love</span>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Decorative Cup Elements -->
+          <div class="relative flex justify-center lg:justify-end order-1 lg:order-2 mb-8 lg:mb-0">
+            <div class="relative">
+              <!-- Large decorative cup silhouette - hidden on mobile -->
+              <div class="hidden md:block w-48 h-48 sm:w-64 sm:h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 bg-white/10 rounded-full flex items-center justify-center backdrop-blur-sm border border-white/20">
+                <div class="w-36 h-36 sm:w-48 sm:h-48 md:w-64 md:h-64 lg:w-80 lg:h-80 bg-white/5 rounded-full flex items-center justify-center">
+                  <svg class="w-20 h-20 sm:w-24 sm:h-24 md:w-32 md:h-32 lg:w-40 lg:h-40 text-white/30" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
+                  </svg>
+                </div>
+              </div>
+              
+              <!-- Mobile-friendly cup icon -->
+              <div class="md:hidden flex justify-center">
+                <div class="w-24 h-24 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm border border-white/30">
+                  <svg class="w-12 h-12 text-white/60" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
+                  </svg>
+                </div>
+              </div>
+              
+              <!-- Floating elements around the cup (hidden on mobile for cleaner look) -->
+              <div class="hidden md:block absolute -top-4 -right-4 w-16 h-16 bg-primary-light/30 rounded-full flex items-center justify-center animate-bounce">
+                <svg class="w-8 h-8 text-primary-light" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
+                </svg>
+              </div>
+              
+              <div class="hidden md:block absolute -bottom-6 -left-6 w-12 h-12 bg-secondary-2/40 rounded-full flex items-center justify-center animate-pulse">
+                <svg class="w-6 h-6 text-secondary-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path>
+                </svg>
+              </div>
+              
+              <!-- Decorative circles (hidden on mobile) -->
+              <div class="hidden md:block absolute top-1/4 -left-8 w-4 h-4 bg-primary-light/50 rounded-full animate-ping"></div>
+              <div class="hidden md:block absolute bottom-1/3 -right-12 w-3 h-3 bg-secondary-3/60 rounded-full animate-pulse"></div>
+              
+              <!-- Additional decorative elements (hidden on mobile) -->
+              <div class="hidden md:block absolute top-1/2 -left-16 w-6 h-6 bg-white/20 rounded-full animate-bounce" style="animation-delay: 1s;"></div>
+              <div class="hidden md:block absolute bottom-1/4 -right-20 w-5 h-5 bg-primary-light/30 rounded-full animate-pulse" style="animation-delay: 2s;"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Scroll indicator -->
+    <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+      <div class="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center">
+        <div class="w-1 h-3 bg-white/60 rounded-full mt-2 animate-pulse"></div>
+      </div>
+    </div>
+  </section>
+
+ <!-- Story Section with Translation Toggle -->
+<section class="story-section py-16 pattern-bg" id="story-section">
+  <div class="max-w-7xl mx-auto px-4">
+    <!-- English Version (default) -->
+    <div id="english-story">
+      <h2 class="text-3xl font-bold text-primary-dark text-center mb-12">Caputo's Journey</h2>
+      
+      <div class="grid md:grid-cols-2 gap-8 items-center mb-12">
+        <div>
+          <h3 class="text-2xl font-bold text-primary-dark mb-4">From Alexandria to the World</h3>
+          <p class="mb-4">Caputo, an Egyptian chef passionate about cooking, worked in a small kitchen in Alexandria but refused to stick to traditional methods. After struggling in several restaurants, he embarked on a world tour to learn the secrets of cooking.</p>
+          <p>In Naples, he discovered his love for pizza but faced difficulties with chefs due to his new and innovative ideas. In Paris, he was rejected because of his origin, but found a mentor who believed in his talent. In New York, he proved himself against great chefs, but realized his true place was in Egypt.</p>
+        </div>
+        <div class="rounded-lg overflow-hidden shadow-lg">
+          <img src="https://images.unsplash.com/photo-1547592180-85f173990554?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Caputo's kitchen" class="w-full h-full object-cover">
+        </div>
+      </div>
+      
+      <div class="grid md:grid-cols-2 gap-8 items-center">
+        <div class="order-1 md:order-2">
+          <h3 class="text-2xl font-bold text-primary-dark mb-4">The Return to Alexandria</h3>
+          <p class="mb-4">He returned to Alexandria and opened his restaurant in Tivoli Dome despite the challenges. On opening day, he succeeded in attracting customers with a blend of global flavors and his personal touch.</p>
+          <p>Our motto "Food for your soul and warmth for your heart" conveys the message that the restaurant is not just a place to eat, but also provides intimate atmospheres that encourage gathering and sharing.</p>
+        </div>
+        <div class="order-2 md:order-1 rounded-lg overflow-hidden shadow-lg">
+          <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Caputo's restaurant" class="w-full h-full object-cover">
+        </div>
+      </div>
+    </div>
+
+    <!-- Arabic Version (hidden by default) -->
+    <div id="arabic-story" class="hidden arabic-text">
+      <h2 class="text-3xl font-bold text-primary-dark text-center mb-12">رحلة كابوتو</h2>
+      
+      <div class="grid md:grid-cols-2 gap-8 items-center mb-12">
+        <div>
+          <h3 class="text-2xl font-bold text-primary-dark mb-4">من الإسكندرية إلى العالم</h3>
+          <p class="mb-4">كابوتو، الشيف المصري الشغوف بالطهي، عمل في مطبخ صغير بالإسكندرية لكنه رفض الالتزام بالأساليب التقليدية. بعد معاناة في عدة مطاعم، انطلق في جولة حول العالم لتعلم أسرار الطهي.</p>
+          <p>في نابولي، اكتشف حبه للبيتزا لكنه واجه صعوبات مع الطهاة بسبب أفكاره الجديدة والمبتكرة. في باريس، تم رفضه بسبب أصله، لكنه وجد معلمة آمنت بموهبته. في نيويورك، أثبت نفسه أمام كبار الطهاة، لكنه أدرك أن مكانه الحقيقي كان في مصر.</p>
+        </div>
+        <div class="rounded-lg overflow-hidden shadow-lg">
+          <img src="https://images.unsplash.com/photo-1547592180-85f173990554?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="مطبخ كابوتو" class="w-full h-full object-cover">
+        </div>
+      </div>
+      
+      <div class="grid md:grid-cols-2 gap-8 items-center">
+        <div class="order-1 md:order-2">
+          <h3 class="text-2xl font-bold text-primary-dark mb-4">العودة إلى الإسكندرية</h3>
+          <p class="mb-4">عاد إلى الإسكندرية وافتتح مطعمه في تيفولي دوم رغم التحديات. في يوم الافتتاح، نجح في جذب الزبائن بمزيج من النكهات العالمية ولمسته الشخصية.</p>
+          <p>شعارنا "طعام لروحك ودفء لقلبك" ينقل الرسالة أن المطعم ليس مجرد مكان للأكل، بل يوفر أجواءً حميمية تشجع على التجمع والمشاركة.</p>
+        </div>
+        <div class="order-2 md:order-1 rounded-lg overflow-hidden shadow-lg">
+          <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="مطعم كابوتو" class="w-full h-full object-cover">
         </div>
       </div>
     </div>
   </div>
 </section>
 
-    <!-- Main Categories -->
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-8 justify-items-center">
-      <!-- Breakfast -->
-      <div class="relative group">
-        <button 
-          aria-labelledby="breakfast-label"
-          onclick="showMenu('breakfast')" 
-          class="menu-circle border-2 border-primary-1 cursor-pointer transition-transform duration-300 group-hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-1 focus-visible:ring-offset-2"
-          style="background-image: url('https://images.unsplash.com/photo-1550583724-b2692b85b150?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80')"
-          aria-expanded="false"
-          data-menu="breakfast"
-        >
-          <span class="sr-only">Breakfast menu</span>
-        </button>
-        <div id="breakfast-label" class="menu-label">Breakfast</div>
-      </div>
+  <!-- Menu Section -->
+  <section id="menu" class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4">
+      <h2 id="menu-title" class="text-3xl font-bold text-primary-dark text-center mb-4">Our Menu</h2>
+      <p id="menu-description" class="text-lg text-gray-600 text-center max-w-3xl mx-auto mb-12">
+        Choose from a diverse menu featuring a delectable array of dishes. Our mission is to satisfy your cravings and elevate your dining experience.
+      </p>
       
-      <!-- Main Course -->
-      <div class="relative group">
-        <button 
-          aria-labelledby="main-course-label"
-          onclick="showSubcategories('main-course')" 
-          class="menu-circle border-2 border-primary-1 cursor-pointer transition-transform duration-300 group-hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-1 focus-visible:ring-offset-2"
-          style="background-image: url('https://images.unsplash.com/photo-1544025162-d76694265947?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80')"
-          aria-expanded="false"
-          data-menu="main-course"
-        >
-          <span class="sr-only">Main Course menu</span>
-        </button>
-        <div id="main-course-label" class="menu-label">Main Course</div>
-      </div>
-      
-      <!-- Soup -->
-      <div class="relative group">
-        <button 
-          aria-labelledby="soup-label"
-          onclick="showMenu('soup')" 
-          class="menu-circle border-2 border-primary-1 cursor-pointer transition-transform duration-300 group-hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-1 focus-visible:ring-offset-2"
-          style="background-image: url('https://images.unsplash.com/photo-1547592180-85f173990554?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80')"
-          aria-expanded="false"
-          data-menu="soup"
-        >
-          <span class="sr-only">Soup menu</span>
-        </button>
-        <div id="soup-label" class="menu-label">Soup</div>
-      </div>
-      
-      <!-- Salad -->
-      <div class="relative group">
-        <button 
-          aria-labelledby="salad-label"
-          onclick="showMenu('salad')" 
-          class="menu-circle border-2 border-primary-1 cursor-pointer transition-transform duration-300 group-hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-1 focus-visible:ring-offset-2"
-          style="background-image: url('https://images.unsplash.com/photo-1546793665-c74683f339c1?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80')"
-          aria-expanded="false"
-          data-menu="salad"
-        >
-          <span class="sr-only">Salad menu</span>
-        </button>
-        <div id="salad-label" class="menu-label">Salad</div>
-      </div>
-      
-      <!-- Appetizers -->
-      <div class="relative group">
-        <button 
-          aria-labelledby="appetizers-label"
-          onclick="showMenu('appetizers')" 
-          class="menu-circle border-2 border-primary-1 cursor-pointer transition-transform duration-300 group-hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-1 focus-visible:ring-offset-2"
-          style="background-image: url('https://images.unsplash.com/photo-1512621776951-a57141f2eefd?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80')"
-          aria-expanded="false"
-          data-menu="appetizers"
-        >
-          <span class="sr-only">Appetizers menu</span>
-        </button>
-        <div id="appetizers-label" class="menu-label">Appetizers</div>
-      </div>
-      
-      <!-- Pasta -->
-      <div class="relative group">
-        <button 
-          aria-labelledby="pasta-label"
-          onclick="showSubcategories('pasta')" 
-          class="menu-circle border-2 border-primary-1 cursor-pointer transition-transform duration-300 group-hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-1 focus-visible:ring-offset-2"
-          style="background-image: url('https://images.unsplash.com/photo-1555949258-eb67b1ef0ceb?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80')"
-          aria-expanded="false"
-          data-menu="pasta"
-        >
-          <span class="sr-only">Pasta menu</span>
-        </button>
-        <div id="pasta-label" class="menu-label">Pasta</div>
-      </div>
-      
-      <!-- Pizza -->
-      <div class="relative group">
-        <button 
-          aria-labelledby="pizza-label"
-          onclick="showSubcategories('pizza')" 
-          class="menu-circle border-2 border-primary-1 cursor-pointer transition-transform duration-300 group-hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-1 focus-visible:ring-offset-2"
-          style="background-image: url('https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80')"
-          aria-expanded="false"
-          data-menu="pizza"
-        >
-          <span class="sr-only">Pizza menu</span>
-        </button>
-        <div id="pizza-label" class="menu-label">Pizza</div>
-      </div>
-      
-      <!-- Sandwiches -->
-      <div class="relative group">
-        <button 
-          aria-labelledby="sandwiches-label"
-          onclick="showSubcategories('sandwiches')" 
-          class="menu-circle border-2 border-primary-1 cursor-pointer transition-transform duration-300 group-hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-1 focus-visible:ring-offset-2"
-          style="background-image: url('https://images.unsplash.com/photo-1556679343-c7306c1976bc?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80')"
-          aria-expanded="false"
-          data-menu="sandwiches"
-        >
-          <span class="sr-only">Sandwiches menu</span>
-        </button>
-        <div id="sandwiches-label" class="menu-label">Sandwiches</div>
-      </div>
-      
-      <!-- Extras -->
-      <div class="relative group">
-        <button 
-          aria-labelledby="extras-label"
-          onclick="showMenu('extras')" 
-          class="menu-circle border-2 border-primary-1 cursor-pointer transition-transform duration-300 group-hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-1 focus-visible:ring-offset-2"
-          style="background-image: url('https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80')"
-          aria-expanded="false"
-          data-menu="extras"
-        >
-          <span class="sr-only">Extras menu</span>
-        </button>
-        <div id="extras-label" class="menu-label">Extras</div>
-      </div>
-      
-      <!-- Drinks -->
-      <div class="relative group">
-        <button 
-          aria-labelledby="drinks-label"
-          onclick="showSubcategories('drinks')" 
-          class="menu-circle border-2 border-primary-1 cursor-pointer transition-transform duration-300 group-hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-1 focus-visible:ring-offset-2"
-          style="background-image: url('https://images.unsplash.com/photo-1437418747212-8d9709afab22?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80')"
-          aria-expanded="false"
-          data-menu="drinks"
-        >
-          <span class="sr-only">Drinks menu</span>
-        </button>
-        <div id="drinks-label" class="menu-label">Drinks</div>
+      <!-- Menu Categories Grid - Mobile Optimized -->
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 md:gap-6 mb-8 md:mb-12">
+        <!-- Breakfast -->
+        <div class="menu-category bg-white rounded-lg overflow-hidden cursor-pointer" onclick="showMenu('breakfast')">
+          <div class="menu-category-image" style="background-image: url('https://images.unsplash.com/photo-1550583724-b2692b85b150?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80')"></div>
+          <div class="p-3 md:p-4 text-center">
+            <h3 id="breakfast-label" class="font-bold text-sm md:text-lg text-primary-dark">Breakfast</h3>
+          </div>
+        </div>
+        
+        <!-- Main Course -->
+        <div class="menu-category bg-white rounded-lg overflow-hidden cursor-pointer" onclick="showSubcategories('main-course')">
+          <div class="menu-category-image" style="background-image: url('https://images.unsplash.com/photo-1544025162-d76694265947?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80')"></div>
+          <div class="p-3 md:p-4 text-center">
+            <h3 id="main-course-label" class="font-bold text-sm md:text-lg text-primary-dark">Main Course</h3>
+          </div>
+        </div>
+        
+        <!-- Pasta -->
+        <div class="menu-category bg-white rounded-lg overflow-hidden cursor-pointer" onclick="showSubcategories('pasta')">
+          <div class="menu-category-image" style="background-image: url('https://images.unsplash.com/photo-1555949258-eb67b1ef0ceb?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80')"></div>
+          <div class="p-3 md:p-4 text-center">
+            <h3 id="pasta-label" class="font-bold text-sm md:text-lg text-primary-dark">Pasta</h3>
+          </div>
+        </div>
+        
+        <!-- Pizza -->
+        <div class="menu-category bg-white rounded-lg overflow-hidden cursor-pointer" onclick="showSubcategories('pizza')">
+          <div class="menu-category-image" style="background-image: url('https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80')"></div>
+          <div class="p-3 md:p-4 text-center">
+            <h3 id="pizza-label" class="font-bold text-sm md:text-lg text-primary-dark">Pizza</h3>
+          </div>
+        </div>
+        
+        <!-- Appetizers -->
+        <div class="menu-category bg-white rounded-lg overflow-hidden cursor-pointer" onclick="showMenu('appetizers')">
+          <div class="menu-category-image" style="background-image: url('https://images.unsplash.com/photo-1512621776951-a57141f2eefd?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80')"></div>
+          <div class="p-3 md:p-4 text-center">
+            <h3 id="appetizers-label" class="font-bold text-sm md:text-lg text-primary-dark">Appetizers</h3>
+          </div>
+        </div>
+        
+        <!-- Salad -->
+        <div class="menu-category bg-white rounded-lg overflow-hidden cursor-pointer" onclick="showMenu('salad')">
+          <div class="menu-category-image" style="background-image: url('https://images.unsplash.com/photo-1546793665-c74683f339c1?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80')"></div>
+          <div class="p-3 md:p-4 text-center">
+            <h3 id="salad-label" class="font-bold text-sm md:text-lg text-primary-dark">Salad</h3>
+          </div>
+        </div>
+        
+        <!-- Soup -->
+        <div class="menu-category bg-white rounded-lg overflow-hidden cursor-pointer" onclick="showMenu('soup')">
+          <div class="menu-category-image" style="background-image: url('https://images.unsplash.com/photo-1547592180-85f173990554?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80')"></div>
+          <div class="p-3 md:p-4 text-center">
+            <h3 id="soup-label" class="font-bold text-sm md:text-lg text-primary-dark">Soup</h3>
+          </div>
+        </div>
+        
+        <!-- Sandwiches -->
+        <div class="menu-category bg-white rounded-lg overflow-hidden cursor-pointer" onclick="showSubcategories('sandwiches')">
+          <div class="menu-category-image" style="background-image: url('https://images.unsplash.com/photo-1556679343-c7306c1976bc?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80')"></div>
+          <div class="p-3 md:p-4 text-center">
+            <h3 id="sandwiches-label" class="font-bold text-sm md:text-lg text-primary-dark">Sandwiches</h3>
+          </div>
+        </div>
+        
+        <!-- Drinks -->
+        <div class="menu-category bg-white rounded-lg overflow-hidden cursor-pointer" onclick="showSubcategories('drinks')">
+          <div class="menu-category-image" style="background-image: url('https://images.unsplash.com/photo-1437418747212-8d9709afab22?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80')"></div>
+          <div class="p-3 md:p-4 text-center">
+            <h3 id="drinks-label" class="font-bold text-sm md:text-lg text-primary-dark">Drinks</h3>
+          </div>
+        </div>
+        
+        <!-- Extras -->
+        <div class="menu-category bg-white rounded-lg overflow-hidden cursor-pointer" onclick="showMenu('extras')">
+          <div class="menu-category-image" style="background-image: url('https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80')"></div>
+          <div class="p-3 md:p-4 text-center">
+            <h3 id="extras-label" class="font-bold text-sm md:text-lg text-primary-dark">Extras</h3>
+          </div>
+        </div>
       </div>
     </div>
-      
     
-       <div id="subcategories-content" class="mt-16 hidden" aria-live="polite">
-      <!-- Subcategories loaded dynamically -->
-    </div>
-
-<div id="menu-content" class="mt-16 hidden" aria-live="polite">
-      <!-- Content loaded dynamically -->\
-       
-    </div>
-
-    <!-- Menu content -->
-    
+          <!-- Subcategories Content Container -->
+      <div id="subcategories-content" class="max-w-7xl mx-auto px-4 py-12 hidden" aria-live="polite"></div>
       
+      <!-- Menu Content Container -->
+      <div id="menu-content" class="max-w-7xl mx-auto px-4 py-12 hidden" aria-live="polite"></div>
+  </section>
+
+  <!-- Weekly Challenge Section -->
+<section class="py-16 bg-secondary-2 text-primary-dark">
+  <div class="max-w-7xl mx-auto px-4 text-center">
+    <h2 class="text-3xl font-bold mb-6">Caputo's Weekly Challenge</h2>
+    <div class="max-w-3xl mx-auto bg-white rounded-lg p-8 shadow-lg">
+      <h3 id="challenge-title" class="text-2xl font-bold mb-4 text-primary-dark">Try Our Weekly Special</h3>
+      <p id="challenge-description" class="text-gray-700">Each week we feature a new challenge for our customers. Solve it and get a discount on your next visit!</p>
+    </div>
+  </div>
 </section>
 
-<style>
-  .menu-circle {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    display: block;
-    margin: 0 auto;
-    position: relative;
-    overflow: hidden;
-  }
-  
-  .menu-circle::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0,0,0,0.2);
-    opacity: 0;
-    transition: opacity 0.3s ease;
-  }
-  
-  .menu-circle:hover::after,
-  .menu-circle:focus-visible::after {
-    opacity: 1;
-  }
-  
-  .menu-label {
-    margin-top: 1rem;
-    font-weight: 600;
-    color: #333;
-    transition: color 0.3s ease;
-  }
-  
-  .group:hover .menu-label {
-    color: var(--primary-1);
-  }
-  
-  @media (max-width: 640px) {
-    .menu-circle {
-      width: 100px;
-      height: 100px;
-    }
-  }
-</style>
+<!-- Footer -->
+<footer class="bg-primary-dark py-12">
+  <div class="max-w-7xl mx-auto px-4">
+    <div class="grid md:grid-cols-3 gap-8 text-white">
+      <!-- Restaurant Info -->
+      <div>
+        <h3 class="text-2xl font-bold mb-4 text-black">CAPUTO</h3>
+        <div class="space-y-2">
+          <p class="text-black opacity-90">Tivoli Dome, Alexandria, Egypt</p>
+          <p class="text-black opacity-90">Open Daily: 9:00 AM - 11:00 PM</p>
+        </div>
+      </div>
 
+      <!-- Quick Links -->
+      <div>
+        <h4 class="text-xl font-bold mb-4 text-black">Quick Links</h4>
+        <ul class="space-y-2">
+          <li><a href="#menu" class="text-black opacity-90 hover:opacity-100 hover:text-primary-light transition">Menu</a></li>
+          <li><a href="#" class="text-black opacity-90 hover:opacity-100 hover:text-primary-light transition">About Us</a></li>
+          <li><a href="#" class="text-black opacity-90 hover:opacity-100 hover:text-primary-light transition">Contact</a></li>
+        </ul>
+      </div>
 
+      <!-- Social Links -->
+      <div>
+        <h4 class="text-xl font-bold mb-4 text-black">Follow Us</h4>
+        <div class="flex space-x-4">
+          <a href="#" class="text-black opacity-90 hover:opacity-100 hover:text-primary-light transition">Facebook</a>
+          <a href="#" class="text-black opacity-90 hover:opacity-100 hover:text-primary-light transition">Instagram</a>
+          <a href="#" class="text-black opacity-90 hover:opacity-100 hover:text-primary-light transition">Twitter</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Copyright -->
+    <div class="border-t border-primary-medium mt-8 pt-8 text-center text-black opacity-80">
+      <p>&copy; 2023 Caputo Restaurant. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
 
   <script>
-    // Language management
+    // Language management (same as before)
     let currentLanguage = 'english';
     const translations = {
       english: {
-        menuTitle: "Explore our menu",
-        menuDescription: "Choose from a diverse menu featuring a delectable array of dishes. Our mission is to satisfy your cravings and elevate your dining experience, one delicious meal at a time.",
+        heroTitle: "Authentic Italian Cuisine with Egyptian Soul",
+        heroSubtitle: "A culinary journey from Alexandria to Naples and back",
+        menuTitle: "Our Menu",
+        menuDescription: "Choose from a diverse menu featuring a delectable array of dishes. Our mission is to satisfy your cravings and elevate your dining experience.",
+        challengeTitle: "Try Our Weekly Special",
+        challengeDescription: "Each week we feature a new challenge for our customers. Solve it and get a discount on your next visit!",
         breakfast: "Breakfast",
         "main-course": "Main Course",
         soup: "Soup",
@@ -391,123 +807,35 @@
         beef: "Beef",
         chicken: "Chicken",
         seafood: "Seafood",
+        vegetarian: "Vegetarian",
         "hot-drinks": "Hot Drinks",
         "cold-drinks": "Cold Drinks",
-        "light": "Light",
-        "toast": "Toast",
-        "croissant": "Croissant",
-        "eggs": "Eggs",
-        "extras-breakfast": "Extras Breakfast",
-        "mexican": "Mexican",
-        "chicken-creamy": "Chicken Creamy",
-        "tomato": "Tomato",
-        "chowder": "Chowder",
-        "shrimp": "Shrimp",
-        "french-fries": "French Fries",
-        "cheesy-fries": "Cheesy Fries",
-        "texas-fries": "Texas Fries",
-        "mozzarella-ring": "Mozzarella Ring",
-        "fried-calamari": "Fried Calamari",
-        "quesadilla": "Quesadilla",
-        "chicken-wings": "Chicken Wings",
-        "nachos": "Nachos",
-        "crisp-chicken": "Crisp Chicken",
-        "shrimp-knafeh": "Shrimp Knafeh",
-        "chips-queso": "Chips & Queso",
-        "cheese-ball": "Cheese Ball",
-        "arancini-balls": "Arancini Balls",
-        "potato-spanish-balls": "Potato Spanish Balls",
-        "caputo-balls": "Caputo Balls",
-        "mix-appetizer": "Mix Appetizer",
-        "green-salad": "Green Salad",
-        "greek-salad": "Greek Salad",
-        "carbine-salad": "Carbine Salad",
-        "fattoush-salad": "Fattoush Salad",
-        "caesar-salad": "Caesar Salad",
-        "caprese-salad": "Caprese Salad",
-        "tuna-salad": "Tuna Salad",
-        "avocado-shrimp-salad": "Avocado Shrimp Salad",
-        "burrata-salad": "Burrata Salad",
-        "alfredo-pasta": "Alfredo Pasta",
-        "spaghetti-sea-food": "Spaghetti Sea Food",
-        "pesto-pasta": "Pesto Pasta",
-        "penne-arrabbiata": "Penne Arrabbiata",
-        "mac-cheese-pasta": "Mac & Cheese Pasta",
-        "spaghetti-meat-balls": "Spaghetti Meat Balls",
-        "parmesan-pasta": "Parmesan Pasta",
-        "carbonara-pasta": "Carbonara Pasta",
-        "steak-mushroom": "Steak & Mushroom",
-        "mac-potato": "Mac Potato",
-        "shrimp-chicken-lemon": "Shrimp & Chicken Lemon",
-        "tagliatelle-pasta": "Tagliatelle Pasta",
-        "ravioli-chili-formaggie": "Ravioli Chili Formaggie",
-        "sunny-veg-ravioli": "Sunny Veg Ravioli",
-        "tariake-manzo": "Tariake Manzo",
-        "margherita": "Margherita",
-        "diavola": "Diavola",
-        "quattro-formaggi": "Quattro Formaggi",
-        "toono": "Toono",
-        vegetarian: "Vegetarian",
-        "burrata": "Burrata",
-        "gamberi": "Gamberi",
-        "frutti-di-mare": "Frutti di Mare",
-        "pollo": "Pollo",
-        "salsiccia": "Salsiccia",
-        "ranch": "Ranch",
-        "spanish": "Spanish",
-        "burger": "Burger",
-        "bacon": "Bacon",
-        "mushrooms": "Mushrooms",
-        "cow-boy-burger": "Cow Boy Burger",
-        "cheese-boom-burger": "Cheese Boom Burger",
-        "texas-burger": "Texas Burger",
-        "blue-burger": "Blue Burger",
-        "caputo-burger": "Caputo Burger",
-        "chicken-ranch-sand": "Chicken Ranch Sand",
-        "buffalo-chicken": "Buffalo Chicken",
-        "philie-sand": "Philie Sand",
-        "crisp-shrimp": "Crisp Shrimp",
-        "classic-chicken": "Classic Chicken",
-        "hot-dog-sand": "Hot Dog Sand",
-        "tuna-sand": "Tuna Sand",
-        "shrimp-avocado": "Shrimp Avocado",
-        "chicken-fajita": "Chicken Fajita",
-        "beef-fajita": "Beef Fajita",
-        "grilled-chicken-mushroom": "Grilled Chicken Mushroom",
-        "montrey-chicken": "Montrey Chicken",
-        "colorado-chicken": "Colorado Chicken",
-        "double-h": "Double H",
-        "corden-bleu": "Corden Bleu",
-        "grilled-chicken": "Grilled Chicken",
-        "fried-boneless-chicken": "Fried Boneless Chicken",
-        "grilled-boneless-chicken": "Grilled Boneless Chicken",
-        "top-filet-steak": "Top Filet Steak",
-        "ribeye-steak": "Ribeye Steak",
-        "surf-turf": "Surf & Turf",
-        "beef-stroganoff": "Beef Stroganoff",
-        "scallop": "Scallop",
-        "grilled-shrimp": "Grilled Shrimp",
-        "shrimps-la-cream": "Shrimps a la Cream",
-        "mix-sea-food-grilled": "Mix Sea Food Grilled",
-        "fajita": "Fajita",
-        "mix-match": "Mix Match",
-        "trio-fajita": "Trio Fajita",
-        "cheese-sauce": "Cheese Sauce",
-        "mushroom-sauce": "Mushroom Sauce",
-        "grilled-mushrooms": "Grilled Mushrooms",
-        "bread": "Bread",
-        "garlic-bread": "Garlic Bread",
-        "sauce": "Sauce",
-        "white-rice": "White Rice",
-        "grilled-veggies": "Grilled Veggies",
-        "hummus": "Hummus",
-        "mash-potato": "Mash Potato",
-        "white-red-pasta": "White or Red Pasta",
-        "beef-burger": "Beef Burger"
+        "main-course-chicken": "Main Course - Chicken",
+        "main-course-beef": "Main Course - Beef", 
+        "main-course-seafood": "Main Course - Seafood",
+        "main-course-vegetarian": "Main Course - Vegetarian",
+        "pasta-beef": "Pasta - Beef",
+        "pasta-chicken": "Pasta - Chicken",
+        "pasta-fish": "Pasta - Seafood",
+        "pasta-vegetarian": "Pasta - Vegetarian",
+        "pizza-beef": "Pizza - Beef",
+        "pizza-chicken": "Pizza - Chicken",
+        "pizza-fish": "Pizza - Seafood",
+        "pizza-vegetarian": "Pizza - Vegetarian",
+        "sandwiches-chicken": "Sandwiches - Chicken",
+        "sandwiches-beef": "Sandwiches - Beef",
+        "sandwiches-seafood": "Sandwiches - Seafood",
+        "sandwiches-vegetarian": "Sandwiches - Vegetarian",
+        "drinks-hot-drinks": "Drinks - Hot Drinks",
+        "drinks-cold-drinks": "Drinks - Cold Drinks"
       },
       arabic: {
-        menuTitle: "استكشف قائمتنا",
-        menuDescription: "اختر من بين قائمة متنوعة تضم مجموعة لذيذة من الأطباق. مهمتنا هي إرضاء رغباتك ورفع مستوى تجربة تناول الطعام الخاصة بك، وجبة لذيذة في كل مرة.",
+        heroTitle: "مطبخ إيطالي أصيل بروح مصرية",
+        heroSubtitle: "رحلة طهوية من الإسكندرية إلى نابولي والعودة",
+        menuTitle: "قائمتنا",
+        menuDescription: "اختر من بين قائمة متنوعة تضم مجموعة لذيذة من الأطباق. مهمتنا هي إرضاء رغباتك ورفع مستوى تجربة تناول الطعام الخاصة بك.",
+        challengeTitle: "جرب عرضنا الأسبوعي الخاص",
+        challengeDescription: "كل أسبوع نقدم تحديًا جديدًا لعملائنا. احله واحصل على خصم في زيارتك القادمة!",
         breakfast: "إفطار",
         "main-course": "الطبق الرئيسي",
         soup: "شوربة",
@@ -524,119 +852,27 @@
         beef: "لحم بقري",
         chicken: "دجاج",
         seafood: "مأكولات بحرية",
+        vegetarian: "نباتي",
         "hot-drinks": "مشروبات ساخنة",
         "cold-drinks": "مشروبات باردة",
-        "light": "خفيف",
-        "toast": "توست",
-        "croissant": "كرواسون",
-        "eggs": "بيض",
-        "extras-breakfast": "إضافات الإفطار",
-        "mexican": "مكسيكان",
-        "chicken-creamy": "تشيكن كريمي",
-        "tomato": "طماطم",
-        "chowder": "تشاودر",
-        "shrimp": "روبيان",
-        "french-fries": "بطاطس مقلية",
-        "cheesy-fries": "بطاطس مقلية بالتشيز",
-        "texas-fries": "تيكاس فرايز",
-        "mozzarella-ring": "موتزاريلا رينجز",
-        "fried-calamari": "كاليمارى فرايد",
-        "quesadilla": "كساديا",
-        "chicken-wings": "أجنحة دجاج",
-        "nachos": "ناتشوز",
-        "crisp-chicken": "كريسبى تشيكن",
-        "shrimp-knafeh": "كنافة روبيان",
-        "chips-queso": "شيبس أند كيسو",
-        "cheese-ball": "تشيز بولز",
-        "arancini-balls": "أرانشيني بولز",
-        "potato-spanish-balls": "بوتيتو إسبانيش بولز",
-        "caputo-balls": "كابوتو بولز",
-        "mix-appetizer": "ميكس أبيتيزر",
-        "green-salad": "جرين سلاد",
-        "greek-salad": "جريك سلاد",
-        "carbine-salad": "كاربين سلاد",
-        "fattoush-salad": "فاتوش سلاد",
-        "caesar-salad": "سيزر سلاد",
-        "caprese-salad": "كابريزى سلاد",
-        "tuna-salad": "تونة سلاد",
-        "avocado-shrimp-salad": "أفوكادو روبيان سلاد",
-        "burrata-salad": "بوراتا سلاد",
-        "alfredo-pasta": "ألفريدو باستا",
-        "spaghetti-sea-food": "سى فود سباجيتى",
-        "pesto-pasta": "بيستو باستا",
-        "penne-arrabbiata": "بينى أرابياتا",
-        "mac-cheese-pasta": "ماك اند تشيز باستا",
-        "spaghetti-meat-balls": "سباجيتى ميت بولز",
-        "parmesan-pasta": "بارميزان باستا",
-        "carbonara-pasta": "كاربونارا باستا",
-        "steak-mushroom": "ستيك ومشروم باستا",
-        "mac-potato": "ماك بوتيتو",
-        "shrimp-chicken-lemon": "شيرمب أند تشيكن ليمون",
-        "tagliatelle-pasta": "تاجليتلى باستا",
-        "ravioli-chili-formaggie": "رافيولي تشيل فورماجي",
-        "sunny-veg-ravioli": "صنى ريفولى خضار",
-        "tariake-manzo": "ترياكو مانزو",
-        "margherita": "مارجريتا",
-        "diavola": "ديافولا",
-        "quattro-formaggi": "كواترو فورماجي",
-        "toono": "تونو",
-        vegetarian: "نباتي",
-        "burrata": "بوراتا",
-        "gamberi": "جامبيرى",
-        "frutti-di-mare": "فروتى دي ماري",
-        "pollo": "بوللو",
-        "salsiccia": "سالسيشيا",
-        "ranch": "رانش",
-        "spanish": "إسبانيش",
-        "burger": "برجر",
-        "bacon": "بيكون",
-        "mushrooms": "مشروم",
-        "cow-boy-burger": "كاو بوى برجر",
-        "cheese-boom-burger": "تشيز بوم برجر",
-        "texas-burger": "تكساس برجر",
-        "blue-burger": "بلو برجر",
-        "caputo-burger": "كابوتو برجر",
-        "chicken-ranch-sand": "تشيكن رانش ساندويتش",
-        "buffalo-chicken": "بافلو تشيكن",
-        "philie-sand": "فيلى ساندويتش",
-        "crisp-shrimp": "كريسب شريمب",
-        "classic-chicken": "كلاسيك تشيكن",
-        "hot-dog-sand": "هوت دوج ساندويتش",
-        "tuna-sand": "تونة ساندويتش",
-        "shrimp-avocado": "روبيان أفوكادو",
-        "chicken-fajita": "فاهيتا دجاج",
-        "beef-fajita": "فاهيتا بيف",
-        "grilled-chicken-mushroom": "جريلد تشيكن مشروم",
-        "montrey-chicken": "مونتيرى تشيكن",
-        "colorado-chicken": "كولارادو تشيكن",
-        "double-h": "دوبل إتش",
-        "corden-bleu": "كوردون بلو",
-        "grilled-chicken": "جريلد تشيكن",
-        "fried-boneless-chicken": "فرايد بونليس تشيكن",
-        "grilled-boneless-chicken": "جريلد بونليس تشيكن",
-        "top-filet-steak": "توب فيليت ستيك",
-        "ribeye-steak": "ريباى ستيك",
-        "surf-turf": "سيرف إند تورف",
-        "beef-stroganoff": "ستروجانوف بيف",
-        "scallop": "سكالوب",
-        "grilled-shrimp": "جريلد شريمب",
-        "shrimps-la-cream": "شريمب لاكريمي",
-        "mix-sea-food-grilled": "ميكس سى فود جريلد",
-        "fajita": "فاهيتا",
-        "mix-match": "ميكس ماتش",
-        "trio-fajita": "تريو فاهيتا",
-        "cheese-sauce": "تشيز صوص",
-        "mushroom-sauce": "مشروم صوص",
-        "grilled-mushrooms": "جريلد مشروم",
-        "bread": "خبز",
-        "garlic-bread": "خبز بالثوم",
-        "sauce": "صوص",
-        "white-rice": "أرز أبيض",
-        "grilled-veggies": "خضروات مشوية",
-        "hummus": "حمص",
-        "mash-potato": "بطاطس مهروسة",
-        "white-red-pasta": "باستا ريد او وايت",
-        "beef-burger": "بيف برجر"
+        "main-course-chicken": "الطبق الرئيسي - دجاج",
+        "main-course-beef": "الطبق الرئيسي - لحم بقري", 
+        "main-course-seafood": "الطبق الرئيسي - مأكولات بحرية",
+        "main-course-vegetarian": "الطبق الرئيسي - نباتي",
+        "pasta-beef": "باستا - لحم بقري",
+        "pasta-chicken": "باستا - دجاج",
+        "pasta-fish": "باستا - مأكولات بحرية",
+        "pasta-vegetarian": "باستا - نباتي",
+        "pizza-beef": "بيتزا - لحم بقري",
+        "pizza-chicken": "بيتزا - دجاج",
+        "pizza-fish": "بيتزا - مأكولات بحرية",
+        "pizza-vegetarian": "بيتزا - نباتي",
+        "sandwiches-chicken": "ساندويتشات - دجاج",
+        "sandwiches-beef": "ساندويتشات - لحم بقري",
+        "sandwiches-seafood": "ساندويتشات - مأكولات بحرية",
+        "sandwiches-vegetarian": "ساندويتشات - نباتي",
+        "drinks-hot-drinks": "مشروبات - مشروبات ساخنة",
+        "drinks-cold-drinks": "مشروبات - مشروبات باردة"
       }
     };
 
@@ -1685,26 +1921,40 @@
       ]
     };
 
+
     const subcategories = {
       pasta: ["beef", "chicken", "seafood", "vegetarian"],
       pizza: ["beef", "chicken", "seafood", "vegetarian"],
       drinks: ["hot-drinks", "cold-drinks"],
-      'main-course': ["chicken", "beef", "seafood", "vegetarian"], // Add this
-      sandwiches: ["chicken", "beef", "seafood", "vegetarian"] // Add this
-
+      'main-course': ["chicken", "beef", "seafood", "vegetarian"],
+      sandwiches: ["chicken", "beef", "seafood", "vegetarian"]
     };
 
     function toggleLanguage() {
-      currentLanguage = currentLanguage === 'english' ? 'arabic' : 'english';
-      updateLanguage();
-    }
+  currentLanguage = currentLanguage === 'english' ? 'arabic' : 'english';
+  updateLanguage();
+}
 
     function updateLanguage() {
       const lang = translations[currentLanguage];
       
+
+// Handle story section translation
+  if (currentLanguage === 'english') {
+    document.getElementById('english-story').classList.remove('hidden');
+    document.getElementById('arabic-story').classList.add('hidden');
+  } else {
+    document.getElementById('english-story').classList.add('hidden');
+    document.getElementById('arabic-story').classList.remove('hidden');
+  }
+
       // Update UI elements
+      document.getElementById('hero-title').textContent = lang.heroTitle;
+      document.getElementById('hero-subtitle').textContent = lang.heroSubtitle;
       document.getElementById('menu-title').textContent = lang.menuTitle;
       document.getElementById('menu-description').textContent = lang.menuDescription;
+      document.getElementById('challenge-title').textContent = lang.challengeTitle;
+      document.getElementById('challenge-description').textContent = lang.challengeDescription;
       
       // Update all category labels
       Object.keys(lang).forEach(key => {
@@ -1713,7 +1963,10 @@
         }
       });
       
-      document.getElementById('language-toggle').textContent = currentLanguage === 'english' ? 'العربية' : 'English';
+      // Update language toggle button
+      const languageToggle = document.getElementById('language-toggle');
+      const toggleText = languageToggle.querySelector('span span');
+      toggleText.textContent = currentLanguage === 'english' ? 'العربية' : 'English';
       
       // Update any open menu content
       if (!document.getElementById('menu-content').classList.contains('hidden')) {
@@ -1729,130 +1982,173 @@
     }
 
     function showMenu(category) {
-
-        const isSubcategory = category.includes('-');
-
-  if (!isSubcategory && !subcategories[category]) {
-    document.getElementById('subcategories-content').classList.add('hidden');
-  }
-      
-      
+      // Only hide subcategories if this is NOT a subcategory menu
+      const isSubcategoryMenu = category.includes('-');
+      if (!isSubcategoryMenu) {
+        document.getElementById('subcategories-content').classList.add('hidden');
+      }
       const menuContent = document.getElementById('menu-content');
       menuContent.classList.remove('hidden');
       menuContent.setAttribute('data-category', category);
       
       const lang = translations[currentLanguage];
-     
-        let displayName;
-  if (isSubcategory) {
-    const [parent, sub] = category.split('-');
-    displayName = `${lang[parent]} - ${lang[sub]}`;
-  } else {
-    displayName = lang[category] || capitalizeFirstLetter(category.replace('-', ' '));
-  }
-     
-
-      let contentHTML = `
-        <h3 class="text-3xl font-bold text-primary-1 mb-8 ${currentLanguage === 'arabic' ? 'arabic-text' : ''}">
-          ${currentLanguage === 'english' ? `${capitalizeFirstLetter(category.replace('-', ' '))}` : `${lang[category]}`}
-        </h3>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-      `;
+      const isSubcategory = category.includes('-');
       
-      if (menuItems[category] && menuItems[category].length > 0) {
-        menuItems[category].forEach(item => {
-          contentHTML += `
-            <div class="menu-item bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg">
-              <img src="${item.image}" alt="${item.name}" class="w-full h-48 object-cover">
-              <div class="p-6 ${currentLanguage === 'arabic' ? 'arabic-text' : 'text-left'}">
-                <h4 class="text-xl font-bold text-primary-1 mb-2">
-                  ${currentLanguage === 'english' ? item.name : item.nameAr}
-                </h4>
-                <div class="price-tag bg-primary-1 text-white">
-                  ${item.price} ${lang.currency}
-                </div>
-                <p class="text-gray-700 mt-3">
-                  ${currentLanguage === 'english' ? item.desc : item.descAr}
-                </p>
-                ${item.options ? `
-                  <div class="mt-4">
-                    <p class="font-medium text-primary-2">${currentLanguage === 'english' ? 'Options:' : 'خيارات:'}</p>
-                    <ul class="list-disc pl-5 mt-2 text-sm">
-                      ${item.options.map(opt => `
-                        <li>${currentLanguage === 'english' ? opt.name : opt.nameAr} ${opt.price ? `- ${opt.price} ${lang.currency}` : ''}</li>
-                      `).join('')}
-                    </ul>
-                  </div>
-                ` : ''}
-              </div>
-            </div>
-          `;
-        });
+      let displayName;
+      if (isSubcategory) {
+        // Check if we have a direct translation for this subcategory
+        if (lang[category]) {
+          displayName = lang[category];
+        } else {
+          const [parent, sub] = category.split('-');
+          displayName = `${lang[parent]} - ${lang[sub]}`;
+        }
       } else {
-        contentHTML += `
-          <div class="col-span-full text-gray-500 py-8">
-            Menu items coming soon
-          </div>
-        `;
+        displayName = lang[category] || capitalizeFirstLetter(category.replace('-', ' '));
       }
-      
-      contentHTML += `
-        </div>
-        <div class="mt-12">
-          <button onclick="closeAllMenus()" class="px-8 py-3 bg-primary-1 text-white rounded-md hover:bg-opacity-90 text-lg">
-            ${lang.closeButton}
-          </button>
+     
+      let contentHTML = `
+        <div class="${currentLanguage === 'arabic' ? 'arabic-text' : ''}">
+          <!-- Mobile Navigation Header -->
+          <div class="mobile-nav-header md:hidden">
+            <h3 class="mobile-nav-title">${displayName}</h3>
+            <button onclick="${isSubcategory ? 'backToSubcategories()' : 'closeAllMenus()'}" class="mobile-nav-button">
+              ${isSubcategory ? lang.backButton : lang.closeButton}
+            </button>
+          </div>
+          <!-- Desktop Navigation Header -->
+          <div class="hidden md:flex items-center justify-between mb-8 border-b-2 border-primary-medium pb-4">
+            <h3 class="text-3xl font-bold text-primary-dark">${displayName}</h3>
+            <button onclick="${isSubcategory ? 'backToSubcategories()' : 'closeAllMenus()'}" class="btn-outline px-6 py-2 rounded-md text-sm">
+              ${isSubcategory ? lang.backButton : lang.closeButton}
+            </button>
+          </div>
+
+          <!-- Mobile Menu Items -->
+          <div class="mobile-menu-container md:hidden">
+            <div class="space-y-4">
+              ${menuItems[category] && menuItems[category].length > 0
+                ? menuItems[category].map(item => `
+                  <div class=\"mobile-menu-item\"> 
+                    <div class=\"mobile-menu-item-image\" style=\"background-image: url('${item.image}')\"></div>
+                    <div class=\"mobile-menu-item-content\">
+                      <div class=\"mobile-menu-item-header\">
+                        <h4 class=\"mobile-menu-item-title\">${currentLanguage === 'english' ? item.name : item.nameAr}</h4>
+                        <span class=\"mobile-price-tag\">${item.price} ${lang.currency}</span>
+                      </div>
+                      <p class=\"mobile-menu-item-description\">${currentLanguage === 'english' ? item.desc : item.descAr}</p>
+                      ${item.options ? `
+                        <div class=\"mobile-options-container\">
+                          <p class=\"mobile-options-title\">${currentLanguage === 'english' ? 'Options:' : 'خيارات:'}</p>
+                          <ul class=\"mobile-options-list\">
+                            ${item.options.map(opt => `
+                              <li>${currentLanguage === 'english' ? opt.name : opt.nameAr} ${opt.price ? `- ${opt.price} ${lang.currency}` : ''}</li>
+                            `).join('')}
+                          </ul>
+                        </div>
+                      ` : ''}
+                    </div>
+                  </div>
+                `).join('')
+                : `<div class=\"mobile-empty-state\"><div class=\"mobile-empty-icon\">🍽️</div><p class=\"mobile-empty-text\">${currentLanguage === 'english' ? 'Menu items coming soon' : 'سيتم إضافة العناصر قريبًا'}</p></div>`
+              }
+            </div>
+          </div>
+
+          <!-- Desktop Menu Items -->
+          <div class="hidden md:block">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              ${menuItems[category] && menuItems[category].length > 0
+                ? menuItems[category].map(item => `
+                  <div class=\"dish-card bg-white rounded-lg overflow-hidden shadow-md\">
+                    <div class=\"h-48 overflow-hidden\">
+                      <img src=\"${item.image}\" alt=\"${currentLanguage === 'english' ? item.name : item.nameAr}\" class=\"w-full h-full object-cover\">
+                    </div>
+                    <div class=\"p-6\">
+                      <div class=\"flex justify-between items-start mb-3\">
+                        <h4 class=\"text-xl font-bold text-primary-dark\">${currentLanguage === 'english' ? item.name : item.nameAr}</h4>
+                        <span class=\"price-tag px-3 py-1 rounded\">${item.price} ${lang.currency}</span>
+                      </div>
+                      <p class=\"text-gray-700 mb-4\">${currentLanguage === 'english' ? item.desc : item.descAr}</p>
+                      ${item.options ? `
+                        <div class=\"bg-primary-light p-4 rounded\">
+                          <p class=\"font-medium text-primary-dark mb-2\">${currentLanguage === 'english' ? 'Options:' : 'خيارات:'}</p>
+                          <ul class=\"list-disc pl-5 space-y-1 text-sm\">
+                            ${item.options.map(opt => `
+                              <li>${currentLanguage === 'english' ? opt.name : opt.nameAr} ${opt.price ? `- ${opt.price} ${lang.currency}` : ''}</li>
+                            `).join('')}
+                          </ul>
+                        </div>
+                      ` : ''}
+                    </div>
+                  </div>
+                `).join('')
+                : `<div class=\"col-span-full text-center py-12\"><p class=\"text-gray-500 text-lg\">${currentLanguage === 'english' ? 'Menu items coming soon' : 'سيتم إضافة العناصر قريبًا'}</p></div>`
+              }
+            </div>
+          </div>
         </div>
       `;
-      
       menuContent.innerHTML = contentHTML;
       menuContent.scrollIntoView({ behavior: 'smooth' });
     }
 
     function showSubcategories(category) {
-      document.getElementById('menu-content').classList.add('hidden');
-      
+      // Show subcategories above menu content
       const subcategoriesContent = document.getElementById('subcategories-content');
       subcategoriesContent.classList.remove('hidden');
       subcategoriesContent.setAttribute('data-category', category);
       
       const lang = translations[currentLanguage];
+      
       let contentHTML = `
-        <h3 class="text-3xl font-bold text-primary-1 mb-8 ${currentLanguage === 'arabic' ? 'arabic-text' : ''}">
-          ${currentLanguage === 'english' ? `${capitalizeFirstLetter(category.replace('-', ' '))}` : `${lang[category]}`}
-        </h3>
-        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-      `;
-      
-      subcategories[category].forEach(subcat => {
-        contentHTML += `
-          <div class="text-center">
-            <button onclick="showMenu('${category}-${subcat}')" 
-                    class="subcategory-circle border-2 border-primary-1 cursor-pointer mb-2"
-                    style="background-image: url('${getSubcategoryImage(category, subcat)}')">
+        <div class="${currentLanguage === 'arabic' ? 'arabic-text' : ''}">
+          <!-- Mobile Navigation Header -->
+          <div class="mobile-nav-header md:hidden">
+            <h3 class="mobile-nav-title">${lang[category]}</h3>
+            <button onclick="closeAllMenus()" class="mobile-nav-button">
+              ${lang.backButton}
             </button>
-            <div class="font-medium text-primary-1">
-              ${lang[subcat]}
-            </div>
           </div>
-        `;
-      });
-      
-      contentHTML += `
-        </div>
-        <div class="mt-12">
-          <button onclick="closeAllMenus()" class="px-8 py-3 bg-primary-1 text-white rounded-md hover:bg-opacity-90 text-lg">
-            ${lang.backButton}
-          </button>
+          <!-- Desktop Navigation Header -->
+          <div class="hidden md:flex items-center justify-between mb-8 border-b-2 border-primary-medium pb-4">
+            <h3 class="text-3xl font-bold text-primary-dark">${lang[category]}</h3>
+            <button onclick="closeAllMenus()" class="btn-outline px-6 py-2 rounded-md text-sm">
+              ${lang.backButton}
+            </button>
+          </div>
+
+          <!-- Mobile Subcategories -->
+          <div class="mobile-subcategory-grid md:hidden">
+            ${subcategories[category].map(subcat => `
+              <div class=\"mobile-subcategory-card\">
+                <button onclick=\"showMenu('${category}-${subcat}')\" class=\"mobile-subcategory-image w-full h-full focus:outline-none focus:ring-2 focus:ring-primary-dark\" style=\"background-image: url('${getSubcategoryImage(category, subcat)}');\">
+                  <div class=\"mobile-subcategory-overlay\">
+                    <div class=\"mobile-subcategory-title\">${lang[subcat]}</div>
+                  </div>
+                </button>
+              </div>
+            `).join('')}
+          </div>
+
+          <!-- Desktop Subcategories -->
+          <div class="hidden md:grid grid-cols-2 md:grid-cols-4 gap-8">
+            ${subcategories[category].map(subcat => `
+              <div class=\"text-center\">
+                <button onclick=\"showMenu('${category}-${subcat}')\" class=\"w-full h-48 rounded-lg overflow-hidden shadow-md mb-4 focus:outline-none focus:ring-2 focus:ring-primary-dark\" style=\"background-image: url('${getSubcategoryImage(category, subcat)}'); background-size: cover; background-position: center;\">
+                  <span class=\"sr-only\">${lang[subcat]}</span>
+                </button>
+                <div class=\"font-bold text-primary-dark\">${lang[subcat]}</div>
+              </div>
+            `).join('')}
+          </div>
         </div>
       `;
-      
       subcategoriesContent.innerHTML = contentHTML;
       subcategoriesContent.scrollIntoView({ behavior: 'smooth' });
     }
     
     function getSubcategoryImage(category, subcategory) {
-      // These are placeholder images - replace with your actual images
       const imageMap = {
         'pasta-beef': 'https://images.unsplash.com/photo-1473093295043-cdd812d0e601?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80',
         'pasta-chicken': 'https://images.unsplash.com/photo-1555949258-eb67b1ef0ceb?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80',
@@ -1864,14 +2160,14 @@
         'pizza-vegetarian': 'https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80',
         'drinks-hot-drinks': 'https://images.unsplash.com/photo-1511920170033-f8396924c348?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80',
         'drinks-cold-drinks': 'https://images.unsplash.com/photo-1437418747212-8d9709afab22?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80',
-        'main-course-chicken': 'your-chicken-image-url',
-        'main-course-beef': 'your-beef-image-url',
-        'main-course-seafood': 'your-seafood-image-url',
-        'main-course-vegetarian': 'your-vegetarian-image-url',
-        'sandwiches-chicken': 'your-chicken-sandwich-image-url',
-        'sandwiches-beef': 'your-beef-sandwich-image-url',
-        'sandwiches-seafood': 'your-seafood-sandwich-image-url',
-        'sandwiches-vegetarian': 'your-vegetarian-sandwich-image-url'
+        'main-course-chicken': 'https://images.unsplash.com/photo-1544025162-d76694265947?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80',
+        'main-course-beef': 'https://images.unsplash.com/photo-1544025162-d76694265947?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80',
+        'main-course-seafood': 'https://images.unsplash.com/photo-1544025162-d76694265947?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80',
+        'main-course-vegetarian': 'https://images.unsplash.com/photo-1544025162-d76694265947?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80',
+        'sandwiches-chicken': 'https://images.unsplash.com/photo-1556679343-c7306c1976bc?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80',
+        'sandwiches-beef': 'https://images.unsplash.com/photo-1556679343-c7306c1976bc?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80',
+        'sandwiches-seafood': 'https://images.unsplash.com/photo-1556679343-c7306c1976bc?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80',
+        'sandwiches-vegetarian': 'https://images.unsplash.com/photo-1556679343-c7306c1976bc?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80'
       };
       return imageMap[`${category}-${subcategory}`] || 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80';
     }
@@ -1879,6 +2175,11 @@
     function closeAllMenus() {
       document.getElementById('menu-content').classList.add('hidden');
       document.getElementById('subcategories-content').classList.add('hidden');
+    }
+    
+    function backToSubcategories() {
+      document.getElementById('menu-content').classList.add('hidden');
+      document.getElementById('subcategories-content').classList.remove('hidden');
     }
     
     function capitalizeFirstLetter(string) {
@@ -1892,3 +2193,4 @@
   </script>
 </body>
 </html>
+
