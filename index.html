@@ -174,6 +174,111 @@
       transform: translateX(0);
     }
     
+    /* Mobile Circle Card Styles */
+    .mobile-circle-card {
+      position: relative;
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      overflow: hidden;
+      background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      cursor: pointer;
+      margin: 0 auto;
+    }
+    
+    .mobile-circle-card:hover {
+      transform: translateY(-4px) scale(1.05);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+    }
+    
+    .mobile-circle-card-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+    
+    .mobile-circle-card-image {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      transition: transform 0.6s ease;
+      filter: brightness(0.7);
+    }
+    
+    .mobile-circle-card:hover .mobile-circle-card-image {
+      transform: scale(1.1);
+      filter: brightness(0.8);
+    }
+    
+    .mobile-circle-card-content {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 16px;
+      background: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.8) 50%, rgba(0, 0, 0, 0.95) 100%);
+      color: white;
+      text-align: center;
+      transform: translateY(0);
+      transition: all 0.4s ease;
+    }
+    
+    .mobile-circle-card:hover .mobile-circle-card-content {
+      transform: translateY(-4px);
+    }
+    
+    .mobile-circle-card-title {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: #ffffff;
+      margin: 0 0 4px 0;
+      text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+      line-height: 1.2;
+    }
+    
+    .mobile-circle-card-description {
+      font-size: 0.7rem;
+      color: #e0e0e0;
+      margin: 0;
+      line-height: 1.2;
+      opacity: 0.9;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    
+    .mobile-circle-card-arrow {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      width: 24px;
+      height: 24px;
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(8px);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ffffff;
+      opacity: 0;
+      transform: translateX(10px);
+      transition: all 0.3s ease;
+    }
+    
+    .mobile-circle-card:hover .mobile-circle-card-arrow {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    
     /* Fine Dining Dish Card Styles */
     .fine-dining-dish-card {
       position: relative;
@@ -609,6 +714,169 @@
       animation: float 6s ease-in-out infinite;
     }
     
+    /* Hero Slider Styles */
+    .hero-slide {
+      opacity: 0;
+      transform: translateX(100%);
+      transition: all 0.6s ease-in-out;
+    }
+    
+    .hero-slide:first-child {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    
+    .hero-slide.active {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    
+    .hero-slide.prev {
+      transform: translateX(-100%);
+    }
+    
+    .hero-slide.next {
+      transform: translateX(100%);
+    }
+    
+    /* Desktop Circle Menu Styles */
+    .desktop-circle-menu-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 3rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      justify-items: center;
+      align-items: center;
+    }
+    
+    .desktop-circle-card {
+      position: relative;
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      overflow: hidden;
+      cursor: pointer;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    }
+    
+    .desktop-circle-card:hover {
+      transform: translateY(-8px) scale(1.05);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+    }
+    
+    .desktop-circle-inner {
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      position: relative;
+      transition: transform 0.4s ease;
+    }
+    
+    .desktop-circle-card:hover .desktop-circle-inner {
+      transform: scale(1.1);
+    }
+    
+    .desktop-circle-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.8) 50%, rgba(0, 0, 0, 0.95) 100%);
+      color: white;
+      padding: 1.5rem;
+      transform: translateY(0);
+      transition: all 0.4s ease;
+    }
+    
+    .desktop-circle-card:hover .desktop-circle-overlay {
+      transform: translateY(-5px);
+    }
+    
+    .desktop-circle-title {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: #ffffff;
+      margin: 0 0 0.5rem 0;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    }
+    
+    .desktop-circle-description {
+      font-size: 0.875rem;
+      color: #e0e0e0;
+      margin: 0;
+      line-height: 1.3;
+      opacity: 0.9;
+    }
+    
+    /* Desktop Subcategory Circle Styles */
+    .desktop-subcategory-circle {
+      position: relative;
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      overflow: hidden;
+      cursor: pointer;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    }
+    
+    .desktop-subcategory-circle:hover {
+      transform: translateY(-6px) scale(1.05);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+    }
+    
+    .desktop-subcategory-inner {
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      position: relative;
+      transition: transform 0.4s ease;
+    }
+    
+    .desktop-subcategory-circle:hover .desktop-subcategory-inner {
+      transform: scale(1.1);
+    }
+    
+    .desktop-subcategory-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.8) 50%, rgba(0, 0, 0, 0.95) 100%);
+      color: white;
+      padding: 1.25rem;
+      transform: translateY(0);
+      transition: all 0.4s ease;
+    }
+    
+    .desktop-subcategory-circle:hover .desktop-subcategory-overlay {
+      transform: translateY(-5px);
+    }
+    
+    .desktop-subcategory-title {
+      font-size: 1.125rem;
+      font-weight: 600;
+      color: #ffffff;
+      margin: 0;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    }
+    
+    .desktop-subcategory-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2.5rem;
+      max-width: 1000px;
+      margin: 0 auto;
+      justify-items: center;
+      align-items: center;
+    }
+    
     @media (max-width: 768px) {
       .menu-category {
         width: 100%;
@@ -616,6 +884,25 @@
       
       .hero-section {
         min-height: 40vh;
+      }
+      
+      /* Mobile Circle Menu Grid */
+      .mobile-circle-menu-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(5, auto);
+        gap: 3rem 2rem;
+        padding: 2.5rem 1rem;
+        max-width: 480px;
+        margin: 0 auto;
+        justify-items: center;
+        align-items: center;
+      }
+      
+      .mobile-circle-card {
+        width: 160px;
+        height: 160px;
+        margin: 0;
       }
       
       /* Mobile Menu Improvements */
@@ -932,188 +1219,35 @@
     <div class="h-1 bg-gradient-to-r from-primary-light via-white to-secondary-3 animate-pulse"></div>
   </nav>
 
-  <!-- Hero Section -->
-  <section class="hero-section relative overflow-hidden">
-    <!-- Background with cup.png image overlay -->
-    <div class="absolute inset-0 bg-gradient-to-br from-primary-dark/90 via-primary-medium/85 to-secondary-2/80"></div>
-    <div class="absolute inset-0" style="background-image: url('cup.png'); background-size: cover; background-position: center; opacity: 0.6;"></div>
-    
-    <!-- Decorative elements -->
-    <div class="absolute top-10 left-10 w-20 h-20 bg-white/10 rounded-full blur-xl"></div>
-    <div class="absolute bottom-20 right-20 w-32 h-32 bg-primary-light/20 rounded-full blur-2xl"></div>
-    <div class="absolute top-1/3 right-1/4 w-16 h-16 bg-secondary-3/30 rounded-full blur-lg"></div>
-    
-    <!-- Main content container -->
-    <div class="relative z-10 min-h-[70vh] md:min-h-[60vh] flex items-center">
-      <div class="max-w-7xl mx-auto px-4 py-8 md:py-16">
-        <div class="grid lg:grid-cols-2 gap-8 md:gap-12 items-center">
-          
-          <!-- Text Content -->
-          <div class="text-center lg:text-left order-2 lg:order-1">
-            <div class="mb-6">
-              <h1 id="hero-title" class="text-3xl sm:text-4xl md:text-6xl font-bold text-white mb-4 leading-tight drop-shadow-2xl">
-                Authentic Italian Cuisine with 
-                <span class="text-primary-light">Egyptian Soul</span>
-              </h1>
-              <p id="hero-subtitle" class="text-lg sm:text-xl md:text-2xl text-white/90 mb-6 md:mb-8 leading-relaxed">
-                A culinary journey from Alexandria to Naples and back
-              </p>
-            </div>
-            
-            <!-- CTA Buttons -->
-            <div class="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center lg:justify-start">
-              <button onclick="smoothScrollTo('#menu')" class="group relative overflow-hidden bg-white text-primary-dark px-6 md:px-8 py-3 md:py-4 rounded-full font-bold text-base md:text-lg inline-flex items-center justify-center transition-all duration-300 hover:scale-105 hover:shadow-2xl cursor-pointer">
-                <span class="relative z-10" id="explore-menu-btn">Explore Our Menu</span>
-                <div class="absolute inset-0 bg-gradient-to-r from-primary-light to-secondary-2 transform translate-x-full group-hover:translate-x-0 transition-transform duration-300"></div>
-              </button>
-              <button onclick="smoothScrollTo('#story-section')" class="group relative overflow-hidden border-2 border-white text-white px-6 md:px-8 py-3 md:py-4 rounded-full font-bold text-base md:text-lg inline-flex items-center justify-center transition-all duration-300 hover:bg-white hover:text-primary-dark hover:scale-105 cursor-pointer">
-                <span class="relative z-10" id="our-story-btn">Our Story</span>
-              </button>
-            </div>
-            
-            <!-- Features -->
-            <div class="mt-8 md:mt-12 grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-6 text-white/80">
-              <div class="flex items-center justify-center lg:justify-start space-x-2 md:space-x-3">
-                <div class="w-6 h-6 md:w-8 md:h-8 bg-primary-light/20 rounded-full flex items-center justify-center">
-                  <svg class="w-3 h-3 md:w-4 md:h-4 text-primary-light" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                  </svg>
-                </div>
-                <span class="text-xs md:text-sm font-medium" id="open-daily">Open Daily 9AM-11PM</span>
-              </div>
-              <div class="flex items-center justify-center lg:justify-start space-x-2 md:space-x-3">
-                <div class="w-6 h-6 md:w-8 md:h-8 bg-primary-light/20 rounded-full flex items-center justify-center">
-                  <svg class="w-3 h-3 md:w-4 md:h-4 text-primary-light" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                  </svg>
-                </div>
-                <span class="text-xs md:text-sm font-medium" id="hero-address">Tivoli Dome, Alexandria</span>
-              </div>
-              <div class="flex items-center justify-center lg:justify-start space-x-2 md:space-x-3">
-                <div class="w-6 h-6 md:w-8 md:h-8 bg-primary-light/20 rounded-full flex items-center justify-center">
-                  <svg class="w-3 h-3 md:w-4 md:h-4 text-primary-light" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
-                  </svg>
-                </div>
-                <span class="text-xs md:text-sm font-medium" id="made-with-love">Made with Love</span>
-              </div>
-            </div>
-          </div>
-          
-          <!-- Decorative Cup Elements -->
-          <div class="relative flex justify-center lg:justify-end order-1 lg:order-2 mb-8 lg:mb-0">
-            <div class="relative">
-              <!-- Large decorative cup silhouette - hidden on mobile -->
-              <div class="hidden md:block w-48 h-48 sm:w-64 sm:h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 bg-white/10 rounded-full flex items-center justify-center backdrop-blur-sm border border-white/20">
-                <div class="w-36 h-36 sm:w-48 sm:h-48 md:w-64 md:h-64 lg:w-80 lg:h-80 bg-white/5 rounded-full flex items-center justify-center">
-                  <svg class="w-20 h-20 sm:w-24 sm:h-24 md:w-32 md:h-32 lg:w-40 lg:h-40 text-white/30" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
-                  </svg>
-                </div>
-              </div>
-              
-              <!-- Mobile-friendly cup icon -->
-              <div class="md:hidden flex justify-center">
-                <div class="w-24 h-24 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm border border-white/30">
-                  <svg class="w-12 h-12 text-white/60" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
-                  </svg>
-                </div>
-              </div>
-              
-              <!-- Floating elements around the cup (hidden on mobile for cleaner look) -->
-              <div class="hidden md:block absolute -top-4 -right-4 w-16 h-16 bg-primary-light/30 rounded-full flex items-center justify-center animate-bounce">
-                <svg class="w-8 h-8 text-primary-light" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
-                </svg>
-              </div>
-              
-              <div class="hidden md:block absolute -bottom-6 -left-6 w-12 h-12 bg-secondary-2/40 rounded-full flex items-center justify-center animate-pulse">
-                <svg class="w-6 h-6 text-secondary-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path>
-                </svg>
-              </div>
-              
-              <!-- Decorative circles (hidden on mobile) -->
-              <div class="hidden md:block absolute top-1/4 -left-8 w-4 h-4 bg-primary-light/50 rounded-full animate-ping"></div>
-              <div class="hidden md:block absolute bottom-1/3 -right-12 w-3 h-3 bg-secondary-3/60 rounded-full animate-pulse"></div>
-              
-              <!-- Additional decorative elements (hidden on mobile) -->
-              <div class="hidden md:block absolute top-1/2 -left-16 w-6 h-6 bg-white/20 rounded-full animate-bounce" style="animation-delay: 1s;"></div>
-              <div class="hidden md:block absolute bottom-1/4 -right-20 w-5 h-5 bg-primary-light/30 rounded-full animate-pulse" style="animation-delay: 2s;"></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    
-    <!-- Scroll indicator -->
-    <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-      <div class="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center">
-        <div class="w-1 h-3 bg-white/60 rounded-full mt-2 animate-pulse"></div>
-      </div>
-    </div>
-  </section>
-
- <!-- Story Section with Translation Toggle -->
-<section class="story-section py-16 pattern-bg" id="story-section">
-  <div class="max-w-7xl mx-auto px-4">
-    <!-- English Version (default) -->
-    <div id="english-story">
-      <h2 class="text-3xl font-bold text-primary-dark text-center mb-12">Caputo's Journey</h2>
-      
-      <div class="grid md:grid-cols-2 gap-8 items-center mb-12">
-        <div>
-          <h3 class="text-2xl font-bold text-primary-dark mb-4">From Alexandria to the World</h3>
-          <p class="mb-4">Caputo, an Egyptian chef passionate about cooking, worked in a small kitchen in Alexandria but refused to stick to traditional methods. After struggling in several restaurants, he embarked on a world tour to learn the secrets of cooking.</p>
-          <p>In Naples, he discovered his love for pizza but faced difficulties with chefs due to his new and innovative ideas. In Paris, he was rejected because of his origin, but found a mentor who believed in his talent. In New York, he proved himself against great chefs, but realized his true place was in Egypt.</p>
-        </div>
-        <div class="rounded-lg overflow-hidden shadow-lg">
-          <img src="https://images.unsplash.com/photo-1547592180-85f173990554?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Caputo's kitchen" class="w-full h-full object-cover">
-        </div>
-      </div>
-      
-      <div class="grid md:grid-cols-2 gap-8 items-center">
-        <div class="order-1 md:order-2">
-          <h3 class="text-2xl font-bold text-primary-dark mb-4">The Return to Alexandria</h3>
-          <p class="mb-4">He returned to Alexandria and opened his restaurant in Tivoli Dome despite the challenges. On opening day, he succeeded in attracting customers with a blend of global flavors and his personal touch.</p>
-          <p>Our motto "Food for your soul and warmth for your heart" conveys the message that the restaurant is not just a place to eat, but also provides intimate atmospheres that encourage gathering and sharing.</p>
-        </div>
-        <div class="order-2 md:order-1 rounded-lg overflow-hidden shadow-lg">
-          <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Caputo's restaurant" class="w-full h-full object-cover">
-        </div>
-      </div>
-    </div>
-
-    <!-- Arabic Version (hidden by default) -->
-    <div id="arabic-story" class="hidden arabic-text">
-      <h2 class="text-3xl font-bold text-primary-dark text-center mb-12">رحلة كابوتو</h2>
-      
-      <div class="grid md:grid-cols-2 gap-8 items-center mb-12">
-        <div>
-          <h3 class="text-2xl font-bold text-primary-dark mb-4">من الإسكندرية إلى العالم</h3>
-          <p class="mb-4">كابوتو، الشيف المصري الشغوف بالطهي، عمل في مطبخ صغير بالإسكندرية لكنه رفض الالتزام بالأساليب التقليدية. بعد معاناة في عدة مطاعم، انطلق في جولة حول العالم لتعلم أسرار الطهي.</p>
-          <p>في نابولي، اكتشف حبه للبيتزا لكنه واجه صعوبات مع الطهاة بسبب أفكاره الجديدة والمبتكرة. في باريس، تم رفضه بسبب أصله، لكنه وجد معلمة آمنت بموهبته. في نيويورك، أثبت نفسه أمام كبار الطهاة، لكنه أدرك أن مكانه الحقيقي كان في مصر.</p>
-        </div>
-        <div class="rounded-lg overflow-hidden shadow-lg">
-          <img src="https://images.unsplash.com/photo-1547592180-85f173990554?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="مطبخ كابوتو" class="w-full h-full object-cover">
-        </div>
-      </div>
-      
-      <div class="grid md:grid-cols-2 gap-8 items-center">
-        <div class="order-1 md:order-2">
-          <h3 class="text-2xl font-bold text-primary-dark mb-4">العودة إلى الإسكندرية</h3>
-          <p class="mb-4">عاد إلى الإسكندرية وافتتح مطعمه في تيفولي دوم رغم التحديات. في يوم الافتتاح، نجح في جذب الزبائن بمزيج من النكهات العالمية ولمسته الشخصية.</p>
-          <p>شعارنا "طعام لروحك ودفء لقلبك" ينقل الرسالة أن المطعم ليس مجرد مكان للأكل، بل يوفر أجواءً حميمية تشجع على التجمع والمشاركة.</p>
-        </div>
-        <div class="order-2 md:order-1 rounded-lg overflow-hidden shadow-lg">
-          <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="مطعم كابوتو" class="w-full h-full object-cover">
-        </div>
+ <!-- Hero Section -->
+<section class="w-full relative">
+  <div class="max-w-7xl mx-auto px-4 py-12">
+    <div class="relative h-96 w-full rounded-lg overflow-hidden">
+      <div id="hero-slider" class="w-full h-full relative overflow-hidden">
+        <img src="cup.png" alt="Caputo Cup" class="hero-slide w-full h-full object-cover absolute inset-0 transition-all duration-6000 ease-in-out">
+        <img src="cupo.jpg" alt="Caputo Cup" class="hero-slide w-full h-full object-cover absolute inset-0 transition-all duration-6000 ease-in-out">
+        <img src="dessert.jpg" alt="Caputo Dessert" class="hero-slide w-full h-full object-cover absolute inset-0 transition-all duration-6000 ease-in-out">
+        <img src="rolls.jpg" alt="Caputo Rolls" class="hero-slide w-full h-full object-cover absolute inset-0 transition-all duration-6000 ease-in-out">
+        <img src="salad.jpg" alt="Caputo Salad" class="hero-slide w-full h-full object-cover absolute inset-0 transition-all duration-6000 ease-in-out">
+        <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Pizza" class="hero-slide w-full h-full object-cover absolute inset-0 transition-all duration-6000 ease-in-out">
+        <img src="https://images.unsplash.com/photo-1555949258-eb67b1ef0ceb?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Pasta" class="hero-slide w-full h-full object-cover absolute inset-0 transition-all duration-6000 ease-in-out">
+        <img src="https://images.unsplash.com/photo-1544025162-d76694265947?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Grilled Meat" class="hero-slide w-full h-full object-cover absolute inset-0 transition-all duration-6000 ease-in-out">
+        <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Appetizers" class="hero-slide w-full h-full object-cover absolute inset-0 transition-all duration-6000 ease-in-out">
+        <img src="https://images.unsplash.com/photo-1546793665-c74683f339c1?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Fresh Salad" class="hero-slide w-full h-full object-cover absolute inset-0 transition-all duration-6000 ease-in-out">
+        <img src="https://images.unsplash.com/photo-1550583724-b2692b85b150?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Breakfast" class="hero-slide w-full h-full object-cover absolute inset-0 transition-all duration-6000 ease-in-out">
+        <img src="https://images.unsplash.com/photo-1437418747212-8d9709afab22?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Drinks" class="hero-slide w-full h-full object-cover absolute inset-0 transition-all duration-6000 ease-in-out">
+        <img src="https://images.unsplash.com/photo-1556679343-c7306c1976bc?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Sandwiches" class="hero-slide w-full h-full object-cover absolute inset-0 transition-all duration-6000 ease-in-out">
+        <img src="https://images.unsplash.com/photo-1547592180-85f173990554?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Soup" class="hero-slide w-full h-full object-cover absolute inset-0 transition-all duration-6000 ease-in-out">
+        <img src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Seafood" class="hero-slide w-full h-full object-cover absolute inset-0 transition-all duration-6000 ease-in-out">
+        <img src="https://images.unsplash.com/photo-1563379926898-05f4575a45d8?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Grilled Fish" class="hero-slide w-full h-full object-cover absolute inset-0 transition-all duration-6000 ease-in-out">
+        <img src="https://images.unsplash.com/photo-1511920170033-f8396924c348?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Coffee" class="hero-slide w-full h-full object-cover absolute inset-0 transition-all duration-6000 ease-in-out">
+        <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Fresh Ingredients" class="hero-slide w-full h-full object-cover absolute inset-0 transition-all duration-6000 ease-in-out">
       </div>
     </div>
   </div>
 </section>
+
+
 
   <!-- Menu Section -->
   <section id="menu" class="py-16 bg-white">
@@ -1123,204 +1257,270 @@
         Choose from a diverse menu featuring a delectable array of dishes. Our mission is to satisfy your cravings and elevate your dining experience.
       </p>
       
-      <!-- Fine Dining Menu Categories -->
-      <div class="space-y-8 mb-12">
-        <!-- First Row -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- Desktop Circle Menu Categories -->
+      <div class="hidden md:block mb-12">
+        <div class="desktop-circle-menu-grid">
           <!-- Breakfast -->
-          <div class="fine-dining-card group cursor-pointer" onclick="showMenu('breakfast')">
-            <div class="card-inner">
-              <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1550583724-b2692b85b150?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80')"></div>
-              <div class="card-content">
-                <div class="card-header">
-                  <h3 id="breakfast-label" class="card-title">Breakfast</h3>
-                  <div class="card-accent"></div>
-                </div>
-                <p class="card-description" id="breakfast-description">Start your day with our exquisite morning selections</p>
-                <div class="card-arrow">
-                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-                  </svg>
-                </div>
+          <div class="desktop-circle-card group cursor-pointer" onclick="showMenu('breakfast')">
+            <div class="desktop-circle-inner" style="background-image: url('https://images.unsplash.com/photo-1550583724-b2692b85b150?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80')">
+              <div class="desktop-circle-overlay">
+                <h3 id="breakfast-label" class="desktop-circle-title">Breakfast</h3>
+                <p class="desktop-circle-description">Start your day with our exquisite morning selections</p>
               </div>
             </div>
           </div>
           
           <!-- Main Course -->
-          <div class="fine-dining-card group cursor-pointer" onclick="showSubcategories('main-course')">
-            <div class="card-inner">
-              <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1544025162-d76694265947?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80')"></div>
-              <div class="card-content">
-                <div class="card-header">
-                  <h3 id="main-course-label" class="card-title">Main Course</h3>
-                  <div class="card-accent"></div>
-                </div>
-                <p class="card-description" id="main-course-description">Signature dishes crafted with passion and precision</p>
-                <div class="card-arrow">
-                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-                  </svg>
-                </div>
+          <div class="desktop-circle-card group cursor-pointer" onclick="showSubcategories('main-course')">
+            <div class="desktop-circle-inner" style="background-image: url('https://images.unsplash.com/photo-1544025162-d76694265947?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80')">
+              <div class="desktop-circle-overlay">
+                <h3 id="main-course-label" class="desktop-circle-title">Main Course</h3>
+                <p class="desktop-circle-description">Signature dishes crafted with passion and precision</p>
               </div>
             </div>
           </div>
           
           <!-- Pasta -->
-          <div class="fine-dining-card group cursor-pointer" onclick="showSubcategories('pasta')">
-            <div class="card-inner">
-              <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1555949258-eb67b1ef0ceb?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80')"></div>
-              <div class="card-content">
-                <div class="card-header">
-                  <h3 id="pasta-label" class="card-title">Pasta</h3>
-                  <div class="card-accent"></div>
-                </div>
-                <p class="card-description" id="pasta-description">Handcrafted pasta with authentic Italian techniques</p>
-                <div class="card-arrow">
-                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-                  </svg>
-                </div>
+          <div class="desktop-circle-card group cursor-pointer" onclick="showSubcategories('pasta')">
+            <div class="desktop-circle-inner" style="background-image: url('https://images.unsplash.com/photo-1555949258-eb67b1ef0ceb?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80')">
+              <div class="desktop-circle-overlay">
+                <h3 id="pasta-label" class="desktop-circle-title">Pasta</h3>
+                <p class="desktop-circle-description">Handcrafted pasta with authentic Italian techniques</p>
               </div>
             </div>
           </div>
-        </div>
-        
-        <!-- Second Row -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          
           <!-- Pizza -->
-          <div class="fine-dining-card group cursor-pointer" onclick="showSubcategories('pizza')">
-            <div class="card-inner">
-              <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80')"></div>
-              <div class="card-content">
-                <div class="card-header">
-                  <h3 id="pizza-label" class="card-title">Pizza</h3>
-                  <div class="card-accent"></div>
-                </div>
-                <p class="card-description" id="pizza-description">Artisanal pizzas with premium ingredients</p>
-                <div class="card-arrow">
-                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-                  </svg>
-                </div>
+          <div class="desktop-circle-card group cursor-pointer" onclick="showSubcategories('pizza')">
+            <div class="desktop-circle-inner" style="background-image: url('https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80')">
+              <div class="desktop-circle-overlay">
+                <h3 id="pizza-label" class="desktop-circle-title">Pizza</h3>
+                <p class="desktop-circle-description">Artisanal pizzas with premium ingredients</p>
               </div>
             </div>
           </div>
           
           <!-- Appetizers -->
-          <div class="fine-dining-card group cursor-pointer" onclick="showMenu('appetizers')">
-            <div class="card-inner">
-              <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1512621776951-a57141f2eefd?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80')"></div>
-              <div class="card-content">
-                <div class="card-header">
-                  <h3 id="appetizers-label" class="card-title">Appetizers</h3>
-                  <div class="card-accent"></div>
-                </div>
-                <p class="card-description" id="appetizers-description">Sophisticated starters to awaken your palate</p>
-                <div class="card-arrow">
-                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-                  </svg>
-                </div>
+          <div class="desktop-circle-card group cursor-pointer" onclick="showMenu('appetizers')">
+            <div class="desktop-circle-inner" style="background-image: url('https://images.unsplash.com/photo-1512621776951-a57141f2eefd?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80')">
+              <div class="desktop-circle-overlay">
+                <h3 id="appetizers-label" class="desktop-circle-title">Appetizers</h3>
+                <p class="desktop-circle-description">Sophisticated starters to awaken your palate</p>
               </div>
             </div>
           </div>
           
           <!-- Salad -->
-          <div class="fine-dining-card group cursor-pointer" onclick="showMenu('salad')">
-            <div class="card-inner">
-              <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1546793665-c74683f339c1?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80')"></div>
-              <div class="card-content">
-                <div class="card-header">
-                  <h3 id="salad-label" class="card-title">Salad</h3>
-                  <div class="card-accent"></div>
-                </div>
-                <p class="card-description" id="salad-description">Fresh, vibrant salads with premium dressings</p>
-                <div class="card-arrow">
-                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-                  </svg>
-                </div>
+          <div class="desktop-circle-card group cursor-pointer" onclick="showMenu('salad')">
+            <div class="desktop-circle-inner" style="background-image: url('https://images.unsplash.com/photo-1546793665-c74683f339c1?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80')">
+              <div class="desktop-circle-overlay">
+                <h3 id="salad-label" class="desktop-circle-title">Salad</h3>
+                <p class="desktop-circle-description">Fresh, vibrant salads with premium dressings</p>
               </div>
             </div>
           </div>
-        </div>
-        
-        <!-- Third Row -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          
           <!-- Soup -->
-          <div class="fine-dining-card group cursor-pointer" onclick="showMenu('soup')">
-            <div class="card-inner">
-              <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1547592180-85f173990554?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80')"></div>
-              <div class="card-content">
-                <div class="card-header">
-                  <h3 id="soup-label" class="card-title">Soup</h3>
-                  <div class="card-accent"></div>
-                </div>
-                <p class="card-description" id="soup-description">Rich, flavorful soups made from scratch</p>
-                <div class="card-arrow">
-                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-                  </svg>
-                </div>
+          <div class="desktop-circle-card group cursor-pointer" onclick="showMenu('soup')">
+            <div class="desktop-circle-inner" style="background-image: url('https://images.unsplash.com/photo-1547592180-85f173990554?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80')">
+              <div class="desktop-circle-overlay">
+                <h3 id="soup-label" class="desktop-circle-title">Soup</h3>
+                <p class="desktop-circle-description">Rich, flavorful soups made from scratch</p>
               </div>
             </div>
           </div>
           
           <!-- Sandwiches -->
-          <div class="fine-dining-card group cursor-pointer" onclick="showSubcategories('sandwiches')">
-            <div class="card-inner">
-              <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1556679343-c7306c1976bc?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80')"></div>
-              <div class="card-content">
-                <div class="card-header">
-                  <h3 id="sandwiches-label" class="card-title">Sandwiches</h3>
-                  <div class="card-accent"></div>
-                </div>
-                <p class="card-description" id="sandwiches-description">Gourmet sandwiches with artisanal breads</p>
-                <div class="card-arrow">
-                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-                  </svg>
-                </div>
+          <div class="desktop-circle-card group cursor-pointer" onclick="showSubcategories('sandwiches')">
+            <div class="desktop-circle-inner" style="background-image: url('https://images.unsplash.com/photo-1556679343-c7306c1976bc?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80')">
+              <div class="desktop-circle-overlay">
+                <h3 id="sandwiches-label" class="desktop-circle-title">Sandwiches</h3>
+                <p class="desktop-circle-description">Gourmet sandwiches with artisanal breads</p>
               </div>
             </div>
           </div>
           
           <!-- Drinks -->
-          <div class="fine-dining-card group cursor-pointer" onclick="showSubcategories('drinks')">
-            <div class="card-inner">
-              <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1437418747212-8d9709afab22?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80')"></div>
-              <div class="card-content">
-                <div class="card-header">
-                  <h3 id="drinks-label" class="card-title">Drinks</h3>
-                  <div class="card-accent"></div>
-                </div>
-                <p class="card-description" id="drinks-description">Curated beverages to complement your meal</p>
-                <div class="card-arrow">
-                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-                  </svg>
-                </div>
+          <div class="desktop-circle-card group cursor-pointer" onclick="showSubcategories('drinks')">
+            <div class="desktop-circle-inner" style="background-image: url('https://images.unsplash.com/photo-1437418747212-8d9709afab22?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80')">
+              <div class="desktop-circle-overlay">
+                <h3 id="drinks-label" class="desktop-circle-title">Drinks</h3>
+                <p class="desktop-circle-description">Curated beverages to complement your meal</p>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Extras -->
+          <div class="desktop-circle-card group cursor-pointer" onclick="showMenu('extras')">
+            <div class="desktop-circle-inner" style="background-image: url('https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80')">
+              <div class="desktop-circle-overlay">
+                <h3 id="extras-label" class="desktop-circle-title">Extras</h3>
+                <p class="desktop-circle-description">Premium accompaniments and side dishes</p>
               </div>
             </div>
           </div>
         </div>
-        
-        <!-- Fourth Row - Single Card -->
-        <div class="flex justify-center">
-          <div class="fine-dining-card group cursor-pointer w-full max-w-md" onclick="showMenu('extras')">
-            <div class="card-inner">
-              <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80')"></div>
-              <div class="card-content">
-                <div class="card-header">
-                  <h3 id="extras-label" class="card-title">Extras</h3>
-                  <div class="card-accent"></div>
-                </div>
-                <p class="card-description" id="extras-description">Premium accompaniments and side dishes</p>
-                <div class="card-arrow">
-                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-                  </svg>
-                </div>
+      </div>
+      
+      <!-- Mobile Circle Menu Categories -->
+      <div class="md:hidden mb-12">
+        <div class="mobile-circle-menu-grid">
+          <!-- Breakfast -->
+          <div class="mobile-circle-card group cursor-pointer" onclick="showMenu('breakfast')">
+            <div class="mobile-circle-card-inner">
+              <div class="mobile-circle-card-image" style="background-image: url('https://images.unsplash.com/photo-1550583724-b2692b85b150?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80')"></div>
+              <div class="mobile-circle-card-content">
+                <h3 class="mobile-circle-card-title">Breakfast</h3>
+                <p class="mobile-circle-card-description">Start your day with our exquisite morning selections</p>
+              </div>
+              <div class="mobile-circle-card-arrow">
+                <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                </svg>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Main Course -->
+          <div class="mobile-circle-card group cursor-pointer" onclick="showSubcategories('main-course')">
+            <div class="mobile-circle-card-inner">
+              <div class="mobile-circle-card-image" style="background-image: url('https://images.unsplash.com/photo-1544025162-d76694265947?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80')"></div>
+              <div class="mobile-circle-card-content">
+                <h3 class="mobile-circle-card-title">Main Course</h3>
+                <p class="mobile-circle-card-description">Signature dishes crafted with passion and precision</p>
+              </div>
+              <div class="mobile-circle-card-arrow">
+                <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                </svg>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Pasta -->
+          <div class="mobile-circle-card group cursor-pointer" onclick="showSubcategories('pasta')">
+            <div class="mobile-circle-card-inner">
+              <div class="mobile-circle-card-image" style="background-image: url('https://images.unsplash.com/photo-1555949258-eb67b1ef0ceb?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80')"></div>
+              <div class="mobile-circle-card-content">
+                <h3 class="mobile-circle-card-title">Pasta</h3>
+                <p class="mobile-circle-card-description">Handcrafted pasta with authentic Italian techniques</p>
+              </div>
+              <div class="mobile-circle-card-arrow">
+                <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                </svg>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Pizza -->
+          <div class="mobile-circle-card group cursor-pointer" onclick="showSubcategories('pizza')">
+            <div class="mobile-circle-card-inner">
+              <div class="mobile-circle-card-image" style="background-image: url('https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80')"></div>
+              <div class="mobile-circle-card-content">
+                <h3 class="mobile-circle-card-title">Pizza</h3>
+                <p class="mobile-circle-card-description">Artisanal pizzas with premium ingredients</p>
+              </div>
+              <div class="mobile-circle-card-arrow">
+                <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                </svg>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Appetizers -->
+          <div class="mobile-circle-card group cursor-pointer" onclick="showMenu('appetizers')">
+            <div class="mobile-circle-card-inner">
+              <div class="mobile-circle-card-image" style="background-image: url('https://images.unsplash.com/photo-1512621776951-a57141f2eefd?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80')"></div>
+              <div class="mobile-circle-card-content">
+                <h3 class="mobile-circle-card-title">Appetizers</h3>
+                <p class="mobile-circle-card-description">Sophisticated starters to awaken your palate</p>
+              </div>
+              <div class="mobile-circle-card-arrow">
+                <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                </svg>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Salad -->
+          <div class="mobile-circle-card group cursor-pointer" onclick="showMenu('salad')">
+            <div class="mobile-circle-card-inner">
+              <div class="mobile-circle-card-image" style="background-image: url('https://images.unsplash.com/photo-1546793665-c74683f339c1?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80')"></div>
+              <div class="mobile-circle-card-content">
+                <h3 class="mobile-circle-card-title">Salad</h3>
+                <p class="mobile-circle-card-description">Fresh, vibrant salads with premium dressings</p>
+              </div>
+              <div class="mobile-circle-card-arrow">
+                <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                </svg>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Soup -->
+          <div class="mobile-circle-card group cursor-pointer" onclick="showMenu('soup')">
+            <div class="mobile-circle-card-inner">
+              <div class="mobile-circle-card-image" style="background-image: url('https://images.unsplash.com/photo-1547592180-85f173990554?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80')"></div>
+              <div class="mobile-circle-card-content">
+                <h3 class="mobile-circle-card-title">Soup</h3>
+                <p class="mobile-circle-card-description">Rich, flavorful soups made from scratch</p>
+              </div>
+              <div class="mobile-circle-card-arrow">
+                <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                </svg>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Sandwiches -->
+          <div class="mobile-circle-card group cursor-pointer" onclick="showSubcategories('sandwiches')">
+            <div class="mobile-circle-card-inner">
+              <div class="mobile-circle-card-image" style="background-image: url('https://images.unsplash.com/photo-1556679343-c7306c1976bc?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80')"></div>
+              <div class="mobile-circle-card-content">
+                <h3 class="mobile-circle-card-title">Sandwiches</h3>
+                <p class="mobile-circle-card-description">Gourmet sandwiches with artisanal breads</p>
+              </div>
+              <div class="mobile-circle-card-arrow">
+                <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                </svg>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Drinks -->
+          <div class="mobile-circle-card group cursor-pointer" onclick="showSubcategories('drinks')">
+            <div class="mobile-circle-card-inner">
+              <div class="mobile-circle-card-image" style="background-image: url('https://images.unsplash.com/photo-1437418747212-8d9709afab22?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80')"></div>
+              <div class="mobile-circle-card-content">
+                <h3 class="mobile-circle-card-title">Drinks</h3>
+                <p class="mobile-circle-card-description">Curated beverages to complement your meal</p>
+              </div>
+              <div class="mobile-circle-card-arrow">
+                <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                </svg>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Extras -->
+          <div class="mobile-circle-card group cursor-pointer" onclick="showMenu('extras')">
+            <div class="mobile-circle-card-inner">
+              <div class="mobile-circle-card-image" style="background-image: url('https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80')"></div>
+              <div class="mobile-circle-card-content">
+                <h3 class="mobile-circle-card-title">Extras</h3>
+                <p class="mobile-circle-card-description">Premium accompaniments and side dishes</p>
+              </div>
+              <div class="mobile-circle-card-arrow">
+                <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                </svg>
               </div>
             </div>
           </div>
@@ -2939,7 +3139,102 @@
         });
       }
     }
+    
+    // Hero slider functionality
+    function initHeroSlider() {
+      const slides = document.querySelectorAll('.hero-slide');
+      let currentSlide = 0;
+      const totalSlides = slides.length;
+      let movingRight = true; // Track direction
+      let isAnimating = false; // Prevent overlapping animations
+      
+      // Initialize slides
+      function initializeSlides() {
+        slides.forEach((slide, index) => {
+          if (index === 0) {
+            slide.style.transform = 'translateX(0)';
+            slide.style.opacity = '1';
+          } else {
+            slide.style.transform = 'translateX(100%)';
+            slide.style.opacity = '0';
+          }
+        });
+      }
+      
+      function nextSlide() {
+        if (isAnimating) return; // Prevent overlapping animations
+        isAnimating = true;
+        
+        const currentSlideElement = slides[currentSlide];
+        const nextSlideIndex = (currentSlide + 1) % totalSlides;
+        const nextSlideElement = slides[nextSlideIndex];
+        
+        // Pre-position next slide
+        if (movingRight) {
+          nextSlideElement.style.transform = 'translateX(-100%)';
+        } else {
+          nextSlideElement.style.transform = 'translateX(100%)';
+        }
+        nextSlideElement.style.opacity = '0';
+        
+        // Small delay to ensure positioning
+        setTimeout(() => {
+          if (movingRight) {
+            // Current slide moves to the right and fades out
+            currentSlideElement.style.transform = 'translateX(100%)';
+            currentSlideElement.style.opacity = '0';
+            
+            // Next slide moves from left to center and fades in
+            nextSlideElement.style.transform = 'translateX(0)';
+            nextSlideElement.style.opacity = '1';
+            
+            // Reset all other slides to the left
+            slides.forEach((slide, index) => {
+              if (index !== currentSlide && index !== nextSlideIndex) {
+                slide.style.transform = 'translateX(-100%)';
+                slide.style.opacity = '0';
+              }
+            });
+          } else {
+            // Current slide moves to the left and fades out
+            currentSlideElement.style.transform = 'translateX(-100%)';
+            currentSlideElement.style.opacity = '0';
+            
+            // Next slide moves from right to center and fades in
+            nextSlideElement.style.transform = 'translateX(0)';
+            nextSlideElement.style.opacity = '1';
+            
+            // Reset all other slides to the right
+            slides.forEach((slide, index) => {
+              if (index !== currentSlide && index !== nextSlideIndex) {
+                slide.style.transform = 'translateX(100%)';
+                slide.style.opacity = '0';
+              }
+            });
+          }
+          
+          // Move to next slide and toggle direction
+          currentSlide = nextSlideIndex;
+          movingRight = !movingRight;
+          
+          // Allow next animation after transition completes
+          setTimeout(() => {
+            isAnimating = false;
+          }, 2000);
+        }, 50);
+      }
+      
+      // Initialize slides
+      initializeSlides();
+      
+      // Change slide every 1 second
+      setInterval(nextSlide, 1000);
+    }
+
+    // Initialize hero slider when page loads
+    document.addEventListener('DOMContentLoaded', function() {
+      initHeroSlider();
+    });
   </script>
 </body>
 </html>
-
