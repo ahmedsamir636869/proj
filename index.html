@@ -177,8 +177,8 @@
     /* Mobile Circle Card Styles */
     .mobile-circle-card {
       position: relative;
-      width: 160px;
-      height: 160px;
+      width: 200px;
+      height: 200px;
       border-radius: 50%;
       overflow: hidden;
       background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
@@ -303,7 +303,7 @@
     }
     
     .dish-card-image {
-      height: 240px;
+      height: 500px;
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
@@ -499,7 +499,7 @@
     }
     
     .mobile-dish-image {
-      height: 200px;
+      height: 570px !important;
       background-size: cover;
       background-position: center;
       position: relative;
@@ -679,25 +679,34 @@
     }
     
     .btn-primary {
-      background-color: var(--primary-dark);
-      color: white;
-      transition: all 0.3s ease;
+      background: linear-gradient(90deg, #d4af37 0%, #f4d03f 100%);
+      color: #1a1a1a;
+      font-weight: 700;
+      box-shadow: 0 4px 16px rgba(212, 175, 55, 0.15);
+      border: none;
+      transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
     }
     
     .btn-primary:hover {
-      background-color: var(--primary-medium);
-      transform: translateY(-2px);
+      background: linear-gradient(90deg, #f4d03f 0%, #d4af37 100%);
+      color: #705d3f;
+      transform: translateY(-2px) scale(1.03);
+      box-shadow: 0 8px 24px rgba(212, 175, 55, 0.25);
     }
     
     .btn-outline {
-      border: 2px solid var(--primary-dark);
-      color: var(--primary-dark);
-      transition: all 0.3s ease;
+      border: 2px solid #d4af37;
+      color: #d4af37;
+      background: transparent;
+      font-weight: 700;
+      transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
     }
     
     .btn-outline:hover {
-      background-color: var(--primary-dark);
-      color: white;
+      background: linear-gradient(90deg, #d4af37 0%, #f4d03f 100%);
+      color: #1a1a1a;
+      border-color: #f4d03f;
+      box-shadow: 0 4px 16px rgba(212, 175, 55, 0.15);
     }
     
     /* Custom animations */
@@ -752,8 +761,8 @@
     
     .desktop-circle-card {
       position: relative;
-      width: 200px;
-      height: 200px;
+      width: 260px;
+      height: 260px;
       border-radius: 50%;
       overflow: hidden;
       cursor: pointer;
@@ -891,17 +900,17 @@
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         grid-template-rows: repeat(5, auto);
-        gap: 3rem 2rem;
+        gap: 3.5rem 2.5rem;
         padding: 2.5rem 1rem;
-        max-width: 480px;
+        max-width: 520px;
         margin: 0 auto;
         justify-items: center;
         align-items: center;
       }
       
       .mobile-circle-card {
-        width: 160px;
-        height: 160px;
+        width: 200px;
+        height: 200px;
         margin: 0;
       }
       
@@ -1243,11 +1252,14 @@
         <img src="https://images.unsplash.com/photo-1511920170033-f8396924c348?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Coffee" class="hero-slide w-full h-full object-cover absolute inset-0 transition-all duration-6000 ease-in-out">
         <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Fresh Ingredients" class="hero-slide w-full h-full object-cover absolute inset-0 transition-all duration-6000 ease-in-out">
       </div>
+      <!-- Add hero-title and hero-subtitle here -->
+      <div class="absolute top-0 left-0 w-full h-full flex flex-col items-center justify-center z-20">
+        <h1 id="hero-title" class="text-4xl md:text-6xl font-bold text-white drop-shadow-lg text-center mb-4">Authentic Italian Cuisine with Egyptian Soul</h1>
+        <p id="hero-subtitle" class="text-xl md:text-2xl text-white/90 drop-shadow-md text-center">A culinary journey from Alexandria to Naples and back</p>
+      </div>
     </div>
   </div>
 </section>
-
-
 
   <!-- Menu Section -->
   <section id="menu" class="py-16 bg-white">
@@ -1262,40 +1274,40 @@
         <div class="desktop-circle-menu-grid">
           <!-- Breakfast -->
           <div class="desktop-circle-card group cursor-pointer" onclick="showMenu('breakfast')">
-            <div class="desktop-circle-inner" style="background-image: url('https://images.unsplash.com/photo-1550583724-b2692b85b150?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80')">
+            <div class="desktop-circle-inner" style="background-image: url('https://res.cloudinary.com/dfvma94gg/image/upload/v1752495550/breakfast_hxwmkh.jpg')">
               <div class="desktop-circle-overlay">
                 <h3 id="breakfast-label" class="desktop-circle-title">Breakfast</h3>
-                <p class="desktop-circle-description">Start your day with our exquisite morning selections</p>
+                <p id="breakfast-description" class="desktop-circle-description">Start your day with our exquisite morning selections</p>
               </div>
             </div>
           </div>
           
           <!-- Main Course -->
           <div class="desktop-circle-card group cursor-pointer" onclick="showSubcategories('main-course')">
-            <div class="desktop-circle-inner" style="background-image: url('https://images.unsplash.com/photo-1544025162-d76694265947?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80')">
+            <div class="desktop-circle-inner" style="background-image: url('https://res.cloudinary.com/dfvma94gg/image/upload/v1752494717/main_dish_ktjs3c.jpg')">
               <div class="desktop-circle-overlay">
                 <h3 id="main-course-label" class="desktop-circle-title">Main Course</h3>
-                <p class="desktop-circle-description">Signature dishes crafted with passion and precision</p>
+                <p id="main-course-description" class="desktop-circle-description">Signature dishes crafted with passion and precision</p>
               </div>
             </div>
           </div>
           
           <!-- Pasta -->
           <div class="desktop-circle-card group cursor-pointer" onclick="showSubcategories('pasta')">
-            <div class="desktop-circle-inner" style="background-image: url('https://images.unsplash.com/photo-1555949258-eb67b1ef0ceb?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80')">
+            <div class="desktop-circle-inner" style="background-image: url('https://res.cloudinary.com/dfvma94gg/image/upload/v1752495181/seafoodPasta_z3g218.jpg')">
               <div class="desktop-circle-overlay">
                 <h3 id="pasta-label" class="desktop-circle-title">Pasta</h3>
-                <p class="desktop-circle-description">Handcrafted pasta with authentic Italian techniques</p>
+                <p id="pasta-description" class="desktop-circle-description">Handcrafted pasta with authentic Italian techniques</p>
               </div>
             </div>
           </div>
           
           <!-- Pizza -->
           <div class="desktop-circle-card group cursor-pointer" onclick="showSubcategories('pizza')">
-            <div class="desktop-circle-inner" style="background-image: url('https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80')">
+            <div class="desktop-circle-inner" style="background-image: url('https://res.cloudinary.com/dfvma94gg/image/upload/v1752495958/pizza_vsql3u.jpg')">
               <div class="desktop-circle-overlay">
                 <h3 id="pizza-label" class="desktop-circle-title">Pizza</h3>
-                <p class="desktop-circle-description">Artisanal pizzas with premium ingredients</p>
+                <p id="pizza-description" class="desktop-circle-description">Artisanal pizzas with premium ingredients</p>
               </div>
             </div>
           </div>
@@ -1305,17 +1317,17 @@
             <div class="desktop-circle-inner" style="background-image: url('https://images.unsplash.com/photo-1512621776951-a57141f2eefd?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80')">
               <div class="desktop-circle-overlay">
                 <h3 id="appetizers-label" class="desktop-circle-title">Appetizers</h3>
-                <p class="desktop-circle-description">Sophisticated starters to awaken your palate</p>
+                <p id="appetizers-description" class="desktop-circle-description">Sophisticated starters to awaken your palate</p>
               </div>
             </div>
           </div>
           
           <!-- Salad -->
           <div class="desktop-circle-card group cursor-pointer" onclick="showMenu('salad')">
-            <div class="desktop-circle-inner" style="background-image: url('https://images.unsplash.com/photo-1546793665-c74683f339c1?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80')">
+            <div class="desktop-circle-inner" style="background-image: url('https://res.cloudinary.com/dfvma94gg/image/upload/v1752496228/sefoodSalad_umrchy.jpg')">
               <div class="desktop-circle-overlay">
                 <h3 id="salad-label" class="desktop-circle-title">Salad</h3>
-                <p class="desktop-circle-description">Fresh, vibrant salads with premium dressings</p>
+                <p id="salad-description" class="desktop-circle-description">Fresh, vibrant salads with premium dressings</p>
               </div>
             </div>
           </div>
@@ -1325,7 +1337,7 @@
             <div class="desktop-circle-inner" style="background-image: url('https://images.unsplash.com/photo-1547592180-85f173990554?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80')">
               <div class="desktop-circle-overlay">
                 <h3 id="soup-label" class="desktop-circle-title">Soup</h3>
-                <p class="desktop-circle-description">Rich, flavorful soups made from scratch</p>
+                <p id="soup-description" class="desktop-circle-description">Rich, flavorful soups made from scratch</p>
               </div>
             </div>
           </div>
@@ -1335,7 +1347,7 @@
             <div class="desktop-circle-inner" style="background-image: url('https://images.unsplash.com/photo-1556679343-c7306c1976bc?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80')">
               <div class="desktop-circle-overlay">
                 <h3 id="sandwiches-label" class="desktop-circle-title">Sandwiches</h3>
-                <p class="desktop-circle-description">Gourmet sandwiches with artisanal breads</p>
+                <p id="sandwiches-description" class="desktop-circle-description">Gourmet sandwiches with artisanal breads</p>
               </div>
             </div>
           </div>
@@ -1345,7 +1357,7 @@
             <div class="desktop-circle-inner" style="background-image: url('https://images.unsplash.com/photo-1437418747212-8d9709afab22?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80')">
               <div class="desktop-circle-overlay">
                 <h3 id="drinks-label" class="desktop-circle-title">Drinks</h3>
-                <p class="desktop-circle-description">Curated beverages to complement your meal</p>
+                <p id="drinks-description" class="desktop-circle-description">Curated beverages to complement your meal</p>
               </div>
             </div>
           </div>
@@ -1355,7 +1367,16 @@
             <div class="desktop-circle-inner" style="background-image: url('https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80')">
               <div class="desktop-circle-overlay">
                 <h3 id="extras-label" class="desktop-circle-title">Extras</h3>
-                <p class="desktop-circle-description">Premium accompaniments and side dishes</p>
+                <p id="extras-description" class="desktop-circle-description">Premium accompaniments and side dishes</p>
+              </div>
+            </div>
+          </div>
+          <!-- Dessert (new category) -->
+          <div class="desktop-circle-card group cursor-pointer" onclick="showMenu('dessert')">
+            <div class="desktop-circle-inner" style="background-image: url('https://res.cloudinary.com/dfvma94gg/image/upload/v1752493002/dessert_otztv0.webp')">
+              <div class="desktop-circle-overlay">
+                <h3 id="dessert-label" class="desktop-circle-title">Dessert</h3>
+                <p id="dessert-description" class="desktop-circle-description">Sweet treats to finish your meal</p>
               </div>
             </div>
           </div>
@@ -1368,10 +1389,10 @@
           <!-- Breakfast -->
           <div class="mobile-circle-card group cursor-pointer" onclick="showMenu('breakfast')">
             <div class="mobile-circle-card-inner">
-              <div class="mobile-circle-card-image" style="background-image: url('https://images.unsplash.com/photo-1550583724-b2692b85b150?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80')"></div>
+              <div class="mobile-circle-card-image" style="background-image: url('https://res.cloudinary.com/dfvma94gg/image/upload/v1752495550/breakfast_hxwmkh.jpg')"></div>
               <div class="mobile-circle-card-content">
-                <h3 class="mobile-circle-card-title">Breakfast</h3>
-                <p class="mobile-circle-card-description">Start your day with our exquisite morning selections</p>
+                <h3 id="mobile-breakfast-label" class="mobile-circle-card-title">Breakfast</h3>
+                <p id="mobile-breakfast-description" class="mobile-circle-card-description">Start your day with our exquisite morning selections</p>
               </div>
               <div class="mobile-circle-card-arrow">
                 <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -1384,10 +1405,10 @@
           <!-- Main Course -->
           <div class="mobile-circle-card group cursor-pointer" onclick="showSubcategories('main-course')">
             <div class="mobile-circle-card-inner">
-              <div class="mobile-circle-card-image" style="background-image: url('https://images.unsplash.com/photo-1544025162-d76694265947?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80')"></div>
+              <div class="mobile-circle-card-image" style="background-image: url('https://res.cloudinary.com/dfvma94gg/image/upload/v1752494717/main_dish_ktjs3c.jpg')"></div>
               <div class="mobile-circle-card-content">
-                <h3 class="mobile-circle-card-title">Main Course</h3>
-                <p class="mobile-circle-card-description">Signature dishes crafted with passion and precision</p>
+                <h3 id="mobile-main-course-label" class="mobile-circle-card-title">Main Course</h3>
+                <p id="mobile-main-course-description" class="mobile-circle-card-description">Signature dishes crafted with passion and precision</p>
               </div>
               <div class="mobile-circle-card-arrow">
                 <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -1400,10 +1421,10 @@
           <!-- Pasta -->
           <div class="mobile-circle-card group cursor-pointer" onclick="showSubcategories('pasta')">
             <div class="mobile-circle-card-inner">
-              <div class="mobile-circle-card-image" style="background-image: url('https://images.unsplash.com/photo-1555949258-eb67b1ef0ceb?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80')"></div>
+              <div class="mobile-circle-card-image" style="background-image: url('https://res.cloudinary.com/dfvma94gg/image/upload/v1752495181/seafoodPasta_z3g218.jpg')"></div>
               <div class="mobile-circle-card-content">
-                <h3 class="mobile-circle-card-title">Pasta</h3>
-                <p class="mobile-circle-card-description">Handcrafted pasta with authentic Italian techniques</p>
+                <h3 id="mobile-pasta-label" class="mobile-circle-card-title">Pasta</h3>
+                <p id="mobile-pasta-description" class="mobile-circle-card-description">Handcrafted pasta with authentic Italian techniques</p>
               </div>
               <div class="mobile-circle-card-arrow">
                 <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -1416,10 +1437,10 @@
           <!-- Pizza -->
           <div class="mobile-circle-card group cursor-pointer" onclick="showSubcategories('pizza')">
             <div class="mobile-circle-card-inner">
-              <div class="mobile-circle-card-image" style="background-image: url('https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80')"></div>
+              <div class="mobile-circle-card-image" style="background-image: url('https://res.cloudinary.com/dfvma94gg/image/upload/v1752495958/pizza_vsql3u.jpg')"></div>
               <div class="mobile-circle-card-content">
-                <h3 class="mobile-circle-card-title">Pizza</h3>
-                <p class="mobile-circle-card-description">Artisanal pizzas with premium ingredients</p>
+                <h3 id="mobile-pizza-label" class="mobile-circle-card-title">Pizza</h3>
+                <p id="mobile-pizza-description" class="mobile-circle-card-description">Artisanal pizzas with premium ingredients</p>
               </div>
               <div class="mobile-circle-card-arrow">
                 <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -1434,8 +1455,8 @@
             <div class="mobile-circle-card-inner">
               <div class="mobile-circle-card-image" style="background-image: url('https://images.unsplash.com/photo-1512621776951-a57141f2eefd?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80')"></div>
               <div class="mobile-circle-card-content">
-                <h3 class="mobile-circle-card-title">Appetizers</h3>
-                <p class="mobile-circle-card-description">Sophisticated starters to awaken your palate</p>
+                <h3 id="mobile-appetizers-label" class="mobile-circle-card-title">Appetizers</h3>
+                <p id="mobile-appetizers-description" class="mobile-circle-card-description">Sophisticated starters to awaken your palate</p>
               </div>
               <div class="mobile-circle-card-arrow">
                 <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -1448,10 +1469,10 @@
           <!-- Salad -->
           <div class="mobile-circle-card group cursor-pointer" onclick="showMenu('salad')">
             <div class="mobile-circle-card-inner">
-              <div class="mobile-circle-card-image" style="background-image: url('https://images.unsplash.com/photo-1546793665-c74683f339c1?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80')"></div>
+              <div class="mobile-circle-card-image" style="background-image: url('https://res.cloudinary.com/dfvma94gg/image/upload/v1752496228/sefoodSalad_umrchy.jpg')"></div>
               <div class="mobile-circle-card-content">
-                <h3 class="mobile-circle-card-title">Salad</h3>
-                <p class="mobile-circle-card-description">Fresh, vibrant salads with premium dressings</p>
+                <h3 id="mobile-salad-label" class="mobile-circle-card-title">Salad</h3>
+                <p id="mobile-salad-description" class="mobile-circle-card-description">Fresh, vibrant salads with premium dressings</p>
               </div>
               <div class="mobile-circle-card-arrow">
                 <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -1466,8 +1487,8 @@
             <div class="mobile-circle-card-inner">
               <div class="mobile-circle-card-image" style="background-image: url('https://images.unsplash.com/photo-1547592180-85f173990554?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80')"></div>
               <div class="mobile-circle-card-content">
-                <h3 class="mobile-circle-card-title">Soup</h3>
-                <p class="mobile-circle-card-description">Rich, flavorful soups made from scratch</p>
+                <h3 id="mobile-soup-label" class="mobile-circle-card-title">Soup</h3>
+                <p id="mobile-soup-description" class="mobile-circle-card-description">Rich, flavorful soups made from scratch</p>
               </div>
               <div class="mobile-circle-card-arrow">
                 <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -1482,8 +1503,8 @@
             <div class="mobile-circle-card-inner">
               <div class="mobile-circle-card-image" style="background-image: url('https://images.unsplash.com/photo-1556679343-c7306c1976bc?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80')"></div>
               <div class="mobile-circle-card-content">
-                <h3 class="mobile-circle-card-title">Sandwiches</h3>
-                <p class="mobile-circle-card-description">Gourmet sandwiches with artisanal breads</p>
+                <h3 id="mobile-sandwiches-label" class="mobile-circle-card-title">Sandwiches</h3>
+                <p id="mobile-sandwiches-description" class="mobile-circle-card-description">Gourmet sandwiches with artisanal breads</p>
               </div>
               <div class="mobile-circle-card-arrow">
                 <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -1498,8 +1519,8 @@
             <div class="mobile-circle-card-inner">
               <div class="mobile-circle-card-image" style="background-image: url('https://images.unsplash.com/photo-1437418747212-8d9709afab22?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80')"></div>
               <div class="mobile-circle-card-content">
-                <h3 class="mobile-circle-card-title">Drinks</h3>
-                <p class="mobile-circle-card-description">Curated beverages to complement your meal</p>
+                <h3 id="mobile-drinks-label" class="mobile-circle-card-title">Drinks</h3>
+                <p id="mobile-drinks-description" class="mobile-circle-card-description">Curated beverages to complement your meal</p>
               </div>
               <div class="mobile-circle-card-arrow">
                 <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -1514,8 +1535,23 @@
             <div class="mobile-circle-card-inner">
               <div class="mobile-circle-card-image" style="background-image: url('https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80')"></div>
               <div class="mobile-circle-card-content">
-                <h3 class="mobile-circle-card-title">Extras</h3>
-                <p class="mobile-circle-card-description">Premium accompaniments and side dishes</p>
+                <h3 id="mobile-extras-label" class="mobile-circle-card-title">Extras</h3>
+                <p id="mobile-extras-description" class="mobile-circle-card-description">Premium accompaniments and side dishes</p>
+              </div>
+              <div class="mobile-circle-card-arrow">
+                <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                </svg>
+              </div>
+            </div>
+          </div>
+          <!-- Dessert (new category) -->
+          <div class="mobile-circle-card group cursor-pointer" onclick="showMenu('dessert')">
+            <div class="mobile-circle-card-inner">
+              <div class="mobile-circle-card-image" style="background-image: url('https://res.cloudinary.com/dfvma94gg/image/upload/v1752493002/dessert_otztv0.webp')"></div>
+              <div class="mobile-circle-card-content">
+                <h3 id="mobile-dessert-label" class="mobile-circle-card-title">Dessert</h3>
+                <p id="mobile-dessert-description" class="mobile-circle-card-description">Sweet treats to finish your meal</p>
               </div>
               <div class="mobile-circle-card-arrow">
                 <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -1542,6 +1578,17 @@
     <div class="max-w-3xl mx-auto bg-white rounded-lg p-8 shadow-lg">
       <h3 id="challenge-title" class="text-2xl font-bold mb-4 text-primary-dark">Try Our Weekly Special</h3>
       <p id="challenge-description" class="text-gray-700">Each week we feature a new challenge for our customers. Solve it and get a discount on your next visit!</p>
+      <button id="weekly-challenge-btn" class="mt-6 px-6 py-3 btn-primary rounded-lg text-lg">Try Our Weekly Challenge</button>
+    </div>
+  </div>
+
+  <!-- Modal Popup -->
+  <div id="challenge-modal" class="fixed inset-0 bg-black bg-opacity-40 flex items-center justify-center z-50 hidden">
+    <div class="bg-white rounded-lg shadow-2xl p-8 max-w-sm w-full text-center relative">
+      <button id="close-challenge-modal" class="absolute top-2 right-2 text-gray-400 hover:text-yellow-600 text-2xl font-bold transition-colors">&times;</button>
+      <h4 id="weekly-challenge-win-title" class="text-2xl font-bold text-primary-dark mb-4">You win!</h4>
+      <p id="weekly-challenge-win-discount" class="text-lg text-gray-700 mb-2">Discount 20%</p>
+      <p id="weekly-challenge-win-note" class="text-sm text-gray-500">Show this popup to your server to redeem your discount.</p>
     </div>
   </div>
 </section>
@@ -1654,7 +1701,19 @@
         soupDescription: "Rich, flavorful soups made from scratch",
         sandwichesDescription: "Gourmet sandwiches with artisanal breads",
         drinksDescription: "Curated beverages to complement your meal",
-        extrasDescription: "Premium accompaniments and side dishes"
+        extrasDescription: "Premium accompaniments and side dishes",
+        weeklyChallengeButton: "Try Our Weekly Challenge",
+        weeklyChallengeWinTitle: "You win!",
+        weeklyChallengeWinDiscount: "Discount 20%",
+        weeklyChallengeWinNote: "Show this popup to your server to redeem your discount.",
+        dessert: "Dessert",
+        dessertDescription: "Sweet treats to finish your meal",
+        "specialty-coffee": "Specialty Coffee",
+        "drinks-specialty-coffee": "Specialty Coffee",
+        specialtyCoffeeDescription: "Expertly brewed single-origin coffee selections",
+        iceFruitCoffee: "Ice Fruit Coffee",
+        milkshake: "Milkshake",
+        iceCoffee: "Ice Coffee",
       },
       arabic: {
         heroTitle: "مطبخ إيطالي أصيل بروح مصرية",
@@ -1719,7 +1778,19 @@
         soupDescription: "شوربات غنية ونكهات مصنوعة من الصفر",
         sandwichesDescription: "ساندويتشات فاخرة بخبز حرفي",
         drinksDescription: "مشروبات منتقاة لتكمل وجبتك",
-        extrasDescription: "إضافات فاخرة وأطباق جانبية"
+        extrasDescription: "إضافات فاخرة وأطباق جانبية",
+        weeklyChallengeButton: "جرب التحدي الأسبوعي",
+        weeklyChallengeWinTitle: "لقد ربحت!",
+        weeklyChallengeWinDiscount: "خصم 20%",
+        weeklyChallengeWinNote: "أظهر هذه النافذة لموظف المطعم للحصول على الخصم.",
+        dessert: "حلويات",
+        dessertDescription: "حلويات لختام وجبتك",
+        "specialty-coffee": "قهوة مختصة",
+        "drinks-specialty-coffee": "قهوة مختصة",
+        specialtyCoffeeDescription: "تشكيلة قهوة مختصة محضرة باحترافية",
+        iceFruitCoffee: "قهوة فواكه مثلجة",
+        milkshake: "ميلك شيك",
+        iceCoffee: "قهوة مثلجة",
       }
     };
 
@@ -1732,7 +1803,7 @@
           price: "130",
           desc: "Foul, falafel, hummus, wedges, omelet, cheese w tomato, eggplant, mix salad, fresh bread",
           descAr: "فول، فلافل، حمص، بطاطس ودجز، بيض أومليت، جبنة مع طماطم، باذنجان، ميكس سلاد، خبز طازج",
-          image: "https://images.unsplash.com/photo-1550583724-b2692b85b150?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+          image: "https://res.cloudinary.com/dfvma94gg/image/upload/v1752498030/ori_lxysgy.jpg"
         },
         {
           name: "Full Greek breakfast",
@@ -1756,7 +1827,7 @@
           price: "136",
           desc: "Brown bread, creamy cheese avocado, eye eggs, Served with mix salad",
           descAr: "خبز أسمر بالشوفان، جبنة كريمية، أفوكادو، بيض عيون، يُقدم مع ميكس سلاد",
-          image: "https://images.unsplash.com/photo-1550583724-b2692b85b150?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+          image: "https://res.cloudinary.com/dfvma94gg/image/upload/v1752498027/avo_nvk6uy.jpg"
         },
         {
           name: "Greek yogurt bowl",
@@ -2352,7 +2423,7 @@
           price: "234",
           desc: "Tomato sauce, mozzarella cheese, salami",
           descAr: "صلصة طماطم، جبنة موزاريلا، سلامي",
-          image: "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+          image: "https://res.cloudinary.com/dfvma94gg/image/upload/v1752499277/pizzaDiv_lning7.jpg"
         },
         {
           name: "Salsiccia",
@@ -2365,12 +2436,12 @@
       ],
       "pizza-chicken": [
         {
-          name: "Pollo (BBQ)",
-          nameAr: "بوللو (باربيكيو)",
+          name: "Ranch",
+          nameAr: "رانش",
           price: "218",
           desc: "",
           descAr: "",
-          image: "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+          image: "https://res.cloudinary.com/dfvma94gg/image/upload/v1752499234/pizzaRacnh_wyfo91.jpg"
         },
         {
           name: "Spanish",
@@ -2378,14 +2449,6 @@
           price: "219",
           desc: "Topped with tomato sauce, mozzarella cheese, chicken grilled or fried, bell peppers, red onion",
           descAr: "مغطاة بصلصة طماطم، جبنة موزاريلا، دجاج مشوي أو مقلي، فلفل رومي، بصل أحمر",
-          image: "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
-        },
-        {
-          name: "Ranch",
-          nameAr: "رانش",
-          price: "222",
-          desc: "",
-          descAr: "",
           image: "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
         }
       ],
@@ -2446,7 +2509,7 @@
           price: "289",
           desc: "A classic pizza made with fresh tomato sauce, mozzarella cheese, basil leaves and drizzle of olive oil",
           descAr: "مغطاة بصلصة الطماطم، جبنة موزاريلا، جبنة بوراتا كريمية كرات مع أوراق الريحان",
-          image: "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+          image: "https://res.cloudinary.com/dfvma94gg/image/upload/v1752499230/burrata_uepznx.jpg"
         }
       ],
       
@@ -2761,10 +2824,336 @@
       
       // Drinks (organized by subcategories)
       "drinks-hot-drinks": [
-        // ... hot drink items ...
+        {
+          name: "Espresso",
+          nameAr: "إسبيريسو",
+          price: "52",
+          desc: "",
+          descAr: ""
+        },
+        {
+          name: "Espresso double",
+          nameAr: "إسبريسو دبل",
+          price: "62",
+          desc: "",
+          descAr: ""
+        },
+        {
+          name: "Espresso Bombon",
+          nameAr: "اسبريسو بومبون",
+          price: "59",
+          desc: "Espresso and condensed milk",
+          descAr: "إسبريسو وحليب مكثف"
+        },
+        {
+          name: "Espresso con panna",
+          nameAr: "إسبريسو كون بانا",
+          price: "66",
+          desc: "",
+          descAr: ""
+        },
+        {
+          name: "Macchiato",
+          nameAr: "ميكاتو",
+          price: "56",
+          desc: "",
+          descAr: ""
+        },
+        {
+          name: "Macchiato double",
+          nameAr: "ميكاتو دوبل",
+          price: "66",
+          desc: "",
+          descAr: ""
+        },
+        {
+          name: "Espresso avocado",
+          nameAr: "إسبريسو أفوكادو",
+          price: "78",
+          desc: "Espresso and ice cream",
+          descAr: "إسبريسو وأيس كريم"
+        },
+        {
+          name: "Cappuccino",
+          nameAr: "كابتشينو",
+          price: "86",
+          desc: "",
+          descAr: ""
+        },
+        {
+          name: "Latte",
+          nameAr: "لاتيه",
+          price: "86",
+          desc: "",
+          descAr: ""
+        },
+        {
+          name: "Spanish latte",
+          nameAr: "سبانيش لاتيه",
+          price: "99",
+          desc: "",
+          descAr: ""
+        },
+        {
+          name: "Tiramisu latte",
+          nameAr: "تراميسيو لاتيه",
+          price: "148",
+          desc: "Tiramisu and milk and espresso",
+          descAr: "تيراميسو وحليب واسبريسو"
+        },
+        {
+          name: "Special latte",
+          nameAr: "سبانيش لاتيه",
+          price: "106",
+          desc: "",
+          descAr: ""
+        },
+        {
+          name: "Slated caramel latte",
+          nameAr: "سولتيت كراميل لاتيه",
+          price: "109",
+          desc: "",
+          descAr: ""
+        },
+        {
+          name: "Cinnamon latte",
+          nameAr: "سينامون لاتيه",
+          price: "99",
+          desc: "",
+          descAr: ""
+        },
+        {
+          name: "Sweet potato latte",
+          nameAr: "سويت بوتيتو لاتيه",
+          price: "129",
+          desc: "",
+          descAr: ""
+        },
+        {
+          name: "Dark mocha",
+          nameAr: "دارك موكا",
+          price: "89",
+          desc: "",
+          descAr: ""
+        },
+        {
+          name: "White mocha",
+          nameAr: "وايت موكا",
+          price: "99",
+          desc: "",
+          descAr: ""
+        },
+        {
+          name: "Hot Cider",
+          nameAr: "هوت سيدر",
+          price: "74",
+          desc: "",
+          descAr: ""
+        },
+        {
+          name: "Sahlap",
+          nameAr: "سحلب",
+          price: "85",
+          desc: "",
+          descAr: ""
+        },
+        {
+          name: "Classic hot chocolate",
+          nameAr: "كلاسيك هوت شوكليت",
+          price: "109",
+          desc: "",
+          descAr: ""
+        },
+        {
+          name: "Spicy hot chocolate",
+          nameAr: "سبايسى هوت شوكليت",
+          price: "136",
+          desc: "",
+          descAr: ""
+        },
+        {
+          name: "Strawberry hot chocolate",
+          nameAr: "هوت شوكلت فراولة",
+          price: "136",
+          desc: "",
+          descAr: ""
+        },
+        {
+          name: "White hot chocolate",
+          nameAr: "وايت هوت شوكليت",
+          price: "120",
+          desc: "",
+          descAr: ""
+        },
+        {
+          name: "Nutella hot chocolate",
+          nameAr: "نوتيلا هوت شوكليت",
+          price: "149",
+          desc: "",
+          descAr: ""
+        },
+        {
+          name: "Ferrero hot chocolate",
+          nameAr: "هوت شوكليت فيريرو",
+          price: "155",
+          desc: "",
+          descAr: ""
+        },
+        {
+          name: "Raspberry hot chocolate",
+          nameAr: "هوت شوكليت فراولة",
+          price: "136",
+          desc: "",
+          descAr: ""
+        },
+        {
+          name: "Marshmallow hot chocolate",
+          nameAr: "هوت شوكليت مرشيميلو",
+          price: "155",
+          desc: "",
+          descAr: ""
+        },
+        {
+          name: "Cinnamon hot chocolate",
+          nameAr: "هوت شوكليت سينامون",
+          price: "120",
+          desc: "",
+          descAr: ""
+        },
+        {
+          name: "Ginger hot chocolate",
+          nameAr: "هوت شوكلت زنجبيل",
+          price: "120",
+          desc: "",
+          descAr: ""
+        },
+        {
+          name: "Hot kinder",
+          nameAr: "هوت كيندر",
+          price: "149",
+          desc: "",
+          descAr: ""
+        }
       ],
       "drinks-cold-drinks": [
-        // ... cold drink items ...
+        // Ice Coffee section header
+        { section: "ice-coffee", sectionAr: "قهوة مثلجة" },
+        { name: "Ice latte", nameAr: "أيس لاتيه", price: "98", desc: "", descAr: "" },
+        { name: "Ice mocha", nameAr: "أيس موكا", price: "108", desc: "", descAr: "" , image:"https://res.cloudinary.com/dfvma94gg/image/upload/v1752504413/ice_mocha_uz6ipw.jpg"},
+        { name: "Ice white mocha", nameAr: "أيس وايت موكا", price: "137", desc: "", descAr: "" },
+        { name: "Ice caramel macchiato", nameAr: "أيس كراميل ميكاتو", price: "118", desc: "", descAr: "", image:"https://res.cloudinary.com/dfvma94gg/image/upload/v1752504410/iceCarmelMacchiato_iozm80.jpg" },
+        { name: "Ice americano", nameAr: "أيس أمريكان", price: "109", desc: "", descAr: "" },
+        { name: "Ice cappuccino", nameAr: "أيس كابتشينو", price: "103", desc: "", descAr: "", image: "https://res.cloudinary.com/dfvma94gg/image/upload/v1752505248/ice_cappcino_ejj4pn.jpg" },
+        { name: "Ice chocolate", nameAr: "أيس شوكليت", price: "96", desc: "", descAr: "", image: "https://res.cloudinary.com/dfvma94gg/image/upload/v1752505248/ice_chocolate_qzqz0o.jpg" },
+        { name: "Ice Salted caramel latte", nameAr: "أيس سولتد كراميل", price: "145", desc: "", descAr: "" },
+        { name: "Ice Spanish latte", nameAr: "أيس إسبانيش لاتيه", price: "109", desc: "", descAr: "" },
+        { name: "Ice kinder coffee", nameAr: "أيس كيندر كوفى", price: "124", desc: "", descAr: "" },
+        { name: "Ice Tiramisu latte", nameAr: "أيس لاتيه تراميسيو", price: "145", desc: "", descAr: "" },
+        { name: "Ice special latte", nameAr: "أيس سبيشيال لاتيه", price: "109", desc: "", descAr: "" },
+        { name: "Wake up Caputo", nameAr: "ويك أب كابوتو", price: "120", desc: "", descAr: "" },
+        // Ice Fruit Coffee section header (now inside Ice Coffee)
+        { section: "ice-fruit-coffee", sectionAr: "قهوة فواكه مثلجة" },
+        { name: "Strawberry latte", nameAr: "لاتيه فراولة", price: "110", desc: "", descAr: "" },
+        { name: "Blue green", nameAr: "بلو جرين", price: "133", desc: "", descAr: "" },
+        { name: "Blue berry coffee", nameAr: "بلو بيرى قهوة", price: "103", desc: "", descAr: "", image: "https://res.cloudinary.com/dfvma94gg/image/upload/v1752504416/iceblueBerry_vsny3z.jpg" },
+        { name: "Orange coffee", nameAr: "قهوة برتقال", price: "125", desc: "", descAr: "" },
+        { name: "Matcha strawberry", nameAr: "ماتشا فراولة", price: "158", desc: "", descAr: "" },
+        { name: "Matcha mango", nameAr: "ماتشا مانجو", price: "158", desc: "", descAr: "" },
+        { name: "Date latte", nameAr: "لاتيه تمر", price: "110", desc: "", descAr: "" },
+        { name: "Banana latte", nameAr: "لاتيه موز", price: "110", desc: "", descAr: "" },
+        { name: "Amrecano coco white", nameAr: "أمريكانو كوكو وايت", price: "125", desc: "", descAr: "" },
+        // Mojito section
+        { section: "mojito", sectionAr: "موهيتو" },
+        { name: "Ice Cider", nameAr: "أيس سيدر", price: "86", desc: "cinnamon cigar, Soda , apple juice", descAr: "سيجار قرفة، صودا، عصير تفاح",image:"https://res.cloudinary.com/dfvma94gg/image/upload/v1752504407/ice_sider_panacu.jpg" },
+        { name: "Apple eye", nameAr: "أبل أي", price: "89", desc: "apple juice , lemon, soda", descAr: "عصير تفاح، ليمون، صودا" },
+        { name: "Cosmo", nameAr: "كوزمو", price: "143", desc: "redberry , mango , pineapple ,coconut , soda", descAr: "توت أحمر، مانجو، أناناس، جوز هند، صودا" },
+        { name: "Berry mango fusion", nameAr: "بيرى مانجو فيجن", price: "135", desc: "Kiwi ,mango, red berry", descAr: "كيوي، مانجو، توت أحمر" },
+        { name: "Devil power", nameAr: "ديفل باور", price: "149", desc: "sweet pepper, black pepper , red bull ,coconut , pineapple", descAr: "فلفل حلو، فلفل أسود، ريد بول، جوز هند، أناناس" },
+        { name: "Desperados", nameAr: "ديسبرادوس", price: "127", desc: "Mango , blue berry, halal beer", descAr: "مانجو، توت أزرق، بيرة حلال" },
+        { name: "Ice tea peach", nameAr: "أيس تى خوخ", price: "96", desc: "", descAr: "" },
+        { name: "Ice tea strawberry milk", nameAr: "أيس تى ميلك فراولة", price: "143", desc: "", descAr: "" },
+        { name: "Bob Marley", nameAr: "بوب مارلى", price: "127", desc: "Blue cruacao , orange ,soda,cigar ,granden", descAr: "كروساو أزرق، برتقال، صودا، سيجار، جراندين" },
+        { name: "Tangren", nameAr: "تانجرين", price: "127", desc: "Pineapple ,coconut , blue cruacao , orange", descAr: "أناناس، جوز هند،، برتقال" },
+        { name: "Ten cities", nameAr: "تين سيتس", price: "106", desc: "Peach , strawberry ,carrot , soda", descAr: "خوخ، فراولة، جزر، صودا" , image: "https://res.cloudinary.com/dfvma94gg/image/upload/v1752504413/tan_cites_yr0gmr.jpg" },
+        { name: "Carrot city", nameAr: "كاروت سيتى", price: "109", desc: "Carrot , strawberry, orange juice, soda", descAr: "جزر، فراولة، عصير برتقال، صودا" },
+        { name: "Dilemma", nameAr: "دايلما", price: "112", desc: "Apple juice, rosu, soda , granden", descAr: "عصير تفاح، روزو، صودا، جراندين" },
+        { name: "Secret", nameAr: "سيكريت", price: "103", desc: "It's secret ,sorry", descAr: "ده سر، آسف" },
+        { name: "Green blue soda", nameAr: "جرين بلو صودا", price: "101", desc: "Mint , lemon ,soda , Blue cruacao", descAr: "نعناع، ​​ليمون، صودا، بلو كرواساو" },
+        { name: "Sangria red", nameAr: "سانجريا ريد", price: "127", desc: "", descAr: "" },
+        { name: "Chock", nameAr: "تشوك", price: "60", desc: "Lemon , orange juice, soda ,kiwi", descAr: "ليمون، عصير برتقال، صودا، كيوي" },
+        { name: "Mojito", nameAr: "موهيتو", price: "86", desc: "", descAr: "" },
+        { name: "Mojito flavor", nameAr: "موهيتو فليفر", price: "125", desc: "Passion / blueberry / raspberry /strawberry /peach", descAr: "باشن / توت أزرق / توت بري / فراولة / خوخ" },
+        // Boba section
+        { section: "boba", sectionAr: "بوبا" },
+        { name: "Boba coffee", nameAr: "بوبا كوفى", price: "130", desc: "", descAr: "" },
+        { name: "Boba bird", nameAr: "بوبا بيرد", price: "129", desc: "Boba strawberry , bob passion ,boba blue berry pineapple and orange", descAr: "بوبا فراولة، بوب باشن، بوبا توت أزرق وأناناس وبرتقال" },
+        { name: "Boba shake", nameAr: "ميلك شيك بوبا", price: "149", desc: "blue berry or strawberry", descAr: "توت أزرق أو فراولة" },
+        { name: "Boba Passion Fruit", nameAr: "بوبا باشن فروت", price: "119", desc: "", descAr: "" },
+        { name: "Pink coffee boba", nameAr: "بوبا بينك كوفى", price: "149", desc: "", descAr: "" },
+        { name: "Carrot boba", nameAr: "بوبا كاروت", price: "114", desc: "", descAr: "" },
+        { name: "Boba mango", nameAr: "بوبا مانجو", price: "129", desc: "", descAr: "" },
+        { name: "Gallow boba", nameAr: "بوبا جالو", price: "139", desc: "Mite ,mango, peach , passion", descAr: "مايت، مانجو، خوخ، باشن" },
+        // Frappuccino section
+        { section: "frappuccino", sectionAr: "فرابوتشينو" },
+        { name: "Classic", nameAr: "كلاسيك", price: "108", desc: "", descAr: "" },
+        { name: "Double coffee", nameAr: "دوبل كوفى", price: "123", desc: "", descAr: "" },
+        { name: "Brownie caramel", nameAr: "براونى كراميل", price: "165", desc: "", descAr: "" },
+        { name: "Dulce de leche", nameAr: "دولشى دى ليتشي", price: "145", desc: "condensed milk, Carmel,milk, cream ,golden sun disc", descAr: "حليب مكثف، كراميل، حليب، كريمة" },
+        { name: "Louts", nameAr: "لوتس", price: "158", desc: "", descAr: "" },
+        { name: "Caramel", nameAr: "كراميل", price: "118", desc: "", descAr: "" },
+        { name: "Pistachio vanilla", nameAr: "بيستاشيو فانيليا", price: "169", desc: "", descAr: "" },
+        { name: "White mocha", nameAr: "وايت موكا", price: "135", desc: "", descAr: "" },
+        { name: "Mocha", nameAr: "موكا", price: "118", desc: "", descAr: "" },
+        { name: "Oreo", nameAr: "أوريو", price: "123", desc: "", descAr: "" },
+        { name: "Secret", nameAr: "سيكريت", price: "134", desc: "", descAr: "" },
+        { name: "Monkey", nameAr: "مونكي", price: "123", desc: "", descAr: "" },
+        // Smoothie section
+        { section: "smoothie", sectionAr: "سموزى" },
+        { name: "Mango", nameAr: "مانجو", price: "98", desc: "", descAr: "" },
+        { name: "Blue berry", nameAr: "بلو بيرى", price: "95", desc: "", descAr: "" },
+        { name: "Strawberry", nameAr: "فراولة", price: "96", desc: "", descAr: "" },
+        { name: "Strawberry coconut", nameAr: "فراولة جوز هند", price: "140", desc: "", descAr: "" },
+        { name: "Peach", nameAr: "خوخ", price: "96", desc: "", descAr: "" },
+        { name: "Raspberry lemon", nameAr: "رويسبيرى ليمون", price: "96", desc: "", descAr: "" },
+        { name: "passion", nameAr: "باشن", price: "96", desc: "", descAr: "" },
+        { name: "PPM", nameAr: "خوخ، باشن، مانجو", price: "109", desc: "Peach , passion , mango", descAr: "خوخ، باشن، مانجو" },
+        { name: "Pineapple", nameAr: "أناناس", price: "92", desc: "", descAr: "" },
+        { name: "Mix berry", nameAr: "ميكس بيرى", price: "95", desc: "", descAr: "" },
+        { name: "Mango green", nameAr: "مانجو جرين", price: "102", desc: "Minte , mango", descAr: "نعناع، ​​مانجو" },
+        { name: "Pomegranate molasses", nameAr: "بوميجرانت مولاسيس", price: "140", desc: "Mango , peach , molasses, apple juice, yogurt", descAr: "مانجو، خوخ، دبس، عصير تفاح، زبادي" },
+        { name: "Blue Peach", nameAr: "بلو بيتش", price: "111", desc: "Orange , peach , blue curacao , yogurt", descAr: "برتقال، خوخ، بلو كوراساو ، زبادي" },
+        { name: "Mango White", nameAr: "مانجو وايت", price: "140", desc: "Mango , passion, cream ,coconut milk", descAr: "مانجو، باشن، كريمة، حليب جوز الهند" },
+        { name: "spicy pineapple", nameAr: "سبايسى بينابل", price: "99", desc: "Pineapple and ginger", descAr: "أناناس وزنجبيل" },
+        { name: "Pina Colada", nameAr: "بينا كولادا", price: "140", desc: "", descAr: "" },
+        { name: "Brain Power", nameAr: "برين باور", price: "126", desc: "Mix berry ,banana", descAr: "توت مشكل، موز" },
+        { name: "Lemon mint", nameAr: "ليمون بالنعناع", price: "89", desc: "", descAr: "" },
+        { name: "Blue Hawaii", nameAr: "بلو هاواى", price: "109", desc: "Banana, pineapple, blue curacao", descAr: "موز، أناناس، بلو كوراساو" },
+        { name: "Green Apple", nameAr: "جرين أبل", price: "96", desc: "", descAr: "" },
+        { name: "Watermelon", nameAr: "بطيخ", price: "92", desc: "", descAr: "" },
+      ],
+      "drinks-specialty-coffee": [
+        {
+          name: "V60",
+          nameAr: "في ٦٠",
+          price: "120",
+          desc: "",
+          descAr: "",
+          image:"https://res.cloudinary.com/dfvma94gg/image/upload/v1752504406/ice_v60_obdkmf.jpg"
+        },
+        {
+          name: "French Press",
+          nameAr: "فرنش بريس",
+          price: "120",
+          desc: "",
+          descAr: ""
+        },
+        {
+          name: "Cold Brew",
+          nameAr: "كولد برو",
+          price: "169",
+          desc: "",
+          descAr: ""
+        }
       ]
     };
 
@@ -2772,7 +3161,7 @@
     const subcategories = {
       pasta: ["beef", "chicken", "seafood", "vegetarian"],
       pizza: ["beef", "chicken", "seafood", "vegetarian"],
-      drinks: ["hot-drinks", "cold-drinks"],
+      drinks: ["hot-drinks", "cold-drinks", "specialty-coffee"],
       'main-course': ["chicken", "beef", "seafood", "vegetarian"],
       sandwiches: ["chicken", "beef", "seafood", "vegetarian"]
     };
@@ -2785,16 +3174,6 @@
     function updateLanguage() {
       const lang = translations[currentLanguage];
       
-
-// Handle story section translation
-  if (currentLanguage === 'english') {
-    document.getElementById('english-story').classList.remove('hidden');
-    document.getElementById('arabic-story').classList.add('hidden');
-  } else {
-    document.getElementById('english-story').classList.add('hidden');
-    document.getElementById('arabic-story').classList.remove('hidden');
-  }
-
       // Update UI elements
       document.getElementById('hero-title').textContent = lang.heroTitle;
       document.getElementById('hero-subtitle').textContent = lang.heroSubtitle;
@@ -2866,6 +3245,18 @@
         if (document.getElementById(`${key}-label`)) {
           document.getElementById(`${key}-label`).textContent = lang[key];
         }
+        // Also update mobile category labels
+        if (document.getElementById(`mobile-${key}-label`)) {
+          document.getElementById(`mobile-${key}-label`).textContent = lang[key];
+        }
+        // Also update mobile category descriptions
+        if (document.getElementById(`mobile-${key}-description`)) {
+          document.getElementById(`mobile-${key}-description`).textContent = lang[`${key}Description`];
+        }
+        // Also update desktop category descriptions
+        if (document.getElementById(`${key}-description`)) {
+          document.getElementById(`${key}-description`).textContent = lang[`${key}Description`];
+        }
       });
       
       // Update language toggle button
@@ -2883,6 +3274,18 @@
       if (!document.getElementById('subcategories-content').classList.contains('hidden')) {
         const category = document.getElementById('subcategories-content').getAttribute('data-category');
         if (category) showSubcategories(category);
+      }
+      if (document.getElementById('weekly-challenge-btn')) {
+        document.getElementById('weekly-challenge-btn').textContent = lang.weeklyChallengeButton;
+      }
+      if (document.getElementById('weekly-challenge-win-title')) {
+        document.getElementById('weekly-challenge-win-title').textContent = lang.weeklyChallengeWinTitle;
+      }
+      if (document.getElementById('weekly-challenge-win-discount')) {
+        document.getElementById('weekly-challenge-win-discount').textContent = lang.weeklyChallengeWinDiscount;
+      }
+      if (document.getElementById('weekly-challenge-win-note')) {
+        document.getElementById('weekly-challenge-win-note').textContent = lang.weeklyChallengeWinNote;
       }
     }
 
@@ -2933,44 +3336,25 @@
           <div class="mobile-menu-container md:hidden">
             <div class="space-y-4">
               ${menuItems[category] && menuItems[category].length > 0
-                ? menuItems[category].map(item => `
-                  <div class=\"mobile-fine-dining-dish\"> 
-                    <div class=\"mobile-dish-image\" style=\"background-image: url('${item.image}')\"></div>
-                    <div class=\"mobile-dish-content\">
-                      <div class=\"mobile-dish-header\">
-                        <h4 class=\"mobile-dish-title\">${currentLanguage === 'english' ? item.name : item.nameAr}</h4>
-                        <div class=\"mobile-dish-price\">
-                          <span class=\"mobile-price-amount\">${item.price}</span>
-                          <span class=\"mobile-price-currency\">${lang.currency}</span>
-                        </div>
-                      </div>
-                      <div class=\"mobile-dish-accent\"></div>
-                      <p class=\"mobile-dish-description\">${currentLanguage === 'english' ? item.desc : item.descAr}</p>
-                      ${item.options ? `
-                        <div class=\"mobile-dish-options\">
-                          <div class=\"mobile-options-header\">
-                            <span class=\"mobile-options-icon\">⚙️</span>
-                            <span class=\"mobile-options-title\">${lang.customizations}</span>
+                ? menuItems[category].map(item =>
+                    item.section ?
+                      `<div class='font-bold text-lg text-primary-dark border-b border-primary-medium py-2 my-4 text-center'>${currentLanguage === 'english' ? lang[item.section] || item.section : lang[item.section] || item.sectionAr}</div>` :
+                      `<div class=\"mobile-fine-dining-dish\"> 
+                        <div class=\"mobile-dish-image\" style=\"background-image: url('${item.image || ''}')\"></div>
+                        <div class=\"mobile-dish-content\">
+                          <div class=\"mobile-dish-header\">
+                            <h4 class=\"mobile-dish-title\">${currentLanguage === 'english' ? item.name : item.nameAr}</h4>
+                            <div class=\"mobile-dish-price\">
+                              <span class=\"mobile-price-amount\">${item.price}</span>
+                              <span class=\"mobile-price-currency\">${lang.currency}</span>
+                            </div>
                           </div>
-                          <div class=\"mobile-options-list\">
-                            ${item.options.map(opt => `
-                              <div class=\"mobile-option-item\">
-                                <span class=\"mobile-option-name\">${currentLanguage === 'english' ? opt.name : opt.nameAr}</span>
-                                ${opt.price ? `<span class=\"mobile-option-price\">+${opt.price} ${lang.currency}</span>` : ''}
-                              </div>
-                            `).join('')}
-                          </div>
+                          <div class=\"mobile-dish-accent\"></div>
+                          <p class=\"mobile-dish-description\">${currentLanguage === 'english' ? item.desc : item.descAr}</p>
+                          <div class=\"mobile-dish-footer\"></div>
                         </div>
-                      ` : ''}
-                      <div class=\"mobile-dish-footer\">
-                        <div class=\"mobile-dish-badge\">
-                          <span class=\"mobile-badge-icon\">✨</span>
-                          <span class=\"mobile-badge-text\">${lang.chefsSpecial}</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                `).join('')
+                      </div>`
+                  ).join('')
                 : `<div class=\"mobile-empty-state\"><div class=\"mobile-empty-icon\">🍽️</div><p class=\"mobile-empty-text\">${lang.menuItemsComingSoon}</p></div>`
               }
             </div>
@@ -2980,46 +3364,27 @@
           <div class="hidden md:block">
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               ${menuItems[category] && menuItems[category].length > 0
-                ? menuItems[category].map(item => `
-                  <div class=\"fine-dining-dish-card\">
-                    <div class=\"dish-card-inner\">
-                      <div class=\"dish-card-image\" style=\"background-image: url('${item.image}')\"></div>
-                      <div class=\"dish-card-content\">
-                        <div class=\"dish-card-header\">
-                          <h4 class=\"dish-card-title\">${currentLanguage === 'english' ? item.name : item.nameAr}</h4>
-                          <div class=\"dish-card-price\">
-                            <span class=\"price-amount\">${item.price}</span>
-                            <span class=\"price-currency\">${lang.currency}</span>
+                ? menuItems[category].map(item =>
+                    item.section ?
+                      `<div class='col-span-full font-bold text-2xl text-primary-dark border-b-2 border-primary-medium py-3 my-6 text-center bg-white'>${currentLanguage === 'english' ? lang[item.section] || item.section : lang[item.section] || item.sectionAr}</div>` :
+                      `<div class=\"fine-dining-dish-card\">
+                        <div class=\"dish-card-inner\">
+                          <div class=\"dish-card-image\" style=\"background-image: url('${item.image || ''}')\"></div>
+                          <div class=\"dish-card-content\">
+                            <div class=\"dish-card-header\">
+                              <h4 class=\"dish-card-title\">${currentLanguage === 'english' ? item.name : item.nameAr}</h4>
+                              <div class=\"dish-card-price\">
+                                <span class=\"price-amount\">${item.price}</span>
+                                <span class=\"price-currency\">${lang.currency}</span>
+                              </div>
+                            </div>
+                            <div class=\"dish-card-accent\"></div>
+                            <p class=\"dish-card-description\">${currentLanguage === 'english' ? item.desc : item.descAr}</p>
+                            <div class=\"dish-card-footer\"></div>
                           </div>
                         </div>
-                        <div class=\"dish-card-accent\"></div>
-                        <p class=\"dish-card-description\">${currentLanguage === 'english' ? item.desc : item.descAr}</p>
-                        ${item.options ? `
-                          <div class=\"dish-card-options\">
-                            <div class=\"options-header\">
-                              <span class=\"options-icon\">⚙️</span>
-                              <span class=\"options-title\">${lang.customizations}</span>
-                            </div>
-                            <div class=\"options-list\">
-                              ${item.options.map(opt => `
-                                <div class=\"option-item\">
-                                  <span class=\"option-name\">${currentLanguage === 'english' ? opt.name : opt.nameAr}</span>
-                                  ${opt.price ? `<span class=\"option-price\">+${opt.price} ${lang.currency}</span>` : ''}
-                                </div>
-                              `).join('')}
-                            </div>
-                          </div>
-                        ` : ''}
-                        <div class=\"dish-card-footer\">
-                          <div class=\"dish-card-badge\">
-                            <span class=\"badge-icon\">✨</span>
-                            <span class=\"badge-text\">${lang.chefsSpecial}</span>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                `).join('')
+                      </div>`
+                  ).join('')
                 : `<div class=\"col-span-full text-center py-12\"><p class=\"text-gray-500 text-lg\">${lang.menuItemsComingSoon}</p></div>`
               }
             </div>
@@ -3234,6 +3599,27 @@
     // Initialize hero slider when page loads
     document.addEventListener('DOMContentLoaded', function() {
       initHeroSlider();
+    });
+
+    // Weekly Challenge Modal Logic
+    document.addEventListener('DOMContentLoaded', function() {
+      var challengeBtn = document.getElementById('weekly-challenge-btn');
+      var challengeModal = document.getElementById('challenge-modal');
+      var closeChallengeModal = document.getElementById('close-challenge-modal');
+      if (challengeBtn && challengeModal && closeChallengeModal) {
+        challengeBtn.addEventListener('click', function() {
+          challengeModal.classList.remove('hidden');
+        });
+        closeChallengeModal.addEventListener('click', function() {
+          challengeModal.classList.add('hidden');
+        });
+        // Optional: close modal when clicking outside the modal content
+        challengeModal.addEventListener('click', function(e) {
+          if (e.target === challengeModal) {
+            challengeModal.classList.add('hidden');
+          }
+        });
+      }
     });
   </script>
 </body>
