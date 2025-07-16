@@ -22,6 +22,17 @@
       background-color: var(--primary-light);
       color: #333;
       overflow-x: hidden;
+      position: relative;
+    }
+    
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      background: url('pattern.jpg') repeat;
+      /* opacity: 0.12; */
+      pointer-events: none;
     }
     
     html {
@@ -1185,7 +1196,7 @@
 </head>
 <body>
   <!-- Navigation -->
-  <nav class="bg-gradient-to-r from-primary-dark via-primary-medium to-secondary-2 shadow-lg relative overflow-hidden">
+  <nav class="bg-white shadow-lg relative overflow-hidden" style="background: #fff !important;">
     <!-- Decorative background elements -->
     <div class="absolute inset-0 opacity-10">
       <div class="absolute top-0 left-0 w-32 h-32 bg-white rounded-full -translate-x-16 -translate-y-16"></div>
@@ -1197,27 +1208,14 @@
       <div class="flex justify-between items-center">
         <!-- Logo and Brand Section -->
         <div class="flex items-center space-x-4">
-          <div class="relative">
-            <img src="cupo.jpg" alt="Caputo Logo" class="w-16 h-16 md:w-20 md:h-20 rounded-full object-cover border-4 border-white shadow-lg">
-            <div class="absolute -bottom-1 -right-1 w-6 h-6 bg-primary-light rounded-full border-2 border-white flex items-center justify-center">
-              <div class="w-3 h-3 bg-primary-dark rounded-full"></div>
-            </div>
-          </div>
-          <div class="flex flex-col">
-            <div class="text-2xl md:text-3xl font-bold text-black logo tracking-wider drop-shadow-lg">
-              CAPUTO
-            </div>
-            <div class="text-xs md:text-sm text-black/80 font-medium tracking-wide drop-shadow-md" id="brand-tagline">
-              Authentic Italian Cuisine
-            </div>
-          </div>
+          <img src="logo.png" alt="Caputo Logo" class="w-20 h-20 object-contain">
         </div>
         
         <!-- Navigation Actions -->
         <div class="flex items-center space-x-3">
           <!-- Language Toggle with improved styling -->
           <button id="language-toggle" class="relative group">
-            <div class="bg-white/80 backdrop-blur-sm border border-black/20 rounded-full px-4 py-2 text-black font-medium transition-all duration-300 hover:bg-white hover:scale-105 active:scale-95">
+            <div class="bg-white border border-black/20 rounded-full px-4 py-2 text-black font-medium transition-all duration-300 hover:bg-white hover:scale-105 active:scale-95">
               <span class="flex items-center space-x-2">
                 <span class="text-sm">العربية</span>
                 <svg class="w-4 h-4 transform group-hover:rotate-180 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -1254,10 +1252,10 @@
   </nav>
 
  <!-- Hero Section -->
-<section class="w-full relative">
-  <div class="max-w-7xl mx-auto px-4 py-12">
-    <div class="relative h-96 w-full rounded-lg overflow-hidden">
-      <div id="hero-slider" class="w-full h-full relative overflow-hidden">
+<section class="w-full h-screen md:h-[75vh] sm:h-[50vh] relative m-0 p-0" style="min-height:50vh;">
+  <div class="w-full h-full m-0 p-0">
+    <div class="relative w-full h-full m-0 p-0 rounded-none overflow-hidden">
+      <div id="hero-slider" class="w-full h-full relative overflow-hidden m-0 p-0">
         <img src="cup.png" alt="Caputo Cup" class="hero-slide w-full h-full object-cover absolute inset-0 transition-all duration-6000 ease-in-out">
         <img src="cupo.jpg" alt="Caputo Cup" class="hero-slide w-full h-full object-cover absolute inset-0 transition-all duration-6000 ease-in-out">
         <img src="dessert.jpg" alt="Caputo Dessert" class="hero-slide w-full h-full object-cover absolute inset-0 transition-all duration-6000 ease-in-out">
@@ -1277,17 +1275,13 @@
         <img src="https://images.unsplash.com/photo-1511920170033-f8396924c348?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Coffee" class="hero-slide w-full h-full object-cover absolute inset-0 transition-all duration-6000 ease-in-out">
         <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Fresh Ingredients" class="hero-slide w-full h-full object-cover absolute inset-0 transition-all duration-6000 ease-in-out">
       </div>
-      <!-- Add hero-title and hero-subtitle here -->
-      <div class="absolute top-0 left-0 w-full h-full flex flex-col items-center justify-center z-20">
-        <h1 id="hero-title" class="text-4xl md:text-6xl font-bold text-white drop-shadow-lg text-center mb-4">Authentic Italian Cuisine with Egyptian Soul</h1>
-        <p id="hero-subtitle" class="text-xl md:text-2xl text-white/90 drop-shadow-md text-center">A culinary journey from Alexandria to Naples and back</p>
-      </div>
+      <!-- Removed hero-title and hero-subtitle for full image slider -->
     </div>
   </div>
 </section>
 
   <!-- Menu Section -->
-  <section id="menu" class="py-16 bg-white">
+  <section id="menu" class="py-16 bg-white/80">
     <div class="max-w-7xl mx-auto px-4">
       <h2 id="menu-title" class="text-3xl font-bold text-primary-dark text-center mb-4">Our Menu</h2>
       <p id="menu-description" class="text-lg text-gray-600 text-center max-w-3xl mx-auto mb-12">
@@ -1597,7 +1591,7 @@
   </section>
 
   <!-- Weekly Challenge Section -->
-<section class="py-16 bg-secondary-2 text-primary-dark">
+<section class="py-16 text-primary-dark" style="background: rgba(255,255,255,0.8);">
   <div class="max-w-7xl mx-auto px-4 text-center">
     <h2 class="text-3xl font-bold mb-6">Caputo's Weekly Challenge</h2>
     <div class="max-w-3xl mx-auto bg-white rounded-lg p-8 shadow-lg">
@@ -1611,15 +1605,27 @@
   <div id="challenge-modal" class="fixed inset-0 bg-black bg-opacity-40 flex items-center justify-center z-50 hidden">
     <div class="bg-white rounded-lg shadow-2xl p-8 max-w-sm w-full text-center relative">
       <button id="close-challenge-modal" class="absolute top-2 right-2 text-gray-400 hover:text-yellow-600 text-2xl font-bold transition-colors">&times;</button>
-      <h4 id="weekly-challenge-win-title" class="text-2xl font-bold text-primary-dark mb-4">You win!</h4>
-      <p id="weekly-challenge-win-discount" class="text-lg text-gray-700 mb-2">Discount 20%</p>
-      <p id="weekly-challenge-win-note" class="text-sm text-gray-500">Show this popup to your server to redeem your discount.</p>
+      <h4 id="weekly-challenge-win-title" class="text-2xl font-bold text-primary-dark mb-4">Spin the Wheel!</h4>
+      <div id="spin-wheel-container" class="flex flex-col items-center justify-center mb-4">
+        <div id="svg-wheel-wrapper" style="position:relative; width:220px; height:220px;">
+          <svg id="svg-spin-wheel" width="220" height="220" viewBox="0 0 220 220"></svg>
+          <div id="svg-wheel-pointer" style="position:absolute; left:50%; top:-18px; transform:translateX(-50%); z-index:2;">
+            <svg width="36" height="36" viewBox="0 0 36 36">
+              <polygon points="18,0 28,18 8,18" fill="#e74c3c" stroke="#fff" stroke-width="2"/>
+              <circle cx="18" cy="26" r="6" fill="#fff" stroke="#e74c3c" stroke-width="2"/>
+            </svg>
+          </div>
+        </div>
+        <button id="spin-btn" class="mt-4 px-6 py-2 btn-primary rounded-lg text-lg">Spin</button>
+      </div>
+      <p id="weekly-challenge-win-discount" class="text-lg text-primary-dark font-bold mb-2 hidden"></p>
+      <p id="weekly-challenge-win-note" class="text-sm text-gray-500 hidden">Show this popup to your server to redeem your discount.</p>
     </div>
   </div>
 </section>
 
 <!-- Footer -->
-<footer class="bg-primary-dark py-12">
+<footer class="py-12" style="background: rgba(255,255,255,0.8);">
   <div class="max-w-7xl mx-auto px-4">
     <div class="grid md:grid-cols-3 gap-8 text-white">
       <!-- Restaurant Info -->
@@ -1631,23 +1637,21 @@
         </div>
       </div>
 
-      <!-- Quick Links -->
-      <div>
-        <h4 class="text-xl font-bold mb-4 text-black">Quick Links</h4>
-        <ul class="space-y-2">
-          <li><a href="#menu" class="text-black opacity-90 hover:opacity-100 hover:text-primary-light transition">Menu</a></li>
-          <li><a href="#" class="text-black opacity-90 hover:opacity-100 hover:text-primary-light transition">About Us</a></li>
-          <li><a href="#" class="text-black opacity-90 hover:opacity-100 hover:text-primary-light transition">Contact</a></li>
-        </ul>
-      </div>
-
       <!-- Social Links -->
-      <div>
+      <div class="col-span-2 md:col-span-1 md:col-start-3">
         <h4 class="text-xl font-bold mb-4 text-black">Follow Us</h4>
         <div class="flex space-x-4">
-          <a href="#" class="text-black opacity-90 hover:opacity-100 hover:text-primary-light transition">Facebook</a>
-          <a href="#" class="text-black opacity-90 hover:opacity-100 hover:text-primary-light transition">Instagram</a>
-          <a href="#" class="text-black opacity-90 hover:opacity-100 hover:text-primary-light transition">Twitter</a>
+          <a href="#" class="text-black opacity-90 hover:opacity-100 hover:text-primary-light transition" aria-label="Facebook">
+            <svg width="28" height="28" fill="currentColor" viewBox="0 0 24 24"><path d="M22.675 0h-21.35C.595 0 0 .592 0 1.326v21.348C0 23.408.595 24 1.325 24h11.495v-9.294H9.692v-3.622h3.128V8.413c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.797.143v3.24l-1.918.001c-1.504 0-1.797.715-1.797 1.763v2.313h3.587l-.467 3.622h-3.12V24h6.116C23.406 24 24 23.408 24 22.674V1.326C24 .592 23.406 0 22.675 0"/></svg>
+          </a>
+          <a href="#" class="text-black opacity-90 hover:opacity-100 hover:text-primary-light transition" aria-label="Instagram">
+            <svg width="28" height="28" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2zm0 1.5A4.25 4.25 0 0 0 3.5 7.75v8.5A4.25 4.25 0 0 0 7.75 20.5h8.5A4.25 4.25 0 0 0 20.5 16.25v-8.5A4.25 4.25 0 0 0 16.25 3.5h-8.5zm4.25 2.75a5.75 5.75 0 1 1 0 11.5 5.75 5.75 0 0 1 0-11.5zm0 1.5a4.25 4.25 0 1 0 0 8.5 4.25 4.25 0 0 0 0-8.5zm5.25 1.25a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+            </svg>
+          </a>
+          <a href="#" class="text-black opacity-90 hover:opacity-100 hover:text-primary-light transition" aria-label="Twitter">
+            <svg width="28" height="28" fill="currentColor" viewBox="0 0 24 24"><path d="M24 4.557a9.83 9.83 0 0 1-2.828.775 4.932 4.932 0 0 0 2.165-2.724c-.951.564-2.005.974-3.127 1.195a4.916 4.916 0 0 0-8.38 4.482C7.691 8.095 4.066 6.13 1.64 3.161c-.542.929-.856 2.01-.857 3.17 0 2.188 1.115 4.117 2.823 5.254a4.904 4.904 0 0 1-2.229-.616c-.054 2.281 1.581 4.415 3.949 4.89a4.936 4.936 0 0 1-2.224.084c.627 1.956 2.444 3.377 4.6 3.417A9.867 9.867 0 0 1 0 21.543a13.94 13.94 0 0 0 7.548 2.209c9.058 0 14.009-7.513 14.009-14.009 0-.213-.005-.425-.014-.636A10.012 10.012 0 0 0 24 4.557z"/></svg>
+          </a>
         </div>
       </div>
     </div>
@@ -2140,7 +2144,7 @@
           price: "179",
           desc: "Mix lettuce, onion, mayo, ranch dressing",
           descAr: "مزيج خس، بصل، مايونيز، صوص رانش",
-          image: "https://images.unsplash.com/photo-1546793665-c74683f339c1?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+          image: "https://res.cloudinary.com/dfvma94gg/image/upload/v1752585542/tunaSalad_w5iztu.jpg"
         },
         {
           name: "Avocado shrimp salad",
@@ -3253,118 +3257,61 @@
       const lang = translations[currentLanguage];
 
       // Update UI elements
-      document.getElementById('hero-title').textContent = lang.heroTitle;
-      document.getElementById('hero-subtitle').textContent = lang.heroSubtitle;
-      document.getElementById('menu-title').textContent = lang.menuTitle;
-      document.getElementById('menu-description').textContent = lang.menuDescription;
-      document.getElementById('challenge-title').textContent = lang.challengeTitle;
-      document.getElementById('challenge-description').textContent = lang.challengeDescription;
-      
-      // Update header elements
-      if (document.getElementById('brand-tagline')) {
-        document.getElementById('brand-tagline').textContent = lang.authenticItalianCuisine;
-      }
-      if (document.getElementById('contact-phone')) {
-        document.getElementById('contact-phone').textContent = lang.contactPhone;
-      }
-      if (document.getElementById('contact-address')) {
-        document.getElementById('contact-address').textContent = lang.contactAddress;
-      }
-      if (document.getElementById('explore-menu-btn')) {
-        document.getElementById('explore-menu-btn').textContent = lang.exploreMenu;
-      }
-      if (document.getElementById('our-story-btn')) {
-        document.getElementById('our-story-btn').textContent = lang.ourStory;
-      }
-      if (document.getElementById('open-daily')) {
-        document.getElementById('open-daily').textContent = lang.openDaily;
-      }
-      if (document.getElementById('hero-address')) {
-        document.getElementById('hero-address').textContent = lang.contactAddress;
-      }
-      if (document.getElementById('made-with-love')) {
-        document.getElementById('made-with-love').textContent = lang.madeWithLove;
-      }
-      
-      // Update category descriptions
-      if (document.getElementById('breakfast-description')) {
-        document.getElementById('breakfast-description').textContent = lang.breakfastDescription;
-      }
-      if (document.getElementById('main-course-description')) {
-        document.getElementById('main-course-description').textContent = lang.mainCourseDescription;
-      }
-      if (document.getElementById('pasta-description')) {
-        document.getElementById('pasta-description').textContent = lang.pastaDescription;
-      }
-      if (document.getElementById('pizza-description')) {
-        document.getElementById('pizza-description').textContent = lang.pizzaDescription;
-      }
-      if (document.getElementById('appetizers-description')) {
-        document.getElementById('appetizers-description').textContent = lang.appetizersDescription;
-      }
-      if (document.getElementById('salad-description')) {
-        document.getElementById('salad-description').textContent = lang.saladDescription;
-      }
-      if (document.getElementById('soup-description')) {
-        document.getElementById('soup-description').textContent = lang.soupDescription;
-      }
-      if (document.getElementById('sandwiches-description')) {
-        document.getElementById('sandwiches-description').textContent = lang.sandwichesDescription;
-      }
-      if (document.getElementById('drinks-description')) {
-        document.getElementById('drinks-description').textContent = lang.drinksDescription;
-      }
-      if (document.getElementById('extras-description')) {
-        document.getElementById('extras-description').textContent = lang.extrasDescription;
-      }
-      
+      if (document.getElementById('hero-title')) document.getElementById('hero-title').textContent = lang.heroTitle;
+      if (document.getElementById('hero-subtitle')) document.getElementById('hero-subtitle').textContent = lang.heroSubtitle;
+      if (document.getElementById('menu-title')) document.getElementById('menu-title').textContent = lang.menuTitle;
+      if (document.getElementById('menu-description')) document.getElementById('menu-description').textContent = lang.menuDescription;
+      if (document.getElementById('challenge-title')) document.getElementById('challenge-title').textContent = lang.challengeTitle;
+      if (document.getElementById('challenge-description')) document.getElementById('challenge-description').textContent = lang.challengeDescription;
+      if (document.getElementById('brand-tagline')) document.getElementById('brand-tagline').textContent = lang.authenticItalianCuisine;
+      if (document.getElementById('contact-phone')) document.getElementById('contact-phone').textContent = lang.contactPhone;
+      if (document.getElementById('contact-address')) document.getElementById('contact-address').textContent = lang.contactAddress;
+      if (document.getElementById('explore-menu-btn')) document.getElementById('explore-menu-btn').textContent = lang.exploreMenu;
+      if (document.getElementById('our-story-btn')) document.getElementById('our-story-btn').textContent = lang.ourStory;
+      if (document.getElementById('open-daily')) document.getElementById('open-daily').textContent = lang.openDaily;
+      if (document.getElementById('hero-address')) document.getElementById('hero-address').textContent = lang.contactAddress;
+      if (document.getElementById('made-with-love')) document.getElementById('made-with-love').textContent = lang.madeWithLove;
+      if (document.getElementById('breakfast-description')) document.getElementById('breakfast-description').textContent = lang.breakfastDescription;
+      if (document.getElementById('main-course-description')) document.getElementById('main-course-description').textContent = lang.mainCourseDescription;
+      if (document.getElementById('pasta-description')) document.getElementById('pasta-description').textContent = lang.pastaDescription;
+      if (document.getElementById('pizza-description')) document.getElementById('pizza-description').textContent = lang.pizzaDescription;
+      if (document.getElementById('appetizers-description')) document.getElementById('appetizers-description').textContent = lang.appetizersDescription;
+      if (document.getElementById('salad-description')) document.getElementById('salad-description').textContent = lang.saladDescription;
+      if (document.getElementById('soup-description')) document.getElementById('soup-description').textContent = lang.soupDescription;
+      if (document.getElementById('sandwiches-description')) document.getElementById('sandwiches-description').textContent = lang.sandwichesDescription;
+      if (document.getElementById('drinks-description')) document.getElementById('drinks-description').textContent = lang.drinksDescription;
+      if (document.getElementById('extras-description')) document.getElementById('extras-description').textContent = lang.extrasDescription;
+
       // Update all category labels
       Object.keys(lang).forEach(key => {
-        if (document.getElementById(`${key}-label`)) {
-          document.getElementById(`${key}-label`).textContent = lang[key];
-        }
-        // Also update mobile category labels
-        if (document.getElementById(`mobile-${key}-label`)) {
-          document.getElementById(`mobile-${key}-label`).textContent = lang[key];
-        }
-        // Also update mobile category descriptions
-        if (document.getElementById(`mobile-${key}-description`)) {
-          document.getElementById(`mobile-${key}-description`).textContent = lang[`${key}Description`];
-        }
-        // Also update desktop category descriptions
-        if (document.getElementById(`${key}-description`)) {
-          document.getElementById(`${key}-description`).textContent = lang[`${key}Description`];
-        }
+        if (document.getElementById(`${key}-label`)) document.getElementById(`${key}-label`).textContent = lang[key];
+        if (document.getElementById(`mobile-${key}-label`)) document.getElementById(`mobile-${key}-label`).textContent = lang[key];
+        if (document.getElementById(`mobile-${key}-description`)) document.getElementById(`mobile-${key}-description`).textContent = lang[`${key}Description`];
+        if (document.getElementById(`${key}-description`)) document.getElementById(`${key}-description`).textContent = lang[`${key}Description`];
       });
-      
+
       // Update language toggle button
       const languageToggle = document.getElementById('language-toggle');
-      const toggleText = languageToggle.querySelector('span span');
-      toggleText.textContent = currentLanguage === 'english' ? 'العربية' : 'English';
-      
+      if (languageToggle) {
+        const toggleText = languageToggle.querySelector('span span');
+        if (toggleText) toggleText.textContent = currentLanguage === 'english' ? 'العربية' : 'English';
+      }
+
       // Update any open menu content
-      if (!document.getElementById('menu-content').classList.contains('hidden')) {
+      if (document.getElementById('menu-content') && !document.getElementById('menu-content').classList.contains('hidden')) {
         const category = document.getElementById('menu-content').getAttribute('data-category');
         if (category) showMenu(category);
       }
-      
+
       // Update any open subcategories
-      if (!document.getElementById('subcategories-content').classList.contains('hidden')) {
+      if (document.getElementById('subcategories-content') && !document.getElementById('subcategories-content').classList.contains('hidden')) {
         const category = document.getElementById('subcategories-content').getAttribute('data-category');
         if (category) showSubcategories(category);
       }
-      if (document.getElementById('weekly-challenge-btn')) {
-        document.getElementById('weekly-challenge-btn').textContent = lang.weeklyChallengeButton;
-      }
-      if (document.getElementById('weekly-challenge-win-title')) {
-        document.getElementById('weekly-challenge-win-title').textContent = lang.weeklyChallengeWinTitle;
-      }
-      if (document.getElementById('weekly-challenge-win-discount')) {
-        document.getElementById('weekly-challenge-win-discount').textContent = lang.weeklyChallengeWinDiscount;
-      }
-      if (document.getElementById('weekly-challenge-win-note')) {
-        document.getElementById('weekly-challenge-win-note').textContent = lang.weeklyChallengeWinNote;
-      }
+      if (document.getElementById('weekly-challenge-btn')) document.getElementById('weekly-challenge-btn').textContent = lang.weeklyChallengeButton;
+      if (document.getElementById('weekly-challenge-win-title')) document.getElementById('weekly-challenge-win-title').textContent = lang.weeklyChallengeWinTitle;
+      if (document.getElementById('weekly-challenge-win-discount')) document.getElementById('weekly-challenge-win-discount').textContent = lang.weeklyChallengeWinDiscount;
+      if (document.getElementById('weekly-challenge-win-note')) document.getElementById('weekly-challenge-win-note').textContent = lang.weeklyChallengeWinNote;
     }
 
     function showMenu(category) {
@@ -3687,6 +3634,25 @@
       if (challengeBtn && challengeModal && closeChallengeModal) {
         challengeBtn.addEventListener('click', function() {
           challengeModal.classList.remove('hidden');
+          // --- Spin Wheel Initialization on Modal Open ---
+          setTimeout(function() {
+            const canvas = document.getElementById('svg-spin-wheel');
+            if (canvas) {
+              drawSVGWheel(null, 0);
+            }
+            const spinBtn = document.getElementById('spin-btn');
+            if (spinBtn) {
+              spinBtn.disabled = false;
+              spinBtn.textContent = 'Spin';
+              spinBtn.onclick = function() {
+                document.getElementById('weekly-challenge-win-discount').classList.add('hidden');
+                document.getElementById('weekly-challenge-win-note').classList.add('hidden');
+                spinBtn.disabled = true;
+                spinBtn.textContent = 'Spinning...';
+                spinSVGWheel();
+              };
+            }
+          }, 50);
         });
         closeChallengeModal.addEventListener('click', function() {
           challengeModal.classList.add('hidden');
@@ -3699,6 +3665,141 @@
         });
       }
     });
+
+    // New SVG Spin Wheel Implementation
+    const svgWheelOptions = [5, 10, 12, 15, 18, 20];
+    const svgWheelColors = ["#f4d03f", "#d4af37", "#ccac85", "#b4b897", "#889776", "#705d3f"];
+    let svgSpinning = false;
+
+    function drawSVGWheel(selectedIdx = null, angleOffset = 0) {
+      const svg = document.getElementById('svg-spin-wheel');
+      if (!svg) return;
+      svg.innerHTML = '';
+      const num = svgWheelOptions.length;
+      const cx = 110, cy = 110, r = 100;
+      for (let i = 0; i < num; i++) {
+        const startAngle = (i * 2 * Math.PI / num) + angleOffset;
+        const endAngle = ((i + 1) * 2 * Math.PI / num) + angleOffset;
+        const x1 = cx + r * Math.cos(startAngle);
+        const y1 = cy + r * Math.sin(startAngle);
+        const x2 = cx + r * Math.cos(endAngle);
+        const y2 = cy + r * Math.sin(endAngle);
+        const largeArc = endAngle - startAngle > Math.PI ? 1 : 0;
+        const pathData = [
+          `M ${cx} ${cy}`,
+          `L ${x1} ${y1}`,
+          `A ${r} ${r} 0 ${largeArc} 1 ${x2} ${y2}`,
+          'Z'
+        ].join(' ');
+        const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+        path.setAttribute('d', pathData);
+        path.setAttribute('fill', svgWheelColors[i % svgWheelColors.length]);
+        path.setAttribute('stroke', '#fff');
+        path.setAttribute('stroke-width', '2');
+        if (selectedIdx === i) path.setAttribute('opacity', '0.7');
+        svg.appendChild(path);
+        // Add text label
+        const labelAngle = startAngle + (endAngle - startAngle) / 2;
+        const lx = cx + (r - 30) * Math.cos(labelAngle);
+        const ly = cy + (r - 30) * Math.sin(labelAngle) + 7;
+        const text = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+        text.setAttribute('x', lx);
+        text.setAttribute('y', ly);
+        text.setAttribute('text-anchor', 'middle');
+        text.setAttribute('font-size', '22');
+        text.setAttribute('font-family', 'Montserrat, sans-serif');
+        text.setAttribute('fill', '#333');
+        text.setAttribute('font-weight', 'bold');
+        text.textContent = svgWheelOptions[i] + '%';
+        svg.appendChild(text);
+      }
+      // Draw center hub
+      const hub = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+      hub.setAttribute('cx', cx);
+      hub.setAttribute('cy', cy);
+      hub.setAttribute('r', 28);
+      hub.setAttribute('fill', '#fff');
+      hub.setAttribute('stroke', '#e74c3c');
+      hub.setAttribute('stroke-width', '4');
+      svg.appendChild(hub);
+      const hub2 = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+      hub2.setAttribute('cx', cx);
+      hub2.setAttribute('cy', cy);
+      hub2.setAttribute('r', 16);
+      hub2.setAttribute('fill', '#e74c3c');
+      svg.appendChild(hub2);
+    }
+
+    let hasSpun = false;
+
+    function spinSVGWheel() {
+      if (svgSpinning || hasSpun) return;
+      svgSpinning = true;
+      hasSpun = true;
+      const spinBtn = document.getElementById('spin-btn');
+      spinBtn.disabled = true;
+      spinBtn.textContent = 'Spinning...';
+      document.getElementById('weekly-challenge-win-discount').classList.add('hidden');
+      document.getElementById('weekly-challenge-win-note').classList.add('hidden');
+      // Pick a random winner
+      const winner = Math.floor(Math.random() * svgWheelOptions.length);
+      const num = svgWheelOptions.length;
+      const sectorAngle = 360 / num;
+      const spins = 5 + Math.floor(Math.random() * 2); // 5 or 6 full spins
+      // The pointer is at 0deg (top). To land the winner at the pointer, rotate so the center of the winner sector is at 0deg.
+      const winnerOffset = 270 - (winner * sectorAngle + sectorAngle / 2); // 270deg is top in SVG
+      const finalAngle = 360 * spins + winnerOffset;
+      const duration = 2200; // ms
+      const start = performance.now();
+      function easeOutCubic(t) { return 1 - Math.pow(1 - t, 3); }
+      function animate(now) {
+        const elapsed = now - start;
+        const t = Math.min(elapsed / duration, 1);
+        const eased = easeOutCubic(t);
+        const currentAngle = finalAngle * eased;
+        drawSVGWheel(null, (currentAngle * Math.PI / 180));
+        if (t < 1) {
+          requestAnimationFrame(animate);
+        } else {
+          svgSpinning = false;
+          drawSVGWheel(winner, (finalAngle * Math.PI / 180));
+          document.getElementById('weekly-challenge-win-discount').textContent = `Discount ${svgWheelOptions[winner]}%`;
+          document.getElementById('weekly-challenge-win-discount').classList.remove('hidden');
+          document.getElementById('weekly-challenge-win-note').classList.remove('hidden');
+          spinBtn.disabled = true;
+          spinBtn.textContent = 'Already Spun';
+        }
+      }
+      requestAnimationFrame(animate);
+    }
+
+    // Always initialize SVG wheel and button on modal open
+    function setupSVGWheel() {
+      drawSVGWheel();
+      const spinBtn = document.getElementById('spin-btn');
+      if (spinBtn) {
+        if (hasSpun) {
+          spinBtn.disabled = true;
+          spinBtn.textContent = 'Already Spun';
+        } else {
+          spinBtn.disabled = false;
+          spinBtn.textContent = 'Spin';
+          spinBtn.onclick = spinSVGWheel;
+        }
+      }
+      document.getElementById('weekly-challenge-win-discount').classList.add('hidden');
+      document.getElementById('weekly-challenge-win-note').classList.add('hidden');
+    }
+
+    // Attach to modal open
+    var challengeBtn = document.getElementById('weekly-challenge-btn');
+    var challengeModal = document.getElementById('challenge-modal');
+    if (challengeBtn && challengeModal) {
+      challengeBtn.addEventListener('click', function() {
+        challengeModal.classList.remove('hidden');
+        setTimeout(setupSVGWheel, 50);
+      });
+    }
   </script>
 </body>
 </html>
