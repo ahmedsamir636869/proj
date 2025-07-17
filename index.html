@@ -3335,110 +3335,146 @@
     }
 
     function showMenu(category) {
-      // Only hide subcategories if this is NOT a subcategory menu
-      const isSubcategoryMenu = category.includes('-');
-      if (!isSubcategoryMenu) {
-        document.getElementById('subcategories-content').classList.add('hidden');
-      }
+      // Show menu content
       const menuContent = document.getElementById('menu-content');
       menuContent.classList.remove('hidden');
       menuContent.setAttribute('data-category', category);
       
       const lang = translations[currentLanguage];
-      const isSubcategory = category.includes('-');
       
-      let displayName;
-      if (isSubcategory) {
-        // Check if we have a direct translation for this subcategory
-        if (lang[category]) {
-          displayName = lang[category];
-        } else {
-          const [parent, sub] = category.split('-');
-          displayName = `${lang[parent]} - ${lang[sub]}`;
-        }
-      } else {
-        displayName = lang[category] || capitalizeFirstLetter(category.replace('-', ' '));
-      }
-     
       let contentHTML = `
         <div class="${currentLanguage === 'arabic' ? 'arabic-text' : ''}">
           <!-- Mobile Navigation Header -->
           <div class="mobile-nav-header md:hidden">
-            <h3 class="mobile-nav-title">${displayName}</h3>
-            <button onclick="${isSubcategory ? 'backToSubcategories()' : 'closeAllMenus()'}" class="mobile-nav-button">
-              ${isSubcategory ? lang.backButton : lang.closeButton}
+            <h3 class="mobile-nav-title">${lang[category]}</h3>
+            <button onclick="closeAllMenus()" class="mobile-nav-button">
+              ${lang.backButton}
             </button>
           </div>
           <!-- Desktop Navigation Header -->
           <div class="hidden md:flex items-center justify-between mb-8 border-b-2 border-primary-medium pb-4">
-            <h3 class="text-3xl font-bold text-primary-dark">${displayName}</h3>
-            <button onclick="${isSubcategory ? 'backToSubcategories()' : 'closeAllMenus()'}" class="btn-outline px-6 py-2 rounded-md text-sm">
-              ${isSubcategory ? lang.backButton : lang.closeButton}
+            <h3 class="text-3xl font-bold text-primary-dark">${lang[category]}</h3>
+            <button onclick="closeAllMenus()" class="btn-outline px-6 py-2 rounded-md text-sm">
+              ${lang.backButton}
             </button>
           </div>
 
           <!-- Mobile Menu Items -->
-          <div class="mobile-menu-container md:hidden">
-            <div class="space-y-4">
-              ${menuItems[category] && menuItems[category].length > 0
-                ? menuItems[category].map(item =>
-                    item.section ?
-                      `<div class='font-bold text-lg text-primary-dark border-b border-primary-medium py-2 my-4 text-center'>${currentLanguage === 'english' ? lang[item.section] || item.section : lang[item.section] || item.sectionAr}</div>` :
-                      `<div class=\"mobile-fine-dining-dish\"> 
-                        <div class=\"mobile-dish-image\">\n                          <img src=\"${item.image || ''}\" alt=\"${currentLanguage === 'english' ? item.name : item.nameAr}\" loading=\"lazy\" class=\"w-full h-full object-cover object-center\"/>\n                        </div>\n                    <div class=\"mobile-dish-content\">
-                      <div class=\"mobile-dish-header\">
-                        <h4 class=\"mobile-dish-title\">${currentLanguage === 'english' ? item.name : item.nameAr}</h4>
-                        <div class=\"mobile-dish-price\">
-                          <span class=\"mobile-price-amount\">${item.price}</span>
-                          <span class=\"mobile-price-currency\">${lang.currency}</span>
-                        </div>
+          <div class="mobile-menu-grid md:hidden">
+            ${menuItems[category] && menuItems[category].length > 0
+              ? menuItems[category].map((item, index) =>
+                  item.section ?
+                    `<div class='font-bold text-lg text-primary-dark border-b border-primary-medium py-2 my-4 text-center menu-item' data-index="${index}">${currentLanguage === 'english' ? lang[item.section] || item.section : lang[item.section] || item.sectionAr}</div>` :
+                    `<div class="mobile-fine-dining-dish menu-item" data-index="${index}" style="opacity: 0; transform: translateY(20px);"> 
+                      <div class="mobile-dish-image">
+                        <img src="${item.image || ''}" alt="${currentLanguage === 'english' ? item.name : item.nameAr}" loading="lazy" class="w-full h-full object-cover object-center"/>
                       </div>
-                      <div class=\"mobile-dish-accent\"></div>
-                      <p class=\"mobile-dish-description\">${currentLanguage === 'english' ? item.desc : item.descAr}</p>
-                          <div class=\"mobile-dish-footer\"></div>
+                      <div class="mobile-dish-content">
+                        <div class="mobile-dish-header">
+                          <h4 class="mobile-dish-title">${currentLanguage === 'english' ? item.name : item.nameAr}</h4>
+                          <span class="mobile-price-tag">${item.price} EGP</span>
+                        </div>
+                        ${item.desc ? `<p class="mobile-dish-description">${currentLanguage === 'english' ? item.desc : item.descAr}</p>` : ''}
+                        ${item.options ? `
+                          <div class="mobile-options-container">
+                            <div class="mobile-options-title">${lang.chooseOption}:</div>
+                            <div class="mobile-options-grid">
+                              ${item.options.map(option => `
+                                <div class="mobile-option-item">
+                                  <span class="mobile-option-name">${currentLanguage === 'english' ? option.name : option.nameAr}</span>
+                                  <span class="mobile-option-price">${option.price} EGP</span>
+                                </div>
+                              `).join('')}
+                            </div>
                           </div>
-                      </div>`
-                  ).join('')
-                : `<div class=\"mobile-empty-state\"><div class=\"mobile-empty-icon\">🍽️</div><p class=\"mobile-empty-text\">${lang.menuItemsComingSoon}</p></div>`
-              }
-            </div>
+                        ` : ''}
+                      </div>
+                    </div>`
+                ).join('')
+              : `<div class="col-span-full text-center py-12"><p class="text-gray-500 text-lg">${lang.menuItemsComingSoon}</p></div>`
+            }
           </div>
 
           <!-- Desktop Menu Items -->
-          <div class="hidden md:block">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              ${menuItems[category] && menuItems[category].length > 0
-                ? menuItems[category].map(item =>
-                    item.section ?
-                      `<div class='col-span-full font-bold text-2xl text-primary-dark border-b-2 border-primary-medium py-3 my-6 text-center bg-white'>${currentLanguage === 'english' ? lang[item.section] || item.section : lang[item.section] || item.sectionAr}</div>` :
-                      `<div class=\"fine-dining-dish-card\">
-                    <div class=\"dish-card-inner\">
-                          <div class=\"dish-card-image\">
-                            <img src=\"${item.image || ''}\" alt=\"${currentLanguage === 'english' ? item.name : item.nameAr}\" loading=\"lazy\" class=\"w-full h-full object-cover object-center\"/>
-                          </div>
-                      <div class=\"dish-card-content\">
-                        <div class=\"dish-card-header\">
-                          <h4 class=\"dish-card-title\">${currentLanguage === 'english' ? item.name : item.nameAr}</h4>
-                          <div class=\"dish-card-price\">
-                            <span class=\"price-amount\">${item.price}</span>
-                            <span class=\"price-currency\">${lang.currency}</span>
-                          </div>
+          <div class="hidden md:grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            ${menuItems[category] && menuItems[category].length > 0
+              ? menuItems[category].map((item, index) =>
+                  item.section ?
+                    `<div class='col-span-full font-bold text-2xl text-primary-dark border-b-2 border-primary-medium py-3 my-6 text-center bg-white menu-item' data-index="${index}">${currentLanguage === 'english' ? lang[item.section] || item.section : lang[item.section] || item.sectionAr}</div>` :
+                    `<div class="fine-dining-dish-card menu-item" data-index="${index}" style="opacity: 0; transform: translateY(20px);">
+                      <div class="dish-card-inner">
+                        <div class="dish-card-image">
+                          <img src="${item.image || ''}" alt="${currentLanguage === 'english' ? item.name : item.nameAr}" loading="lazy" class="w-full h-full object-cover object-center"/>
                         </div>
-                        <div class=\"dish-card-accent\"></div>
-                        <p class=\"dish-card-description\">${currentLanguage === 'english' ? item.desc : item.descAr}</p>
-                            <div class=\"dish-card-footer\"></div>
+                        <div class="dish-card-content">
+                          <div class="dish-card-header">
+                            <h4 class="dish-card-title">${currentLanguage === 'english' ? item.name : item.nameAr}</h4>
+                            <div class="dish-card-accent"></div>
+                          </div>
+                          ${item.desc ? `<p class="dish-card-description">${currentLanguage === 'english' ? item.desc : item.descAr}</p>` : ''}
+                          <div class="dish-card-price">${item.price} EGP</div>
+                          ${item.options ? `
+                            <div class="dish-card-options">
+                              <div class="options-title">${lang.chooseOption}:</div>
+                              <div class="options-grid">
+                                ${item.options.map(option => `
+                                  <div class="option-item">
+                                    <span class="option-name">${currentLanguage === 'english' ? option.name : option.nameAr}</span>
+                                    <span class="option-price">${option.price} EGP</span>
+                                  </div>
+                                `).join('')}
+                              </div>
                             </div>
-                                </div>
-                      </div>`
-                  ).join('')
-                : `<div class=\"col-span-full text-center py-12\"><p class=\"text-gray-500 text-lg\">${lang.menuItemsComingSoon}</p></div>`
-              }
-            </div>
+                          ` : ''}
+                        </div>
+                        <div class="dish-card-arrow">
+                          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                          </svg>
+                        </div>
+                      </div>
+                    </div>`
+                ).join('')
+              : `<div class="col-span-full text-center py-12"><p class="text-gray-500 text-lg">${lang.menuItemsComingSoon}</p></div>`
+            }
           </div>
         </div>
       `;
       menuContent.innerHTML = contentHTML;
       menuContent.scrollIntoView({ behavior: 'smooth' });
+      
+      // Animate menu items one by one
+      animateMenuItems();
+    }
+
+    // Function to animate menu items one by one
+    function animateMenuItems() {
+      const menuItems = document.querySelectorAll('.menu-item');
+      const delay = 150; // Delay between each item in milliseconds
+      
+      menuItems.forEach((item, index) => {
+        setTimeout(() => {
+          item.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+          item.style.opacity = '1';
+          item.style.transform = 'translateY(0)';
+        }, index * delay);
+      });
+    }
+
+    // Function to reset menu items animation (for when menu is closed and reopened)
+    function resetMenuItemsAnimation() {
+      const menuItems = document.querySelectorAll('.menu-item');
+      menuItems.forEach(item => {
+        item.style.opacity = '0';
+        item.style.transform = 'translateY(20px)';
+        item.style.transition = 'none';
+      });
+    }
+
+    function closeAllMenus() {
+      resetMenuItemsAnimation();
+      document.getElementById('menu-content').classList.add('hidden');
+      document.getElementById('subcategories-content').classList.add('hidden');
     }
 
     function showSubcategories(category) {
@@ -3521,6 +3557,7 @@
     }
     
     function closeAllMenus() {
+      resetMenuItemsAnimation();
       document.getElementById('menu-content').classList.add('hidden');
       document.getElementById('subcategories-content').classList.add('hidden');
     }
