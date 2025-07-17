@@ -3385,10 +3385,7 @@
                     item.section ?
                       `<div class='font-bold text-lg text-primary-dark border-b border-primary-medium py-2 my-4 text-center'>${currentLanguage === 'english' ? lang[item.section] || item.section : lang[item.section] || item.sectionAr}</div>` :
                       `<div class=\"mobile-fine-dining-dish\"> 
-                        <div class=\"mobile-dish-image\">
-                          <img src="${item.image || ''}" alt="${currentLanguage === 'english' ? item.name : item.nameAr}" loading="lazy" class="w-full h-full object-cover object-center"/>
-                        </div>
-                    <div class=\"mobile-dish-content\">
+                        <div class=\"mobile-dish-image\">\n                          <img src=\"${item.image || ''}\" alt=\"${currentLanguage === 'english' ? item.name : item.nameAr}\" loading=\"lazy\" class=\"w-full h-full object-cover object-center\"/>\n                        </div>\n                    <div class=\"mobile-dish-content\">
                       <div class=\"mobile-dish-header\">
                         <h4 class=\"mobile-dish-title\">${currentLanguage === 'english' ? item.name : item.nameAr}</h4>
                         <div class=\"mobile-dish-price\">
