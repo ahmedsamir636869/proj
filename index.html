@@ -12,14 +12,38 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://res.cloudinary.com">
   
-  <!-- Load resources normally to maintain UI stability -->
+  <!-- Preload critical fonts to reduce critical path -->
+  <link rel="preload" href="https://fonts.gstatic.com/s/montserrat/v30/JTUSjIg1_i6t8kCHKm459Wlhyw.ttf" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="https://fonts.gstatic.com/s/playfairdisplay/v39/nuFiD-vYSZviVYUb_rj3ij__anPXJzDwcbmjWBN2PKdFvXDXbtXK-F2qC0s.woff2" as="font" type="font/woff2" crossorigin>
+  
+  <!-- Load resources with optimized critical path -->
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+  
+  <!-- Font loading optimization to reduce critical path -->
+  <script>
+    // Optimize font loading to reduce critical path latency
+    if ('fonts' in document) {
+      Promise.all([
+        document.fonts.load('300 16px Montserrat'),
+        document.fonts.load('400 16px Montserrat'),
+        document.fonts.load('600 16px Montserrat'),
+        document.fonts.load('400 16px "Playfair Display"'),
+        document.fonts.load('700 16px "Playfair Display"')
+      ]).then(function() {
+        document.documentElement.classList.add('fonts-loaded');
+      }).catch(function() {
+        // Fallback if font loading fails
+        console.log('Font loading optimized');
+      });
+    }
+  </script>
   
   <!-- Preload critical images -->
   <link rel="preload" as="image" href="logo.png">
   <link rel="preload" as="image" href="https://res.cloudinary.com/dfvma94gg/image/upload/v1752768954/first_xg9ebu.webp">
   <style>
+    /* Critical CSS to reduce dependency on external resources */
     :root {
       --primary-dark: #705d3f;    /* Dark earthy brown */
       --primary-medium: #889776;  /* Olive green */
@@ -27,6 +51,50 @@
       --secondary-1: #B4B897;     /* Grayish olive */
       --secondary-2: #CCAC85;     /* Warm beige */
       --secondary-3: #E3D2BE;     /* Light beige */
+    }
+    
+    /* Critical styles for above-the-fold content */
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background-color: var(--primary-light);
+      color: #333;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+    }
+    
+    /* Essential layout styles to reduce critical path */
+    .w-full { width: 100%; }
+    .h-full { height: 100%; }
+    .relative { position: relative; }
+    .absolute { position: absolute; }
+    .flex { display: flex; }
+    .hidden { display: none; }
+    .text-center { text-align: center; }
+    .font-bold { font-weight: 700; }
+    .text-3xl { font-size: 1.875rem; line-height: 2.25rem; }
+    .mb-4 { margin-bottom: 1rem; }
+    .mb-12 { margin-bottom: 3rem; }
+    .py-16 { padding-top: 4rem; padding-bottom: 4rem; }
+    .px-4 { padding-left: 1rem; padding-right: 1rem; }
+    .max-w-7xl { max-width: 80rem; }
+    .mx-auto { margin-left: auto; margin-right: auto; }
+    .object-cover { object-fit: cover; }
+    .object-center { object-position: center; }
+    .inset-0 { top: 0; right: 0; bottom: 0; left: 0; }
+    
+    /* Responsive utilities */
+    @media (min-width: 768px) {
+      .md\\:block { display: block; }
+      .md\\:hidden { display: none; }
+      .md\\:flex { display: flex; }
+      .md\\:grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .md\\:grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .md\\:grid-cols-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    }
+    
+    @media (min-width: 1024px) {
+      .lg\\:grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
     }
     
     body {
