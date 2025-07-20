@@ -5,11 +5,46 @@
   <title>Caputo - Authentic Italian Cuisine with Egyptian Flair</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Experience Caputo's unique fusion of Italian culinary traditions with Egyptian innovation in Alexandria">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+  
+  <!-- Preconnect to external domains for faster resource loading -->
+  <link rel="preconnect" href="https://cdn.tailwindcss.com">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://res.cloudinary.com">
+  
+  <!-- Preload critical fonts -->
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;600&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet"></noscript>
+  
+  <!-- Load Tailwind CSS asynchronously -->
+  <script>
+    // Load Tailwind CSS asynchronously
+    (function() {
+      var link = document.createElement('link');
+      link.rel = 'stylesheet';
+      link.href = 'https://cdn.tailwindcss.com';
+      link.media = 'print';
+      link.onload = function() {
+        this.media = 'all';
+      };
+      document.head.appendChild(link);
+    })();
+  </script>
+  
+  <!-- Preload critical images -->
   <link rel="preload" as="image" href="logo.png">
   <link rel="preload" as="image" href="https://res.cloudinary.com/dfvma94gg/image/upload/v1752768954/first_xg9ebu.webp">
+  <link rel="preload" as="image" href="breakfast.webp">
+  <link rel="preload" as="image" href="main dish.webp">
+  
+  <!-- DNS prefetch for external resources -->
+  <link rel="dns-prefetch" href="//images.unsplash.com">
+  <link rel="dns-prefetch" href="//fonts.googleapis.com">
+  
+  <!-- Preload critical CSS -->
+  <link rel="preload" href="pattern.webp" as="image">
   <style>
+    /* Critical CSS for above-the-fold content */
     :root {
       --primary-dark: #705d3f;    /* Dark earthy brown */
       --primary-medium: #889776;  /* Olive green */
@@ -17,6 +52,34 @@
       --secondary-1: #B4B897;     /* Grayish olive */
       --secondary-2: #CCAC85;     /* Warm beige */
       --secondary-3: #E3D2BE;     /* Light beige */
+    }
+    
+    /* Critical styles for initial render */
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background-color: var(--primary-light);
+      color: #333;
+      overflow-x: hidden;
+      position: relative;
+      margin: 0;
+      padding: 0;
+    }
+    
+    .hero-section {
+      background: linear-gradient(rgba(112, 93, 63, 0.7), rgba(112, 93, 63, 0.7)), 
+                  url('cup.png');
+      background-size: cover;
+      background-position: center;
+      min-height: 60vh;
+    }
+    
+    /* Optimize animations for better performance */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
     }
     
     body {
@@ -1258,9 +1321,9 @@
   <div class="w-full h-full m-0 p-0">
     <div class="relative w-full h-full m-0 p-0 rounded-none overflow-hidden">
       <div id="hero-slider" class="w-full h-full relative overflow-hidden m-0 p-0">
-        <img src="https://res.cloudinary.com/dfvma94gg/image/upload/v1752768954/first_xg9ebu.webp" alt="Caputo Cup" class="hero-slide w-full h-full object-cover object-center absolute inset-0 transition-all duration-6000 ease-in-out">
-        <img src="https://res.cloudinary.com/dfvma94gg/image/upload/v1752768953/seconed_wudmiu.webp" alt="Caputo Cup" class="hero-slide w-full h-full object-cover object-center absolute inset-0 transition-all duration-6000 ease-in-out">
-        <img src="https://res.cloudinary.com/dfvma94gg/image/upload/v1752768954/fourth_tecoti.webp" alt="Caputo Dish" class="hero-slide w-full h-full object-cover object-center absolute inset-0 transition-all duration-6000 ease-in-out">
+        <img src="https://res.cloudinary.com/dfvma94gg/image/upload/f_auto,q_auto,w_1200/v1752768954/first_xg9ebu.webp" alt="Caputo Cup" class="hero-slide w-full h-full object-cover object-center absolute inset-0 transition-all duration-6000 ease-in-out" loading="eager" fetchpriority="high">
+        <img src="https://res.cloudinary.com/dfvma94gg/image/upload/f_auto,q_auto,w_1200/v1752768953/seconed_wudmiu.webp" alt="Caputo Cup" class="hero-slide w-full h-full object-cover object-center absolute inset-0 transition-all duration-6000 ease-in-out" loading="lazy">
+        <img src="https://res.cloudinary.com/dfvma94gg/image/upload/f_auto,q_auto,w_1200/v1752768954/fourth_tecoti.webp" alt="Caputo Dish" class="hero-slide w-full h-full object-cover object-center absolute inset-0 transition-all duration-6000 ease-in-out" loading="lazy">
       </div>
       <!-- Removed hero-title and hero-subtitle for full image slider -->
     </div>
@@ -3367,7 +3430,7 @@
                     `<div class='font-bold text-lg text-primary-dark border-b border-primary-medium py-2 my-4 text-center menu-item' data-index="${index}">${currentLanguage === 'english' ? lang[item.section] || item.section : lang[item.section] || item.sectionAr}</div>` :
                     `<div class="mobile-fine-dining-dish menu-item" data-index="${index}" style="opacity: 0; transform: translateY(20px);"> 
                       <div class="mobile-dish-image">
-                        <img src="${item.image || ''}" alt="${currentLanguage === 'english' ? item.name : item.nameAr}" loading="lazy" class="w-full h-full object-cover object-center"/>
+                        <img src="${item.image || ''}" alt="${currentLanguage === 'english' ? item.name : item.nameAr}" loading="lazy" class="w-full h-full object-cover object-center" decoding="async" onerror="this.style.display='none'"/>
                       </div>
                       <div class="mobile-dish-content">
                         <div class="mobile-dish-header">
@@ -3404,7 +3467,7 @@
                     `<div class="fine-dining-dish-card menu-item" data-index="${index}" style="opacity: 0; transform: translateY(20px);">
                       <div class="dish-card-inner">
                         <div class="dish-card-image">
-                          <img src="${item.image || ''}" alt="${currentLanguage === 'english' ? item.name : item.nameAr}" loading="lazy" class="w-full h-full object-cover object-center"/>
+                          <img src="${item.image || ''}" alt="${currentLanguage === 'english' ? item.name : item.nameAr}" loading="lazy" class="w-full h-full object-cover object-center" decoding="async" onerror="this.style.display='none'"/>
                         </div>
                         <div class="dish-card-content">
                           <div class="dish-card-header">
@@ -3679,10 +3742,10 @@
       setInterval(nextSlide, 1000);
     }
 
-    // Initialize hero slider when page loads
+    // Optimize event listeners with passive option for better performance
     document.addEventListener('DOMContentLoaded', function() {
       initHeroSlider();
-    });
+    }, { passive: true });
 
     // Weekly Challenge Modal Logic
     document.addEventListener('DOMContentLoaded', function() {
@@ -3856,6 +3919,17 @@
       challengeBtn.addEventListener('click', function() {
         challengeModal.classList.remove('hidden');
         setTimeout(setupSVGWheel, 50);
+      });
+    }
+    
+    // Performance monitoring
+    if ('performance' in window) {
+      window.addEventListener('load', function() {
+        setTimeout(function() {
+          const perfData = performance.getEntriesByType('navigation')[0];
+          console.log('Page Load Time:', perfData.loadEventEnd - perfData.loadEventStart, 'ms');
+          console.log('DOM Content Loaded:', perfData.domContentLoadedEventEnd - perfData.domContentLoadedEventStart, 'ms');
+        }, 0);
       });
     }
   </script>
