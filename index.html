@@ -5,8 +5,18 @@
   <title>Caputo - Authentic Italian Cuisine with Egyptian Flair</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Experience Caputo's unique fusion of Italian culinary traditions with Egyptian innovation in Alexandria">
+  
+  <!-- Performance optimizations - preconnect to external domains -->
+  <link rel="preconnect" href="https://cdn.tailwindcss.com">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://res.cloudinary.com">
+  
+  <!-- Load resources normally to maintain UI stability -->
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+  
+  <!-- Preload critical images -->
   <link rel="preload" as="image" href="logo.png">
   <link rel="preload" as="image" href="https://res.cloudinary.com/dfvma94gg/image/upload/v1752768954/first_xg9ebu.webp">
   <style>
@@ -1258,9 +1268,9 @@
   <div class="w-full h-full m-0 p-0">
     <div class="relative w-full h-full m-0 p-0 rounded-none overflow-hidden">
       <div id="hero-slider" class="w-full h-full relative overflow-hidden m-0 p-0">
-        <img src="https://res.cloudinary.com/dfvma94gg/image/upload/v1752768954/first_xg9ebu.webp" alt="Caputo Cup" class="hero-slide w-full h-full object-cover object-center absolute inset-0 transition-all duration-6000 ease-in-out">
-        <img src="https://res.cloudinary.com/dfvma94gg/image/upload/v1752768953/seconed_wudmiu.webp" alt="Caputo Cup" class="hero-slide w-full h-full object-cover object-center absolute inset-0 transition-all duration-6000 ease-in-out">
-        <img src="https://res.cloudinary.com/dfvma94gg/image/upload/v1752768954/fourth_tecoti.webp" alt="Caputo Dish" class="hero-slide w-full h-full object-cover object-center absolute inset-0 transition-all duration-6000 ease-in-out">
+        <img src="https://res.cloudinary.com/dfvma94gg/image/upload/f_auto,q_auto,w_1200/v1752768954/first_xg9ebu.webp" alt="Caputo Cup" class="hero-slide w-full h-full object-cover object-center absolute inset-0 transition-all duration-6000 ease-in-out" loading="eager" fetchpriority="high">
+        <img src="https://res.cloudinary.com/dfvma94gg/image/upload/f_auto,q_auto,w_1200/v1752768953/seconed_wudmiu.webp" alt="Caputo Cup" class="hero-slide w-full h-full object-cover object-center absolute inset-0 transition-all duration-6000 ease-in-out" loading="lazy">
+        <img src="https://res.cloudinary.com/dfvma94gg/image/upload/f_auto,q_auto,w_1200/v1752768954/fourth_tecoti.webp" alt="Caputo Dish" class="hero-slide w-full h-full object-cover object-center absolute inset-0 transition-all duration-6000 ease-in-out" loading="lazy">
       </div>
       <!-- Removed hero-title and hero-subtitle for full image slider -->
     </div>
@@ -3367,7 +3377,7 @@
                     `<div class='font-bold text-lg text-primary-dark border-b border-primary-medium py-2 my-4 text-center menu-item' data-index="${index}">${currentLanguage === 'english' ? lang[item.section] || item.section : lang[item.section] || item.sectionAr}</div>` :
                     `<div class="mobile-fine-dining-dish menu-item" data-index="${index}" style="opacity: 0; transform: translateY(20px);"> 
                       <div class="mobile-dish-image">
-                        <img src="${item.image || ''}" alt="${currentLanguage === 'english' ? item.name : item.nameAr}" loading="lazy" class="w-full h-full object-cover object-center"/>
+                                                 <img src="${item.image || ''}" alt="${currentLanguage === 'english' ? item.name : item.nameAr}" loading="lazy" class="w-full h-full object-cover object-center" decoding="async" onerror="this.style.display='none'"/>
                       </div>
                       <div class="mobile-dish-content">
                         <div class="mobile-dish-header">
@@ -3404,7 +3414,7 @@
                     `<div class="fine-dining-dish-card menu-item" data-index="${index}" style="opacity: 0; transform: translateY(20px);">
                       <div class="dish-card-inner">
                         <div class="dish-card-image">
-                          <img src="${item.image || ''}" alt="${currentLanguage === 'english' ? item.name : item.nameAr}" loading="lazy" class="w-full h-full object-cover object-center"/>
+                          <img src="${item.image || ''}" alt="${currentLanguage === 'english' ? item.name : item.nameAr}" loading="lazy" class="w-full h-full object-cover object-center" decoding="async" onerror="this.style.display='none'"/>
                         </div>
                         <div class="dish-card-content">
                           <div class="dish-card-header">
@@ -3683,6 +3693,19 @@
     document.addEventListener('DOMContentLoaded', function() {
       initHeroSlider();
     });
+    
+    // Performance monitoring (safe addition)
+    if ('performance' in window) {
+      window.addEventListener('load', function() {
+        setTimeout(function() {
+          const perfData = performance.getEntriesByType('navigation')[0];
+          if (perfData) {
+            console.log('Page Load Time:', perfData.loadEventEnd - perfData.loadEventStart, 'ms');
+            console.log('DOM Content Loaded:', perfData.domContentLoadedEventEnd - perfData.domContentLoadedEventStart, 'ms');
+          }
+        }, 0);
+      });
+    }
 
     // Weekly Challenge Modal Logic
     document.addEventListener('DOMContentLoaded', function() {
